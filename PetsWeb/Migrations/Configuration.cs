@@ -1,4 +1,4 @@
-namespace Pets_Web.Migrations
+namespace PetsWeb.Migrations
 {
     using System;
     using System.Data.Entity;

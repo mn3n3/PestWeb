@@ -182,18 +182,15 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\MsgCode.cs" />
     <Compile Include="Helpers\MsgUnit.cs" />
-    <Compile Include="Migrations\201906160751339_FirstRun.cs" />
-    <Compile Include="Migrations\201906160751339_FirstRun.Designer.cs">
-      <DependentUpon>201906160751339_FirstRun.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906161313327_FirstRun2.cs" />
-    <Compile Include="Migrations\201906161313327_FirstRun2.Designer.cs">
-      <DependentUpon>201906161313327_FirstRun2.cs</DependentUpon>
+    <Compile Include="Migrations\202002092024268_FirstRun.cs" />
+    <Compile Include="Migrations\202002092024268_FirstRun.Designer.cs">
+      <DependentUpon>202002092024268_FirstRun.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Test.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Persistence\UserAccountRepo.cs" />
@@ -955,11 +952,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201906160751339_FirstRun.resx">
-      <DependentUpon>201906160751339_FirstRun.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906161313327_FirstRun2.resx">
-      <DependentUpon>201906161313327_FirstRun2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202002092024268_FirstRun.resx">
+      <DependentUpon>202002092024268_FirstRun.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
