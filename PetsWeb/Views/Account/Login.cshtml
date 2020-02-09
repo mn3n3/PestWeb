@@ -1,0 +1,115 @@
+﻿@using Pets_Web.ViewModels
+@model LoginViewModel
+@{
+    ViewBag.Title = @Resources.Resource.Login;
+    Layout = "~/Views/Shared/Layout_Login.cshtml";
+}
+
+<section id="loginForm">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+
+            <div class="col-md-12">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = Resources.Resource.Email })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group ">
+            <div class="col-md-12">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = Resources.Resource.Password, @id = "Password" })
+                @*<span class="input-group-addon">  <i class="fa fa-eye" id="showPassword"></i> </span>*@
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="@Resources.Resource.Login" class="btn  btn-lg btn-success btn-block" id="MakeLogin" />
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group  ">
+
+            @Html.CheckBoxFor(m => m.RememberMe, new { @id = "RememberMe" })
+            @Html.ValidationMessageFor(m => m.RememberMe)
+            @Html.Label(Resources.Resource.RememberMe)
+        </div>
+
+        <div class="col-md-12" style="margin-top:5px;">
+
+            @Html.ActionLink(Resources.Resource.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+        </div>
+
+
+
+    }
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+    // Check javascript has loaded
+    $(document).ready(function(){
+    // Click event of the showPassword button
+        $('#MakeLogin').on('click', function () {
+            var dialog = bootbox.dialog({
+                title: '@Resources.Resource.PleaseWait',
+                message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.LoadingMsg...</p>'
+            });
+            dialog.init(function () {
+                setTimeout(function () {
+                    dialog.find('.bootbox-body').html('FalconsSoft!');
+                }, 6000);
+            });
+        });
+
+    $('#showPassword').on('click', function(){
+    // Get the password field
+        var passwordField = $('#Password');
+       // Get the current type of the password field will be password or text
+       // Get the current type of the password field will be password or text
+        var passwordFieldType = passwordField.attr('type');
+
+    // Check to see if the type is a password field
+    if (passwordFieldType == 'password')
+      {
+        // Change the password field to text
+        passwordField.attr('type', 'text');
+        // Change the Text on the show password button to Hide
+        var icon = $("#showicon");
+
+        $(this).attr('class', 'fa fa-eye-slash');
+          $(this).val('Hide');
+       }
+    else {
+        // If the password field type is not a password field then set it to password
+       passwordField.attr('type', 'password');
+        // Change the value of the show password button to Show
+        var icon = $("#showicon");
+
+        $(this).attr('class', 'fa fa-eye');
+        $(this).val('Show');
+    }
+    });
+    });
+
+    </script>
+}

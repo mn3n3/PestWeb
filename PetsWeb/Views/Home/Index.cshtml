@@ -1,0 +1,72 @@
+﻿@model Pets_Web.ViewModels.ORDER_HEADERViewModel
+@{
+     ViewBag.Title = "Home Page";
+}
+<br/>
+
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa  fa-dollar fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@Model.NetSales</div>
+                        <div>@Resources.Resource.NetSales</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-dollar fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@Model.NetServcie</div>
+                        <div>@Resources.Resource.NetServcie</div>
+                    </div>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-dollar fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@Model.CashValue</div>
+                        <div>@Resources.Resource.CashValue</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-dollar fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">@Model.Return</div>
+                        <div>@Resources.Resource.Return</div>
+                    </div>
+                </div>
+            </div>
+              
+        </div>
+    </div>
+</div>

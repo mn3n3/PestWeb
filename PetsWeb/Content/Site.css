@@ -1,0 +1,96 @@
+﻿body {
+   /* padding-top: 50px;*/
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select
+ {
+    max-width: 280px;
+ 
+}
+textarea {
+     max-width: 280px; 
+  
+   min-height:100px;
+}
+.field-validation-error,
+label.error
+{
+    color:red;
+
+}
+.input-validation-error,
+input.error
+{
+    border:2px solid red;
+}
+
+.boxshow {
+    position: relative;
+    display: inline-block;
+    top: 20px;
+    margin-right: 20px;
+}
+.indexpop {
+    background: none repeat scroll 0 0 #0063ff;
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 5px 15px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    
+}
+label {
+    font-weight: 500;
+    color: darkslategray;
+}
+
+/* Bootstrap Overrides */
+/* Bootstrap Overrides */
+/*.popover {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.navbar-inverse {
+    background-color: #ff4342;
+    border-color: #ff4342;
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #fff;
+    }
+
+    .navbar-inverse .navbar-brand {
+        color: #fff;
+    }
+
+    .navbar-inverse .notifications {
+        position: relative;
+    }
+
+        .notifications .badge {
+            position: absolute;
+            top: 8px;
+            right: -1px;
+            background: #a80a0a;
+        }*/
