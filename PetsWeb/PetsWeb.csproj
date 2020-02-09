@@ -188,11 +188,18 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AnimalType.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Breed.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\CoatColour.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\DetailsOfOwnership.cs" />
+    <Compile Include="Models\DiscriptionOfAnimal.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\IdentificationOfAnimal.cs" />
+    <Compile Include="Models\LocationOfMicrochip.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
