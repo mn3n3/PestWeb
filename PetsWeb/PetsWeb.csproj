@@ -189,8 +189,11 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\DetailsOfOwnership.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Test.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Persistence\UserAccountRepo.cs" />
