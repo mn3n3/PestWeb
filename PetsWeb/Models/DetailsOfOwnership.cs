@@ -31,6 +31,7 @@ namespace PetsWeb.Models
         public string Telephone { get; set; }
         [Display(Name = "CountyName", ResourceType = typeof(Resources.Resource))]
         public int CountryID { get; set; }
+        public City City { get; set; }
         [Display(Name = "CityName", ResourceType = typeof(Resources.Resource))]
         public int CityID { get; set; }
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
