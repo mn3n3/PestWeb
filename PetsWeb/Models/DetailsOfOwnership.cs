@@ -29,6 +29,7 @@ namespace PetsWeb.Models
         public string PosCode { get; set; }
         [Display(Name = "Telephone", ResourceType = typeof(Resources.Resource))]
         public string Telephone { get; set; }
+        public Country Country { get; set; }
         [Display(Name = "CountyName", ResourceType = typeof(Resources.Resource))]
         public int CountryID { get; set; }
         public City City { get; set; }
