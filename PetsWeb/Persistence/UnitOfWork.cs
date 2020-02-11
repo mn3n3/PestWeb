@@ -1,22 +1,29 @@
 ﻿using Pets_Web.Repositories;
+using PetsWeb.Persistence;
+using PetsWeb.Repositories;
 
 namespace Pets_Web.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
-
         public IUserAccountRepo UserAccount { get; private set; }
-
-
+        public ICountryRepo Country { get; set; }
+        public ICityRepo City { get; set; }
+        public IAnimalTypeRepo AnimalType { get; set; }
+        public IBreedRepo Breed { get; set; }
+        public ICoatColourRepo CoatColour { get; set; }
+        public ILocationOfMicrochipRepo LocationOfMicrochip { get; set; }
         public UnitOfWork(ApplicationDbContext context)
         {
-
             _context = context;
-
             UserAccount = new UserAccountRepo(context);
-
-
+            Country = new CountryRepo(_context);
+            City = new CityRepo(_context);
+            AnimalType = new AnimalTypeRepo(_context);
+            Breed = new BreedRepo(_context);
+            CoatColour = new CoatColourRepo(_context);
+            LocationOfMicrochip = new LocationOfMicrochipRepo(_context); 
         }
         public void Complete()
         {

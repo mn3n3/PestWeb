@@ -174,6 +174,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -186,18 +187,53 @@
     <Compile Include="Migrations\202002092024268_FirstRun.Designer.cs">
       <DependentUpon>202002092024268_FirstRun.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002102049541_MohammedAwad100220201.cs" />
+    <Compile Include="Migrations\202002102049541_MohammedAwad100220201.Designer.cs">
+      <DependentUpon>202002102049541_MohammedAwad100220201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002102056091_MohammedAwad100220202.cs" />
+    <Compile Include="Migrations\202002102056091_MohammedAwad100220202.Designer.cs">
+      <DependentUpon>202002102056091_MohammedAwad100220202.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002102217305_MohammedAwad110220201.cs" />
+    <Compile Include="Migrations\202002102217305_MohammedAwad110220201.Designer.cs">
+      <DependentUpon>202002102217305_MohammedAwad110220201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002102244592_MohammedAwad110220202.cs" />
+    <Compile Include="Migrations\202002102244592_MohammedAwad110220202.Designer.cs">
+      <DependentUpon>202002102244592_MohammedAwad110220202.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AnimalType.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Breed.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\CoatColour.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\DetailsOfOwnership.cs" />
+    <Compile Include="Models\DiscriptionOfAnimal.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\IdentificationOfAnimal.cs" />
+    <Compile Include="Models\LocationOfMicrochip.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Persistence\AnimalTypeRepo.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
+    <Compile Include="Persistence\BreedRepo.cs" />
+    <Compile Include="Persistence\CityRepo.cs" />
+    <Compile Include="Persistence\CoatColourRepo.cs" />
+    <Compile Include="Persistence\CountryRepo.cs" />
+    <Compile Include="Persistence\LocationOfMicrochipRepo.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Persistence\UserAccountRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IAnimalTypeRepo.cs" />
+    <Compile Include="Repositories\IBreedRepo.cs" />
+    <Compile Include="Repositories\ICityRepo.cs" />
+    <Compile Include="Repositories\ICoatColourRepo.cs" />
+    <Compile Include="Repositories\ICountryRepo.cs" />
+    <Compile Include="Repositories\ILocationOfMicrochipRepo.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
     <Compile Include="Repositories\IUserAccountRepo.cs" />
     <Compile Include="Startup.cs" />
@@ -928,6 +964,7 @@
     <Folder Include="Content\MyLess\" />
     <Folder Include="Views\BaseController\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Country\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -957,6 +994,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202002092024268_FirstRun.resx">
       <DependentUpon>202002092024268_FirstRun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102049541_MohammedAwad100220201.resx">
+      <DependentUpon>202002102049541_MohammedAwad100220201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102056091_MohammedAwad100220202.resx">
+      <DependentUpon>202002102056091_MohammedAwad100220202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102217305_MohammedAwad110220201.resx">
+      <DependentUpon>202002102217305_MohammedAwad110220201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002102244592_MohammedAwad110220202.resx">
+      <DependentUpon>202002102244592_MohammedAwad110220202.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
