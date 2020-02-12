@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Added Successfully.
+        /// </summary>
+        public static string AddedSuccessfully {
+            get {
+                return ResourceManager.GetString("AddedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -147,6 +156,15 @@ namespace Resources {
         public static string DateOfMicrochipping {
             get {
                 return ResourceManager.GetString("DateOfMicrochipping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleted Successfully.
+        /// </summary>
+        public static string DeletedSuccessfully {
+            get {
+                return ResourceManager.GetString("DeletedSuccessfully", resourceCulture);
             }
         }
         
@@ -300,6 +318,15 @@ namespace Resources {
         public static string Telephone {
             get {
                 return ResourceManager.GetString("Telephone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updated Successfully.
+        /// </summary>
+        public static string UpdatedSuccessfully {
+            get {
+                return ResourceManager.GetString("UpdatedSuccessfully", resourceCulture);
             }
         }
         

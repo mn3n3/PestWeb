@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddedSuccessfully" xml:space="preserve">
+    <value>تمت عملية التخزين بنجاح</value>
+  </data>
   <data name="Address" xml:space="preserve">
     <value>العنوان</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="DateOfMicrochipping" xml:space="preserve">
     <value>تاريخ الرقاقة</value>
+  </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>تمت عملية الحذف بنجاح</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>البريد الإلكتروني</value>
@@ -200,6 +206,9 @@
   </data>
   <data name="Telephone" xml:space="preserve">
     <value>الهاتف</value>
+  </data>
+  <data name="UpdatedSuccessfully" xml:space="preserve">
+    <value>تمت عملية التعديل بنجاح</value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>الموقع الإلكتروني</value>

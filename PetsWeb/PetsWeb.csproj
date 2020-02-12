@@ -203,6 +203,10 @@
     <Compile Include="Migrations\202002102244592_MohammedAwad110220202.Designer.cs">
       <DependentUpon>202002102244592_MohammedAwad110220202.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002112002434_MohammedAwad110220203.cs" />
+    <Compile Include="Migrations\202002112002434_MohammedAwad110220203.Designer.cs">
+      <DependentUpon>202002112002434_MohammedAwad110220203.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnimalType.cs" />
@@ -214,7 +218,6 @@
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\DetailsOfOwnership.cs" />
     <Compile Include="Models\DiscriptionOfAnimal.cs" />
-    <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\IdentificationOfAnimal.cs" />
     <Compile Include="Models\LocationOfMicrochip.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -1006,6 +1009,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002102244592_MohammedAwad110220202.resx">
       <DependentUpon>202002102244592_MohammedAwad110220202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002112002434_MohammedAwad110220203.resx">
+      <DependentUpon>202002112002434_MohammedAwad110220203.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
