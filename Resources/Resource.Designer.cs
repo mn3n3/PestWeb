@@ -151,6 +151,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Countries.
+        /// </summary>
+        public static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to County Name.
         /// </summary>
         public static string CountyName {
@@ -206,11 +215,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  Delete .
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No data available in table.
+        /// </summary>
+        public static string EmptyTable {
+            get {
+                return ResourceManager.GetString("EmptyTable", resourceCulture);
             }
         }
         
@@ -233,6 +260,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First.
+        /// </summary>
+        public static string First {
+            get {
+                return ResourceManager.GetString("First", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string FirstName {
@@ -247,6 +283,33 @@ namespace Resources {
         public static string Gender {
             get {
                 return ResourceManager.GetString("Gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Showing _START_ to _END_ of _TOTAL_ entries.
+        /// </summary>
+        public static string Info {
+            get {
+                return ResourceManager.GetString("Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Showing 0 to 0 of 0 entries.
+        /// </summary>
+        public static string InfoEmpty {
+            get {
+                return ResourceManager.GetString("InfoEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (filtered from _MAX_ total entries).
+        /// </summary>
+        public static string InfoFiltered {
+            get {
+                return ResourceManager.GetString("InfoFiltered", resourceCulture);
             }
         }
         
@@ -269,11 +332,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last.
+        /// </summary>
+        public static string Last {
+            get {
+                return ResourceManager.GetString("Last", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show _MENU_ entries.
+        /// </summary>
+        public static string LengthMenu {
+            get {
+                return ResourceManager.GetString("LengthMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your data is being verified.
         /// </summary>
         public static string LoadingMsg {
             get {
                 return ResourceManager.GetString("LoadingMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading....
+        /// </summary>
+        public static string LoadingRecords {
+            get {
+                return ResourceManager.GetString("LoadingRecords", resourceCulture);
             }
         }
         
@@ -341,6 +431,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Owner Name.
+        /// </summary>
+        public static string OwnerName {
+            get {
+                return ResourceManager.GetString("OwnerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -377,6 +485,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Previous.
+        /// </summary>
+        public static string Previous {
+            get {
+                return ResourceManager.GetString("Previous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Print Excel .
+        /// </summary>
+        public static string PrintExcel {
+            get {
+                return ResourceManager.GetString("PrintExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processing....
+        /// </summary>
+        public static string Processing {
+            get {
+                return ResourceManager.GetString("Processing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string Register {
@@ -404,7 +539,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save.
+        ///   Looks up a localized string similar to  Save .
         /// </summary>
         public static string Save {
             get {
@@ -418,6 +553,15 @@ namespace Resources {
         public static string Saving {
             get {
                 return ResourceManager.GetString("Saving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Search .
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
             }
         }
         
@@ -436,6 +580,24 @@ namespace Resources {
         public static string SomthingWentWrong {
             get {
                 return ResourceManager.GetString("SomthingWentWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activate to sort column ascending :.
+        /// </summary>
+        public static string SortAscending {
+            get {
+                return ResourceManager.GetString("SortAscending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activate to sort column descending :.
+        /// </summary>
+        public static string SortDescending {
+            get {
+                return ResourceManager.GetString("SortDescending", resourceCulture);
             }
         }
         
@@ -467,7 +629,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update.
+        ///   Looks up a localized string similar to  Update .
         /// </summary>
         public static string Update {
             get {
@@ -526,6 +688,15 @@ namespace Resources {
         public static string YourrequesthasBeenSuccessfullySent {
             get {
                 return ResourceManager.GetString("YourrequesthasBeenSuccessfullySent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No matching records found.
+        /// </summary>
+        public static string ZeroRecords {
+            get {
+                return ResourceManager.GetString("ZeroRecords", resourceCulture);
             }
         }
     }

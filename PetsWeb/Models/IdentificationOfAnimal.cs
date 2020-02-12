@@ -16,7 +16,6 @@ namespace PetsWeb.Models
         [Column(Order = 2)]
         [Display(Name = "Serial", ResourceType = typeof(Resources.Resource))]
         public int SerialID { get; set; }
-        public DiscriptionOfAnimal DiscriptionOfAnimal { get; set; }
         [Display(Name = "AnimalName", ResourceType = typeof(Resources.Resource))]
         public int AnimalID { get; set; }
         [Required]
@@ -24,7 +23,6 @@ namespace PetsWeb.Models
         public string MicrochipNumber { get; set; }
         [Display(Name = "DateOfMicrochipping", ResourceType = typeof(Resources.Resource))]
         public DateTime DateOfMicrochipping { get; set; }
-        public LocationOfMicrochip LocationOfMicrochip { get; set; }
         [Display(Name = "LocationOfMicrochip", ResourceType = typeof(Resources.Resource))]
         public int LocationOfMicrochipID { get; set; }
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]

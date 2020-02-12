@@ -105,12 +105,12 @@
         <div class="form-group">
             @if (Model.Id == 0)
             {
-                <button type="submit" class="btn btn-outline  fa fa-save btn-success" id="save">  @Resources.Resource.Save</button>
+            <button type="submit" class="btn btn-primary fa fa-plus" id="save">@Resources.Resource.Save </button>
             }
             else
 
             {
-                <button type="submit" class="btn btn-outline fa fa-save btn-success" id="update">  @Resources.Resource.Update</button>
+            <button type="submit" class="btn btn-success fa fa-edit" id="update">@Resources.Resource.Update </button>
 
             }
             @Html.HiddenFor(m => m.Id)

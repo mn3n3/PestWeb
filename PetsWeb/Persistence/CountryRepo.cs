@@ -29,12 +29,6 @@ namespace PetsWeb.Persistence
                 _context.Countries.Remove(ObjToDelete);
             }
         }
-
-        public IEnumerable<Country> GetAllCountry(int CompanyID)
-        {
-            return _context.Countries.Where(m => m.CompanyID == CompanyID).ToList();
-        }
-
         public Country GetCountryByID(int CompanyID, int CountryID)
         {
             return _context.Countries.FirstOrDefault(m => m.CompanyID == CompanyID && m.CountryID == CountryID);

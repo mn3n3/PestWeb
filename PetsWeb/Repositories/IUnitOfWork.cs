@@ -4,6 +4,7 @@ namespace PetsWeb.Repositories
 {
     public interface IUnitOfWork
     {
+        INativeSqlRepo NativeSql { get; }
         ICompanyRepo Company { get; }
         ICountryRepo Country { get; }
         ICityRepo City { get; }

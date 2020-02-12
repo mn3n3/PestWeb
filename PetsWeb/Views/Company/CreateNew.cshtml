@@ -4,11 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-
-
-
 @Html.AntiForgeryToken()
 @Html.HiddenFor(m => m.Id)
 <div class="panel panel-primary" style="margin-top:10px">
@@ -86,38 +81,24 @@
                     <img style="width:120px;height:100px;" src="~/CompanyLogo/@Model.CompanyLogo" id="CoLogo" />
                     <input type="file" id="LogoImageUpload" />
                 </div>
-
-
-
-
-
             </div>
-
-
         </div>
         <div class="col-md-12 ">
-
-
-        </div>
+    </div>
     </div>
     <div class="panel-footer">
 
         <div class="form-group">
             @if (Model.Id == 0)
             {
-                <button type="submit" class="btn btn-outline  fa fa-save btn-success" id="save">  @Resources.Resource.Save</button>
+                <button type="submit" class="btn btn-primary fa fa-plus" id="save">@Resources.Resource.Save </button>
             }
             else
 
             {
-                <button type="submit" class="btn btn-outline fa fa-save btn-success" id="update">  @Resources.Resource.Update</button>
-
+                <button type="submit" class="btn btn-success fa fa-edit" id="update">@Resources.Resource.Update </button>
             }
             @Html.HiddenFor(m => m.Id)
-
-
-
-
         </div>
     </div>
     @Html.HiddenFor(m => m.Id, new { @id="Id"})
@@ -132,14 +113,8 @@
 
 			$(document).ready(function () {
 		 
-
-
 				$('[data-toggle="tooltip"]').tooltip();
 		 
-		 
-
-
-
 			var ImgPath="";
 
                 if (@Model.Id== 0) {

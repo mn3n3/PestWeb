@@ -8,10 +8,8 @@ using System.Web;
 namespace PetsWeb.Models
 {
     public class Company
-    {
-      
+    {        
         public int Id { get; set; }
-
         [Display(Name = "ArabicName", ResourceType = typeof(Resources.Resource))]
         public string ArabicName { get; set; }
         [Display(Name = "EnglishName", ResourceType = typeof(Resources.Resource))]
@@ -32,12 +30,8 @@ namespace PetsWeb.Models
         public string EnglishAddress { get; set; }
         [Display(Name = "LogoPath", ResourceType = typeof(Resources.Resource))]
         public string CompanyLogo { get; set; }
-
         public string UserId { get; set; }
-
-
         public string COREFID { get; set; }
-
         public int test { get; set; }
     }
 }

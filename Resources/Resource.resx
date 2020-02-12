@@ -147,6 +147,9 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
   </data>
+  <data name="Country" xml:space="preserve">
+    <value>Countries</value>
+  </data>
   <data name="CountyName" xml:space="preserve">
     <value>County Name</value>
   </data>
@@ -166,8 +169,14 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="DateOfMicrochipping" xml:space="preserve">
     <value>Date Of Microchipping</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value> Delete </value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="EmptyTable" xml:space="preserve">
+    <value>No data available in table</value>
   </data>
   <data name="EngAddress" xml:space="preserve">
     <value>English Address</value>
@@ -175,11 +184,23 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="EnglishName" xml:space="preserve">
     <value>English Name</value>
   </data>
+  <data name="First" xml:space="preserve">
+    <value>First</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>First Name</value>
   </data>
   <data name="Gender" xml:space="preserve">
     <value>Sex</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Showing _START_ to _END_ of _TOTAL_ entries</value>
+  </data>
+  <data name="InfoEmpty" xml:space="preserve">
+    <value>Showing 0 to 0 of 0 entries</value>
+  </data>
+  <data name="InfoFiltered" xml:space="preserve">
+    <value>(filtered from _MAX_ total entries)</value>
   </data>
   <data name="InsDateTime" xml:space="preserve">
     <value>Insert Date Time</value>
@@ -187,8 +208,17 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="InsUserName" xml:space="preserve">
     <value>Insert User Name</value>
   </data>
+  <data name="Last" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="LengthMenu" xml:space="preserve">
+    <value>Show _MENU_ entries</value>
+  </data>
   <data name="LoadingMsg" xml:space="preserve">
     <value>Your data is being verified</value>
+  </data>
+  <data name="LoadingRecords" xml:space="preserve">
+    <value>Loading...</value>
   </data>
   <data name="LocationOfMicrochip" xml:space="preserve">
     <value>Location Of Microchip</value>
@@ -211,6 +241,12 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="Mobile" xml:space="preserve">
     <value>Mobile</value>
   </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="OwnerName" xml:space="preserve">
+    <value>Owner Name</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
@@ -223,6 +259,15 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="PostCode" xml:space="preserve">
     <value>Post Code</value>
   </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="PrintExcel" xml:space="preserve">
+    <value> Print Excel </value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>Processing...</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
@@ -233,16 +278,25 @@ The installation process may take 1 to 2 minutes, please do not close the screen
     <value>Reports</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>Save</value>
+    <value> Save </value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>Saving</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value> Search </value>
   </data>
   <data name="Serial" xml:space="preserve">
     <value>Serial</value>
   </data>
   <data name="SomthingWentWrong" xml:space="preserve">
     <value>Something Went Wrong</value>
+  </data>
+  <data name="SortAscending" xml:space="preserve">
+    <value>Activate to sort column ascending :</value>
+  </data>
+  <data name="SortDescending" xml:space="preserve">
+    <value>Activate to sort column descending :</value>
   </data>
   <data name="Species" xml:space="preserve">
     <value>Species</value>
@@ -254,7 +308,7 @@ The installation process may take 1 to 2 minutes, please do not close the screen
     <value>Telephone</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>Update</value>
+    <value> Update </value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>Website</value>
@@ -273,5 +327,8 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   </data>
   <data name="YourrequesthasBeenSuccessfullySent" xml:space="preserve">
     <value>Your request has Been Successfully Sent</value>
+  </data>
+  <data name="ZeroRecords" xml:space="preserve">
+    <value>No matching records found</value>
   </data>
 </root>

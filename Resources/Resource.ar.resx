@@ -147,6 +147,9 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>تأكيد كلمة المرور</value>
   </data>
+  <data name="Country" xml:space="preserve">
+    <value>المدن</value>
+  </data>
   <data name="CountyName" xml:space="preserve">
     <value>اسم الدولة</value>
   </data>
@@ -165,8 +168,14 @@
   <data name="DateOfMicrochipping" xml:space="preserve">
     <value>تاريخ الرقاقة</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value> حذف </value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>البريد الإلكتروني</value>
+  </data>
+  <data name="EmptyTable" xml:space="preserve">
+    <value>ليست هناك بيانات متاحة في الجدول</value>
   </data>
   <data name="EngAddress" xml:space="preserve">
     <value>العنوان بالاتيني</value>
@@ -174,11 +183,23 @@
   <data name="EnglishName" xml:space="preserve">
     <value>الاسم بالاتيني</value>
   </data>
+  <data name="First" xml:space="preserve">
+    <value>الأول</value>
+  </data>
   <data name="FirstName" xml:space="preserve">
     <value>الاسم الاول</value>
   </data>
   <data name="Gender" xml:space="preserve">
     <value>الجنس</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل</value>
+  </data>
+  <data name="InfoEmpty" xml:space="preserve">
+    <value>يعرض 0 إلى 0 من أصل 0 سجل</value>
+  </data>
+  <data name="InfoFiltered" xml:space="preserve">
+    <value>(منتقاة من مجموع _MAX_ مُدخل)</value>
   </data>
   <data name="InsDateTime" xml:space="preserve">
     <value>وقت الإدخال</value>
@@ -186,8 +207,17 @@
   <data name="InsUserName" xml:space="preserve">
     <value>ادخل بواسطة</value>
   </data>
+  <data name="Last" xml:space="preserve">
+    <value>الأخير</value>
+  </data>
+  <data name="LengthMenu" xml:space="preserve">
+    <value>أظهر _MENU_ مدخلات</value>
+  </data>
   <data name="LoadingMsg" xml:space="preserve">
     <value>جاري التحقق من بياناتك</value>
+  </data>
+  <data name="LoadingRecords" xml:space="preserve">
+    <value>جارٍ التحميل...</value>
   </data>
   <data name="LocationOfMicrochip" xml:space="preserve">
     <value>موقع الرقاقة</value>
@@ -210,6 +240,12 @@
   <data name="Mobile" xml:space="preserve">
     <value>هاتف المحمول</value>
   </data>
+  <data name="Next" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="OwnerName" xml:space="preserve">
+    <value>اسم المالك</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>كلمة المرور</value>
   </data>
@@ -222,6 +258,15 @@
   <data name="PostCode" xml:space="preserve">
     <value>الرمز البريدي</value>
   </data>
+  <data name="Previous" xml:space="preserve">
+    <value>السابق</value>
+  </data>
+  <data name="PrintExcel" xml:space="preserve">
+    <value> طباعة اكسل </value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>جارٍ التحميل...</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>انشاء حساب</value>
   </data>
@@ -232,16 +277,25 @@
     <value>التقارير</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>تخزين</value>
+    <value> تخزين </value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>جاري التخزين</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value> بحث </value>
   </data>
   <data name="Serial" xml:space="preserve">
     <value>الرمز</value>
   </data>
   <data name="SomthingWentWrong" xml:space="preserve">
     <value>هناك خطأ ما </value>
+  </data>
+  <data name="SortAscending" xml:space="preserve">
+    <value>: تفعيل لترتيب العمود تصاعدياً</value>
+  </data>
+  <data name="SortDescending" xml:space="preserve">
+    <value>: تفعيل لترتيب العمود تنازلياً</value>
   </data>
   <data name="Species" xml:space="preserve">
     <value>النوع</value>
@@ -256,7 +310,7 @@
     <value>الهاتف</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>تعديل</value>
+    <value> تعديل </value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>الموقع الإلكتروني</value>
@@ -275,5 +329,8 @@
   </data>
   <data name="YourrequesthasBeenSuccessfullySent" xml:space="preserve">
     <value>تم إرسال طلبك بنجاح</value>
+  </data>
+  <data name="ZeroRecords" xml:space="preserve">
+    <value>لم يعثر على أية سجلات</value>
   </data>
 </root>

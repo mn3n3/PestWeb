@@ -9,7 +9,6 @@ namespace PetsWeb.Models
 {
     public class AnimalType
     {
-    
         [Column(Order = 1)]
         public int CompanyID { get; set; }
         [Key]

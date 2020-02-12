@@ -9,6 +9,7 @@ namespace PetsWeb.Persistence
         private readonly ApplicationDbContext _context;
 
         public IUserAccountRepo UserAccount { get; private set; }
+        public INativeSqlRepo NativeSql { get; set; }
         public ICountryRepo Country { get; set; }
         public ICityRepo City { get; set; }
         public IAnimalTypeRepo AnimalType { get; set; }
@@ -27,7 +28,8 @@ namespace PetsWeb.Persistence
             AnimalType = new AnimalTypeRepo(_context);
             Breed = new BreedRepo(_context);
             CoatColour = new CoatColourRepo(_context);
-            LocationOfMicrochip = new LocationOfMicrochipRepo(_context); 
+            LocationOfMicrochip = new LocationOfMicrochipRepo(_context);
+            NativeSql = new NativeSqlRepo(_context);
         }
         public void Complete()
         {
