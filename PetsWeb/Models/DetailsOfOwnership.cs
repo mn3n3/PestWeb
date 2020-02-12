@@ -9,7 +9,7 @@ namespace PetsWeb.Models
 {
     public class DetailsOfOwnership
     {
-        public Company Company { get; set; }
+      
         [Key]
         [Column(Order = 1)]
         public int CompanyID { get; set; }
@@ -29,7 +29,8 @@ namespace PetsWeb.Models
         public string PosCode { get; set; }
         [Display(Name = "Telephone", ResourceType = typeof(Resources.Resource))]
         public string Telephone { get; set; }
-        [Display(Name = "CountyName", ResourceType = typeof(Resources.Resource))]
+    //    public Country Country { get; set; }
+       [Display(Name = "CountyName", ResourceType = typeof(Resources.Resource))]
         public int CountryID { get; set; }
         public City City { get; set; }
         [Display(Name = "CityName", ResourceType = typeof(Resources.Resource))]

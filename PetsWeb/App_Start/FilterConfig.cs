@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace Pets_Web
+namespace PetsWeb
 {
     public class FilterConfig
     {

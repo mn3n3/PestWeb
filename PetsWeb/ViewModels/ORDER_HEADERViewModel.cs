@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Pets_Web.ViewModels
+namespace PetsWeb.ViewModels
 {
     public class ORDER_HEADERViewModel
     {

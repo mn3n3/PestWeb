@@ -1,4 +1,4 @@
-﻿namespace Pets_Web.ViewModels
+﻿namespace PetsWeb.ViewModels
 {
     public class UserViewModel
     {

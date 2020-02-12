@@ -1,6 +1,6 @@
-﻿using Pets_Web.Helpers;
-using Pets_Web.Models;
-using Pets_Web.ViewModels;
+﻿using PetsWeb.Helpers;
+using PetsWeb.Models;
+using PetsWeb.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Pets_Web.Controllers
+namespace PetsWeb.Controllers
 {
     [Authorize]
     public class AccountController : Controller

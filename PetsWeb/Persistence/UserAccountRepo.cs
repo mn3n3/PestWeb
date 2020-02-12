@@ -1,10 +1,11 @@
-﻿using Pets_Web.Models;
-using Pets_Web.Repositories;
+﻿using PetsWeb.Models;
+using PetsWeb.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace Pets_Web.Persistence
+namespace PetsWeb.Persistence
 {
     public class UserAccountRepo : IUserAccountRepo
     {
@@ -14,7 +15,7 @@ namespace Pets_Web.Persistence
         {
             _context = context;
         }
-
+       
         public void AddModify(ApplicationUser ObjToSave)
         {//&& m.FCoID == ObjToSave.FCoID
             var User = _context.Users.FirstOrDefault(m => m.Id == ObjToSave.Id && (m.fCompanyId == ObjToSave.fCompanyId || m.fCompanyId == 0));
@@ -57,7 +58,7 @@ namespace Pets_Web.Persistence
 
         public IEnumerable<ApplicationUser> GetAllUsers(int CoId)
         {
-            return _context.Users.Where(m => m.fCompanyId == CoId && m.UserType == 2).ToList();
+            return _context.Users.Where(m => m.fCompanyId == CoId && m.UserType == 0).ToList();
         }
 
         public ApplicationUser GetUserByIDAndCo(int CoId, string UId)
@@ -109,5 +110,32 @@ namespace Pets_Web.Persistence
         {
             return _context.Users.SingleOrDefault(m => m.Email == Email && m.PasswordHash == Passord);
         }
+        public void ChangePass(ApplicationUser ObjToSave)
+        {//&& m.FCoID == ObjToSave.FCoID
+            var User = _context.Users.FirstOrDefault(m => m.Id == ObjToSave.Id);
+            if (User != null)
+            {
+
+
+                User.PasswordHash = ObjToSave.PasswordHash;
+                User.RealPass = ObjToSave.RealPass;
+
+
+            }
+
+        }
+
+        public bool CheckDomain(string Domain)
+        {
+            var user = _context.Users.FirstOrDefault(m => m.CODOMAIN == Domain);
+            if (user != null)
+                return true;
+            else
+
+                return false;
+
+        }
+
+     
     }
 }

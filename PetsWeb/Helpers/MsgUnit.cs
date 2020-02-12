@@ -1,4 +1,4 @@
-﻿namespace Pets_Web.Helpers
+﻿namespace PetsWeb.Helpers
 {
     public class MsgUnit
     {

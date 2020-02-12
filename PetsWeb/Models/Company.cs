@@ -9,9 +9,9 @@ namespace PetsWeb.Models
 {
     public class Company
     {
-        [Key]
-        [Column(Order = 1)]
-        public int CompanyID { get; set; }
+      
+        public int Id { get; set; }
+
         [Display(Name = "ArabicName", ResourceType = typeof(Resources.Resource))]
         public string ArabicName { get; set; }
         [Display(Name = "EnglishName", ResourceType = typeof(Resources.Resource))]
@@ -31,6 +31,13 @@ namespace PetsWeb.Models
         [Display(Name = "EngAddress", ResourceType = typeof(Resources.Resource))]
         public string EnglishAddress { get; set; }
         [Display(Name = "LogoPath", ResourceType = typeof(Resources.Resource))]
-        public string LogoPath { get; set; }
+        public string CompanyLogo { get; set; }
+
+        public string UserId { get; set; }
+
+
+        public string COREFID { get; set; }
+
+        public int test { get; set; }
     }
 }

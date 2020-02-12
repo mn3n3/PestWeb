@@ -1,7 +1,7 @@
-﻿using Pets_Web.Models;
+﻿using PetsWeb.Models;
 using System.Collections.Generic;
 
-namespace Pets_Web.Repositories
+namespace PetsWeb.Repositories
 {
     public interface IUserAccountRepo
     {
@@ -19,14 +19,15 @@ namespace Pets_Web.Repositories
         IEnumerable<ApplicationUser> GetAllUsers(int CoId);
         void AddModify(ApplicationUser ObjToSave);
         void AddModifyFromCreateCompnay(ApplicationUser ObjToSave);
-        //  void ChangePassowrd(ApplicationUser ObjToSave);
-        //int GetMaxSerial(int CoId);
+
         void DeActivate(ApplicationUser ObjToSave);
 
+        
 
+        bool CheckDomain(string Domain);
 
         void Delete(ApplicationUser ObjToSave);
-
+        void ChangePass(ApplicationUser ObjToSave);
         ApplicationUser GetUserByEmailAndPassword(string Email, string Passord);
     }
 }

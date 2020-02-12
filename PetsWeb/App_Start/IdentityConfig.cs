@@ -1,5 +1,5 @@
-﻿using Pets_Web.Models;
-using Pets_Web.Persistence;
+﻿using PetsWeb.Models;
+using PetsWeb.Persistence;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -9,7 +9,7 @@ using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Pets_Web
+namespace PetsWeb
 {
     public class EmailService : IIdentityMessageService
     {

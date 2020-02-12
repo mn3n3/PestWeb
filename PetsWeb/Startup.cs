@@ -1,12 +1,12 @@
-﻿using Pets_Web.Models;
-using Pets_Web.Persistence;
+﻿using PetsWeb.Models;
+using PetsWeb.Persistence;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Pets_Web.Startup))]
-namespace Pets_Web
+[assembly: OwinStartupAttribute(typeof(PetsWeb.Startup))]
+namespace PetsWeb
 {
     public partial class Startup
     {

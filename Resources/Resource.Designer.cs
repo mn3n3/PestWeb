@@ -61,15 +61,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Added Successfully.
-        /// </summary>
-        public static string AddedSuccessfully {
-            get {
-                return ResourceManager.GetString("AddedSuccessfully", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -115,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change Password.
+        /// </summary>
+        public static string ChangePassword {
+            get {
+                return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to City Name.
         /// </summary>
         public static string CityName {
@@ -133,11 +133,57 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Company Info.
+        /// </summary>
+        public static string CompanyInfo {
+            get {
+                return ResourceManager.GetString("CompanyInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm Password.
+        /// </summary>
+        public static string ConfirmPassword {
+            get {
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to County Name.
         /// </summary>
         public static string CountyName {
             get {
                 return ResourceManager.GetString("CountyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The company data and files are being created, 
+        ///The installation process may take 1 to 2 minutes, please do not close the screen.
+        /// </summary>
+        public static string CreateCompanyData {
+            get {
+                return ResourceManager.GetString("CreateCompanyData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create New.
+        /// </summary>
+        public static string CreateNew {
+            get {
+                return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Eng.
+        /// </summary>
+        public static string CurLang {
+            get {
+                return ResourceManager.GetString("CurLang", resourceCulture);
             }
         }
         
@@ -156,15 +202,6 @@ namespace Resources {
         public static string DateOfMicrochipping {
             get {
                 return ResourceManager.GetString("DateOfMicrochipping", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Deleted Successfully.
-        /// </summary>
-        public static string DeletedSuccessfully {
-            get {
-                return ResourceManager.GetString("DeletedSuccessfully", resourceCulture);
             }
         }
         
@@ -232,6 +269,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your data is being verified.
+        /// </summary>
+        public static string LoadingMsg {
+            get {
+                return ResourceManager.GetString("LoadingMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Location Of Microchip.
         /// </summary>
         public static string LocationOfMicrochip {
@@ -241,11 +287,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string Login {
+            get {
+                return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log Off.
+        /// </summary>
+        public static string LogOff {
+            get {
+                return ResourceManager.GetString("LogOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logo Path.
         /// </summary>
         public static string LogoPath {
             get {
                 return ResourceManager.GetString("LogoPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Main Setup.
+        /// </summary>
+        public static string MainSetup {
+            get {
+                return ResourceManager.GetString("MainSetup", resourceCulture);
             }
         }
         
@@ -268,11 +341,83 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please fill all  Required fields.
+        /// </summary>
+        public static string PleasefillalRequiredfields {
+            get {
+                return ResourceManager.GetString("PleasefillalRequiredfields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please Wait.
+        /// </summary>
+        public static string PleaseWait {
+            get {
+                return ResourceManager.GetString("PleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Post Code.
         /// </summary>
         public static string PostCode {
             get {
                 return ResourceManager.GetString("PostCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember Me.
+        /// </summary>
+        public static string RememberMe {
+            get {
+                return ResourceManager.GetString("RememberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reports.
+        /// </summary>
+        public static string Reports {
+            get {
+                return ResourceManager.GetString("Reports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saving.
+        /// </summary>
+        public static string Saving {
+            get {
+                return ResourceManager.GetString("Saving", resourceCulture);
             }
         }
         
@@ -322,11 +467,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Updated Successfully.
+        ///   Looks up a localized string similar to Update.
         /// </summary>
-        public static string UpdatedSuccessfully {
+        public static string Update {
             get {
-                return ResourceManager.GetString("UpdatedSuccessfully", resourceCulture);
+                return ResourceManager.GetString("Update", resourceCulture);
             }
         }
         
@@ -336,6 +481,42 @@ namespace Resources {
         public static string Website {
             get {
                 return ResourceManager.GetString("Website", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter your company data in this screen  before you start using the system.
+        /// </summary>
+        public static string WelcomeCoInfo {
+            get {
+                return ResourceManager.GetString("WelcomeCoInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome To CatnipSoft .
+        /// </summary>
+        public static string WelcomeToCatnipSoft {
+            get {
+                return ResourceManager.GetString("WelcomeToCatnipSoft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Account Is Being Created.
+        /// </summary>
+        public static string YourAccountIsBeingCreated {
+            get {
+                return ResourceManager.GetString("YourAccountIsBeingCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your company has been established successfully.
+        /// </summary>
+        public static string YourCompanyEstablished {
+            get {
+                return ResourceManager.GetString("YourCompanyEstablished", resourceCulture);
             }
         }
         

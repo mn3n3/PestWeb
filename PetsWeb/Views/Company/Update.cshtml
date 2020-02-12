@@ -1,0 +1,291 @@
+﻿@model PetsWeb.Models.Company
+@{
+    ViewBag.Title = "Update Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(m => m.Id)
+<div class="panel panel-primary" style="margin-top:10px">
+    <div class="panel-heading">
+        <i class="fa fa-home"></i>   @Resources.Resource.CompanyInfo
+
+    </div>
+    <div class="panel-body">
+        <div class="col-md-12 ">
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ArabicName)*
+                    @Html.TextBoxFor(m => m.ArabicName, new { @class = "form-control", autofocus = "autofocus", @id = "ArabicName" })
+                    @Html.ValidationMessageFor(m => m.ArabicName)
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.EnglishName)*
+                    @Html.TextBoxFor(m => m.EnglishName, new { @class = "form-control", @id = "EnglishName" })
+                    @Html.ValidationMessageFor(m => m.EnglishName)
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Website)
+                    @Html.TextBoxFor(m => m.Website, new { @class = "form-control", @id = "Website" })
+                    @Html.ValidationMessageFor(m => m.Website)
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Mobile)
+                    @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @id = "Mobile" })
+                    @Html.ValidationMessageFor(m => m.Mobile)
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Telephone)
+                    @Html.TextBoxFor(m => m.Telephone, new { @class = "form-control", @id = "Telephone" })
+                    @Html.ValidationMessageFor(m => m.Telephone)
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.TeleFax)
+                    @Html.TextBoxFor(m => m.TeleFax, new { @class = "form-control", @id = "TeleFax" })
+                    @Html.ValidationMessageFor(m => m.TeleFax)
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @id = "Email" })
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CompanyLogo)
+                </div>
+                <div class="form-group">
+
+                    <img style="width:120px;height:100px;" src="~/CompanyLogo/@Model.CompanyLogo" id="CoLogo" />
+                    <input type="file" id="LogoImageUpload" />
+                </div>
+
+
+
+
+
+            </div>
+
+
+        </div>
+        <div class="col-md-12 ">
+
+
+        </div>
+    </div>
+    <div class="panel-footer">
+
+        <div class="form-group">
+            @if (Model.Id == 0)
+            {
+                <button type="submit" class="btn btn-outline  fa fa-save btn-success" id="save">  @Resources.Resource.Save</button>
+            }
+            else
+
+            {
+                <button type="submit" class="btn btn-outline fa fa-save btn-success" id="update">  @Resources.Resource.Update</button>
+
+            }
+            @Html.HiddenFor(m => m.Id)
+
+
+
+
+        </div>
+    </div>
+    @Html.HiddenFor(m => m.Id, new { @id = "Id" })
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+
+			$(document).ready(function () {
+
+
+
+				$('[data-toggle="tooltip"]').tooltip();
+
+
+
+
+
+			var ImgPath="";
+
+                if (@Model.Id== 0) {
+
+                    bootbox.alert({
+                        size: "small",
+                        title: '  @Resources.Resource.WelcomeToCatnipSoft ',
+
+				         closeButton: false,
+
+                        message: "@Resources.Resource.WelcomeCoInfo",
+                        callback: function () { /* your callback code */ }
+                    });
+
+                    @*bootbox.alert({
+                        message: "@Resources.Resource.WelcomeCoInfo",
+                        size: 'small'
+                    });*@
+
+
+                }
+
+			$("#LogoImageUpload").change(function () {
+				// Checking whether FormData is available in browser
+				if (window.FormData !== undefined) {
+
+					var fileUpload = $("#LogoImageUpload").get(0);
+					var files = fileUpload.files;
+
+					// Create FormData object
+					var fileData = new FormData();
+
+					// Looping over all files and add it to FormData object
+					for (var i = 0; i < files.length; i++) {
+						fileData.append(files[i].name, files[i]);
+					}
+
+					// Adding one more key to FormData object
+					// fileData.append('username', 'mint');
+
+					$.ajax({
+						url: '/Company/UploadFiles',
+						type: "POST",
+						contentType: false, // Not to set any content header
+						processData: false, // Not to process data
+						data: fileData,
+						success: function (result) {
+						   // console.log(result);
+							if (result == "0") {
+								toastr.warning("يرجي تخزين بيانات الشركه اولا");
+							}
+							else {
+
+								$("#CoLogo").attr("src", "../CompanyLogo/" + result);
+								Img = result;
+								ImgPath =  result;
+							  //  console.log($("#CoLogo").src());
+
+
+							}
+							//  alert(result);
+						},
+						error: function (err) {
+							alert(err.statusText);
+						}
+					});
+				} else {
+
+					toastr.warning("Error!");
+				}
+
+
+			});
+
+
+
+			$(document).on('click', '#save', function () {
+			 var dialog = bootbox.dialog({
+				  title: '@Resources.Resource.PleaseWait',
+				  message: '<p><i class="fa fa-spin fa-spinner"></i> Create Company Data...</p>',
+				  closeButton: false
+				});
+
+				var dataToSave = {
+					ArabicName: $("#ArabicName").val(),
+					CompanyLogo: ImgPath, Id: $("#Id").val(), EnglishName: $("#EnglishName").val(), Website: $("#Website").val()
+                    , Email: $("#Email").val(), Telephone: $("#Telephone").val(), Mobile: $("#Mobile").val(),
+                    TeleFax: $("#TeleFax").val(),ArabicAddress: $("#ArabicAddress").val(),EnglishAddress: $("#EnglishAddress").val()
+
+
+
+				};
+				$.ajax({
+					type: "POST",
+					url: "/Company/Save",
+					data: JSON.stringify(dataToSave),
+					contentType: 'application/json',
+					success: function (data) {
+
+						dialog.modal('hide');
+						if (data.Code == 0) {
+                            toastr.error(data.Msg);
+                            bootbox.alert({
+                                message: data.Msg,
+                                size: 'small'
+                            });
+						}
+						else if (data.Code == 1) {
+							$('#modal-container').modal('hide');
+                            toastr.success(data.Msg);
+                            bootbox.alert({
+                                 title: ' CatnipSoft ',
+                                message: "@Resources.Resource.YourCompanyEstablished",
+
+
+				         closeButton: false,
+                                size: 'small'
+                            });
+							//tabelMemRef.ajax.reload();
+							//ClearForm();
+						}
+
+					},
+					error: function (data) {
+						dialog.modal('hide');
+                        toastr.error(data);
+                        bootbox.alert({
+                                message: data.Msg,
+                                size: 'small'
+                            });
+					}
+
+				});
+			});
+
+		 
+
+
+
+
+
+
+		 });
+    </script>
+}
+
+
+
+

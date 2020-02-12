@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Pets_Web.Models
+namespace PetsWeb.Models
 {
     public class ApplicationUser : IdentityUser
     {
@@ -12,13 +12,13 @@ namespace Pets_Web.Models
         public int AccountStatus { get; set; }
         public string EmployeeID { get; set; }
 
-        //public string FCOREFID { get; set; }
+        public string CODOMAIN { get; set; }
         //public int FCoID { get; set; }
         //public int AccountStatus { get; set; }
 
         //public string EmployeeID { get; set; }
 
-        //public string RealPass { get; set; }
+        public string RealPass { get; set; }
         //public string UserId { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

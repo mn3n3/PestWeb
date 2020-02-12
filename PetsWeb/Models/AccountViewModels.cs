@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Pets_Web.Models
+namespace PetsWeb.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
