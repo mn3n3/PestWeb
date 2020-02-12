@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace Pets_Web
+namespace PetsWeb
 {
     public class BundleConfig
     {

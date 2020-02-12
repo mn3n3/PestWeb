@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNet.Identity;
-using Pets_Web.Controllers;
-using Pets_Web.Persistence;
-using Pets_Web.Repositories;
+using PetsWeb.Controllers;
+using PetsWeb.Models;
+using PetsWeb.Persistence;
+using PetsWeb.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace PetsWeb.Controllers
 
         public CountryController()
         {
+           
             _unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
         // GET: Country

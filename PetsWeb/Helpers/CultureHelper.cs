@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace Pets_Web.Helpers
+namespace PetsWeb.Helpers
 {
     public static class CultureHelper
     {

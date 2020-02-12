@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="@Pets_Web.Helpers.CultureHelper.GetCurrentNeutralCulture() " dir="@(Pets_Web.Helpers.CultureHelper.IsRighToLeft() ? "rtl" : "ltr")">
+<html lang="@PetsWeb.Helpers.CultureHelper.GetCurrentNeutralCulture() " dir="@(PetsWeb.Helpers.CultureHelper.IsRighToLeft() ? "rtl" : "ltr")">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <title>Falcons Soft</title>
     @*@Styles.Render("~/Content/css")*@
-    @Styles.Render("~/Content/AllMyCss" + (Pets_Web.Helpers.CultureHelper.IsRighToLeft() ? "-rtl" : ""))
+    @Styles.Render("~/Content/AllMyCss" + (PetsWeb.Helpers.CultureHelper.IsRighToLeft() ? "-rtl" : ""))
     @Scripts.Render("~/bundles/modernizr")
 
     @*<script src='@Scripts.Url("~/bundles/modernizr")' async></script>*@

@@ -132,14 +132,32 @@
   <data name="Breed" xml:space="preserve">
     <value>الفصيلة</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>تغير كلمة المرور</value>
+  </data>
   <data name="CityName" xml:space="preserve">
     <value>اسم المدينة</value>
   </data>
   <data name="CoatColour" xml:space="preserve">
     <value>اللون</value>
   </data>
+  <data name="CompanyInfo" xml:space="preserve">
+    <value>معلومات الشركة</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>تأكيد كلمة المرور</value>
+  </data>
   <data name="CountyName" xml:space="preserve">
     <value>اسم الدولة</value>
+  </data>
+  <data name="CreateCompanyData" xml:space="preserve">
+    <value>...جاري انشاء بيانات وملفات الشركه  الخاصة بك قد تستغرق عملية التثبيت من 1 الي 2 دقائق يرجي عدم اغلاق الشاشة</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>انشاء جديد</value>
+  </data>
+  <data name="CurLang" xml:space="preserve">
+    <value>Arb</value>
   </data>
   <data name="DateOfBirth" xml:space="preserve">
     <value>تاريخ الميلاد</value>
@@ -168,11 +186,23 @@
   <data name="InsUserName" xml:space="preserve">
     <value>ادخل بواسطة</value>
   </data>
+  <data name="LoadingMsg" xml:space="preserve">
+    <value>جاري التحقق من بياناتك</value>
+  </data>
   <data name="LocationOfMicrochip" xml:space="preserve">
     <value>موقع الرقاقة</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>دخول</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>تسجيل خروج</value>
+  </data>
   <data name="LogoPath" xml:space="preserve">
     <value>مسار الشعار</value>
+  </data>
+  <data name="MainSetup" xml:space="preserve">
+    <value>الاعدادات الرئيسية</value>
   </data>
   <data name="MicrochipNumber" xml:space="preserve">
     <value>رقم الرقاقة</value>
@@ -180,8 +210,32 @@
   <data name="Mobile" xml:space="preserve">
     <value>هاتف المحمول</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="PleasefillalRequiredfields" xml:space="preserve">
+    <value>يرجي ادخال جميع الحقول المطلوبة</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>يرجي الاتتظار</value>
+  </data>
   <data name="PostCode" xml:space="preserve">
     <value>الرمز البريدي</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>انشاء حساب</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>تذكرني</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>التقارير</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>تخزين</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>جاري التخزين</value>
   </data>
   <data name="Serial" xml:space="preserve">
     <value>الرمز</value>
@@ -201,8 +255,23 @@
   <data name="Telephone" xml:space="preserve">
     <value>الهاتف</value>
   </data>
+  <data name="Update" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
   <data name="Website" xml:space="preserve">
     <value>الموقع الإلكتروني</value>
+  </data>
+  <data name="WelcomeCoInfo" xml:space="preserve">
+    <value>يرجي ادخال بيانات الشركه الخاصة بك  في هذة الشاشة قبل البدء بستخدام النظام</value>
+  </data>
+  <data name="WelcomeToCatnipSoft" xml:space="preserve">
+    <value>مرحبا بك في كاتنب سوفت</value>
+  </data>
+  <data name="YourAccountIsBeingCreated" xml:space="preserve">
+    <value>جاري انشاء حسابك</value>
+  </data>
+  <data name="YourCompanyEstablished" xml:space="preserve">
+    <value>تم انشاء شركتك بنجاح </value>
   </data>
   <data name="YourrequesthasBeenSuccessfullySent" xml:space="preserve">
     <value>تم إرسال طلبك بنجاح</value>

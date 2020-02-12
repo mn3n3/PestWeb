@@ -7,13 +7,13 @@ namespace PetsWeb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class MohammedAwad110220201 : IMigrationMetadata
+    public sealed partial class first_run3 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(MohammedAwad110220201));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first_run3));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002102217305_MohammedAwad110220201"; }
+            get { return "202002121939291_first_run3"; }
         }
         
         string IMigrationMetadata.Source

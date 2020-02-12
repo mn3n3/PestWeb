@@ -1,12 +1,13 @@
-﻿using Pets_Web.Repositories;
-using PetsWeb.Persistence;
-using PetsWeb.Repositories;
+﻿using PetsWeb.Repositories;
+ 
+ 
 
-namespace Pets_Web.Persistence
+namespace PetsWeb.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
+
         public IUserAccountRepo UserAccount { get; private set; }
         public ICountryRepo Country { get; set; }
         public ICityRepo City { get; set; }
@@ -14,9 +15,12 @@ namespace Pets_Web.Persistence
         public IBreedRepo Breed { get; set; }
         public ICoatColourRepo CoatColour { get; set; }
         public ILocationOfMicrochipRepo LocationOfMicrochip { get; set; }
+
+        public ICompanyRepo  Company { get; set; }
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
+            Company = new  CompanyRepo(context);
             UserAccount = new UserAccountRepo(context);
             Country = new CountryRepo(_context);
             City = new CityRepo(_context);

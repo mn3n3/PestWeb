@@ -132,14 +132,33 @@
   <data name="Breed" xml:space="preserve">
     <value>Breed</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
   <data name="CityName" xml:space="preserve">
     <value>City Name</value>
   </data>
   <data name="CoatColour" xml:space="preserve">
     <value>Coat Colour</value>
   </data>
+  <data name="CompanyInfo" xml:space="preserve">
+    <value>Company Info</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
   <data name="CountyName" xml:space="preserve">
     <value>County Name</value>
+  </data>
+  <data name="CreateCompanyData" xml:space="preserve">
+    <value>The company data and files are being created, 
+The installation process may take 1 to 2 minutes, please do not close the screen</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Create New</value>
+  </data>
+  <data name="CurLang" xml:space="preserve">
+    <value>Eng</value>
   </data>
   <data name="DateOfBirth" xml:space="preserve">
     <value>Date Of Birth</value>
@@ -168,11 +187,23 @@
   <data name="InsUserName" xml:space="preserve">
     <value>Insert User Name</value>
   </data>
+  <data name="LoadingMsg" xml:space="preserve">
+    <value>Your data is being verified</value>
+  </data>
   <data name="LocationOfMicrochip" xml:space="preserve">
     <value>Location Of Microchip</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Log Off</value>
+  </data>
   <data name="LogoPath" xml:space="preserve">
     <value>Logo Path</value>
+  </data>
+  <data name="MainSetup" xml:space="preserve">
+    <value>Main Setup</value>
   </data>
   <data name="MicrochipNumber" xml:space="preserve">
     <value>Microchip Number</value>
@@ -180,8 +211,32 @@
   <data name="Mobile" xml:space="preserve">
     <value>Mobile</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PleasefillalRequiredfields" xml:space="preserve">
+    <value>Please fill all  Required fields</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Please Wait</value>
+  </data>
   <data name="PostCode" xml:space="preserve">
     <value>Post Code</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>Saving</value>
   </data>
   <data name="Serial" xml:space="preserve">
     <value>Serial</value>
@@ -198,8 +253,23 @@
   <data name="Telephone" xml:space="preserve">
     <value>Telephone</value>
   </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
   <data name="Website" xml:space="preserve">
     <value>Website</value>
+  </data>
+  <data name="WelcomeCoInfo" xml:space="preserve">
+    <value>Please enter your company data in this screen  before you start using the system</value>
+  </data>
+  <data name="WelcomeToCatnipSoft" xml:space="preserve">
+    <value>Welcome To CatnipSoft </value>
+  </data>
+  <data name="YourAccountIsBeingCreated" xml:space="preserve">
+    <value>Your Account Is Being Created</value>
+  </data>
+  <data name="YourCompanyEstablished" xml:space="preserve">
+    <value>Your company has been established successfully</value>
   </data>
   <data name="YourrequesthasBeenSuccessfullySent" xml:space="preserve">
     <value>Your request has Been Successfully Sent</value>

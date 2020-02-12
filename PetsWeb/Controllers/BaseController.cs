@@ -1,11 +1,11 @@
-﻿using Pets_Web.Helpers;
+﻿using PetsWeb.Helpers;
 using System;
 using System.Globalization;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Pets_Web.Controllers
+namespace PetsWeb.Controllers
 {
     public class BaseController : Controller
     {

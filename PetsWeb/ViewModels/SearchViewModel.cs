@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Pets_Web.ViewModels
+namespace PetsWeb.ViewModels
 {
     public class SearchViewModel
     {

@@ -1,7 +1,7 @@
-﻿using Pets_Web.Helpers;
-using Pets_Web.Persistence;
-using Pets_Web.Repositories;
-using Pets_Web.ViewModels;
+﻿using PetsWeb.Helpers;
+using PetsWeb.Persistence;
+using PetsWeb.Repositories;
+using PetsWeb.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Pets_Web.Controllers
+namespace PetsWeb.Controllers
 {
     [Authorize]
     public class HomeController : BaseController

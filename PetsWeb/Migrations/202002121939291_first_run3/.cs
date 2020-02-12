@@ -3,7 +3,7 @@ namespace PetsWeb.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class MohammedAwad100220202 : DbMigration
+    public partial class first_run3 : DbMigration
     {
         public override void Up()
         {
@@ -12,33 +12,13 @@ namespace PetsWeb.Migrations
                 c => new
                     {
                         CompanyID = c.Int(nullable: false),
-                        AnimalTypeID = c.Int(nullable: false),
+                        AnimalTypeID = c.Int(nullable: false, identity: true),
                         ArabicName = c.String(nullable: false),
                         EnglishName = c.String(),
                         InsUserID = c.String(),
                         InsDateTime = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => new { t.CompanyID, t.AnimalTypeID })
-                .ForeignKey("dbo.Companies", t => t.CompanyID, cascadeDelete: false)
-                .Index(t => t.CompanyID);
-            
-            CreateTable(
-                "dbo.Companies",
-                c => new
-                    {
-                        CompanyID = c.Int(nullable: false, identity: true),
-                        ArabicName = c.String(),
-                        EnglishName = c.String(),
-                        Website = c.String(),
-                        Email = c.String(),
-                        Telephone = c.String(),
-                        Mobile = c.String(),
-                        TeleFax = c.String(),
-                        ArabicAddress = c.String(),
-                        EnglishAddress = c.String(),
-                        LogoPath = c.String(),
-                    })
-                .PrimaryKey(t => t.CompanyID);
+                .PrimaryKey(t => t.AnimalTypeID);
             
             CreateTable(
                 "dbo.Breeds",
@@ -51,9 +31,7 @@ namespace PetsWeb.Migrations
                         InsUserID = c.String(),
                         InsDateTime = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => new { t.CompanyID, t.BreedID })
-                .ForeignKey("dbo.Companies", t => t.CompanyID, cascadeDelete: false)
-                .Index(t => t.CompanyID);
+                .PrimaryKey(t => new { t.CompanyID, t.BreedID });
             
             CreateTable(
                 "dbo.Cities",
@@ -68,9 +46,7 @@ namespace PetsWeb.Migrations
                         InsDateTime = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => new { t.CompanyID, t.CityID })
-                .ForeignKey("dbo.Companies", t => t.CompanyID, cascadeDelete: false)
-                .ForeignKey("dbo.Countries", t => new { t.CompanyID, t.CountryID }, cascadeDelete: false)
-                .Index(t => t.CompanyID)
+                .ForeignKey("dbo.Countries", t => new { t.CompanyID, t.CountryID }, cascadeDelete: true)
                 .Index(t => new { t.CompanyID, t.CountryID });
             
             CreateTable(
@@ -84,9 +60,7 @@ namespace PetsWeb.Migrations
                         InsUserID = c.String(),
                         InsDateTime = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => new { t.CompanyID, t.CountryID })
-                .ForeignKey("dbo.Companies", t => t.CompanyID, cascadeDelete: false)
-                .Index(t => t.CompanyID);
+                .PrimaryKey(t => new { t.CompanyID, t.CountryID });
             
             CreateTable(
                 "dbo.CoatColours",
@@ -99,9 +73,28 @@ namespace PetsWeb.Migrations
                         InsUserID = c.String(),
                         InsDateTime = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => new { t.CompanyID, t.CoatColourID })
-                .ForeignKey("dbo.Companies", t => t.CompanyID, cascadeDelete: false)
-                .Index(t => t.CompanyID);
+                .PrimaryKey(t => new { t.CompanyID, t.CoatColourID });
+            
+            CreateTable(
+                "dbo.Companies",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ArabicName = c.String(),
+                        EnglishName = c.String(),
+                        Website = c.String(),
+                        Email = c.String(),
+                        Telephone = c.String(),
+                        Mobile = c.String(),
+                        TeleFax = c.String(),
+                        ArabicAddress = c.String(),
+                        EnglishAddress = c.String(),
+                        CompanyLogo = c.String(),
+                        UserId = c.String(),
+                        COREFID = c.String(),
+                        test = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.DetailsOfOwnerships",
@@ -120,11 +113,8 @@ namespace PetsWeb.Migrations
                         InsDateTime = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => new { t.CompanyID, t.OwnerID })
-                .ForeignKey("dbo.Cities", t => new { t.CompanyID, t.CityID }, cascadeDelete: false)
-                .ForeignKey("dbo.Companies", t => t.CompanyID, cascadeDelete: false)
-                .ForeignKey("dbo.Countries", t => new { t.CompanyID, t.CountryID }, cascadeDelete: false)
-                .Index(t => new { t.CompanyID, t.CityID })
-                .Index(t => new { t.CompanyID, t.CountryID });
+                .ForeignKey("dbo.Cities", t => new { t.CompanyID, t.CityID }, cascadeDelete: true)
+                .Index(t => new { t.CompanyID, t.CityID });
             
             CreateTable(
                 "dbo.DiscriptionOfAnimals",
@@ -142,13 +132,12 @@ namespace PetsWeb.Migrations
                         InsDateTime = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => new { t.CompanyID, t.AnimalID })
-                .ForeignKey("dbo.AnimalTypes", t => new { t.CompanyID, t.AnimalTypeID }, cascadeDelete: false)
-                .ForeignKey("dbo.Breeds", t => new { t.CompanyID, t.BreedID }, cascadeDelete: false)
-                .ForeignKey("dbo.CoatColours", t => new { t.CompanyID, t.CoatColourID }, cascadeDelete: false)
-                .ForeignKey("dbo.Companies", t => t.CompanyID, cascadeDelete: false)
-                .Index(t => new { t.CompanyID, t.AnimalTypeID })
+                .ForeignKey("dbo.AnimalTypes", t => t.AnimalTypeID, cascadeDelete: true)
+                .ForeignKey("dbo.Breeds", t => new { t.CompanyID, t.BreedID }, cascadeDelete: true)
+                .ForeignKey("dbo.CoatColours", t => new { t.CompanyID, t.CoatColourID }, cascadeDelete: true)
                 .Index(t => new { t.CompanyID, t.BreedID })
-                .Index(t => new { t.CompanyID, t.CoatColourID });
+                .Index(t => new { t.CompanyID, t.CoatColourID })
+                .Index(t => t.AnimalTypeID);
             
             CreateTable(
                 "dbo.Genders",
@@ -174,10 +163,8 @@ namespace PetsWeb.Migrations
                         InsDateTime = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => new { t.CompanyID, t.SerialID })
-                .ForeignKey("dbo.Companies", t => t.CompanyID, cascadeDelete: false)
-                .ForeignKey("dbo.DiscriptionOfAnimals", t => new { t.CompanyID, t.AnimalID }, cascadeDelete: false)
-                .ForeignKey("dbo.LocationOfMicrochips", t => new { t.CompanyID, t.LocationOfMicrochipID }, cascadeDelete: false)
-                .Index(t => t.CompanyID)
+                .ForeignKey("dbo.DiscriptionOfAnimals", t => new { t.CompanyID, t.AnimalID }, cascadeDelete: true)
+                .ForeignKey("dbo.LocationOfMicrochips", t => new { t.CompanyID, t.LocationOfMicrochipID }, cascadeDelete: true)
                 .Index(t => new { t.CompanyID, t.AnimalID })
                 .Index(t => new { t.CompanyID, t.LocationOfMicrochipID });
             
@@ -192,56 +179,125 @@ namespace PetsWeb.Migrations
                         InsUserID = c.String(),
                         InsDateTime = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => new { t.CompanyID, t.LocationOfMicrochipID })
-                .ForeignKey("dbo.Companies", t => t.CompanyID, cascadeDelete: false)
-                .Index(t => t.CompanyID);
+                .PrimaryKey(t => new { t.CompanyID, t.LocationOfMicrochipID });
+            
+            CreateTable(
+                "dbo.AspNetRoles",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
+            CreateTable(
+                "dbo.AspNetUserRoles",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId)
+                .Index(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.AspNetUsers",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        UserType = c.Int(nullable: false),
+                        fCompanyId = c.Int(nullable: false),
+                        AccountStatus = c.Int(nullable: false),
+                        EmployeeID = c.String(),
+                        CODOMAIN = c.String(),
+                        RealPass = c.String(),
+                        Email = c.String(maxLength: 256),
+                        EmailConfirmed = c.Boolean(nullable: false),
+                        PasswordHash = c.String(),
+                        SecurityStamp = c.String(),
+                        PhoneNumber = c.String(),
+                        PhoneNumberConfirmed = c.Boolean(nullable: false),
+                        TwoFactorEnabled = c.Boolean(nullable: false),
+                        LockoutEndDateUtc = c.DateTime(),
+                        LockoutEnabled = c.Boolean(nullable: false),
+                        AccessFailedCount = c.Int(nullable: false),
+                        UserName = c.String(nullable: false, maxLength: 256),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
+            
+            CreateTable(
+                "dbo.AspNetUserClaims",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        ClaimType = c.String(),
+                        ClaimValue = c.String(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.AspNetUserLogins",
+                c => new
+                    {
+                        LoginProvider = c.String(nullable: false, maxLength: 128),
+                        ProviderKey = c.String(nullable: false, maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.UserId);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.IdentificationOfAnimals", new[] { "CompanyID", "LocationOfMicrochipID" }, "dbo.LocationOfMicrochips");
-            DropForeignKey("dbo.LocationOfMicrochips", "CompanyID", "dbo.Companies");
             DropForeignKey("dbo.IdentificationOfAnimals", new[] { "CompanyID", "AnimalID" }, "dbo.DiscriptionOfAnimals");
-            DropForeignKey("dbo.IdentificationOfAnimals", "CompanyID", "dbo.Companies");
-            DropForeignKey("dbo.DiscriptionOfAnimals", "CompanyID", "dbo.Companies");
             DropForeignKey("dbo.DiscriptionOfAnimals", new[] { "CompanyID", "CoatColourID" }, "dbo.CoatColours");
             DropForeignKey("dbo.DiscriptionOfAnimals", new[] { "CompanyID", "BreedID" }, "dbo.Breeds");
-            DropForeignKey("dbo.DiscriptionOfAnimals", new[] { "CompanyID", "AnimalTypeID" }, "dbo.AnimalTypes");
-            DropForeignKey("dbo.DetailsOfOwnerships", new[] { "CompanyID", "CountryID" }, "dbo.Countries");
-            DropForeignKey("dbo.DetailsOfOwnerships", "CompanyID", "dbo.Companies");
+            DropForeignKey("dbo.DiscriptionOfAnimals", "AnimalTypeID", "dbo.AnimalTypes");
             DropForeignKey("dbo.DetailsOfOwnerships", new[] { "CompanyID", "CityID" }, "dbo.Cities");
-            DropForeignKey("dbo.CoatColours", "CompanyID", "dbo.Companies");
             DropForeignKey("dbo.Cities", new[] { "CompanyID", "CountryID" }, "dbo.Countries");
-            DropForeignKey("dbo.Countries", "CompanyID", "dbo.Companies");
-            DropForeignKey("dbo.Cities", "CompanyID", "dbo.Companies");
-            DropForeignKey("dbo.Breeds", "CompanyID", "dbo.Companies");
-            DropForeignKey("dbo.AnimalTypes", "CompanyID", "dbo.Companies");
-            DropIndex("dbo.LocationOfMicrochips", new[] { "CompanyID" });
+            DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
+            DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
+            DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.IdentificationOfAnimals", new[] { "CompanyID", "LocationOfMicrochipID" });
             DropIndex("dbo.IdentificationOfAnimals", new[] { "CompanyID", "AnimalID" });
-            DropIndex("dbo.IdentificationOfAnimals", new[] { "CompanyID" });
+            DropIndex("dbo.DiscriptionOfAnimals", new[] { "AnimalTypeID" });
             DropIndex("dbo.DiscriptionOfAnimals", new[] { "CompanyID", "CoatColourID" });
             DropIndex("dbo.DiscriptionOfAnimals", new[] { "CompanyID", "BreedID" });
-            DropIndex("dbo.DiscriptionOfAnimals", new[] { "CompanyID", "AnimalTypeID" });
-            DropIndex("dbo.DetailsOfOwnerships", new[] { "CompanyID", "CountryID" });
             DropIndex("dbo.DetailsOfOwnerships", new[] { "CompanyID", "CityID" });
-            DropIndex("dbo.CoatColours", new[] { "CompanyID" });
-            DropIndex("dbo.Countries", new[] { "CompanyID" });
             DropIndex("dbo.Cities", new[] { "CompanyID", "CountryID" });
-            DropIndex("dbo.Cities", new[] { "CompanyID" });
-            DropIndex("dbo.Breeds", new[] { "CompanyID" });
-            DropIndex("dbo.AnimalTypes", new[] { "CompanyID" });
+            DropTable("dbo.AspNetUserLogins");
+            DropTable("dbo.AspNetUserClaims");
+            DropTable("dbo.AspNetUsers");
+            DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetRoles");
             DropTable("dbo.LocationOfMicrochips");
             DropTable("dbo.IdentificationOfAnimals");
             DropTable("dbo.Genders");
             DropTable("dbo.DiscriptionOfAnimals");
             DropTable("dbo.DetailsOfOwnerships");
+            DropTable("dbo.Companies");
             DropTable("dbo.CoatColours");
             DropTable("dbo.Countries");
             DropTable("dbo.Cities");
             DropTable("dbo.Breeds");
-            DropTable("dbo.Companies");
             DropTable("dbo.AnimalTypes");
         }
     }

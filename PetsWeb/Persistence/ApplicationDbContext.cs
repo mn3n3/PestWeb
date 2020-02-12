@@ -1,13 +1,13 @@
-﻿using Pets_Web.Models;
+﻿using PetsWeb.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
-using PetsWeb.Models;
+ 
 
-namespace Pets_Web.Persistence
+namespace PetsWeb.Persistence
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Company> Companies { get; set; }
+ 
         public DbSet<Country> Countries { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<DetailsOfOwnership> DetailsOfOwnerships { get; set; }
@@ -18,6 +18,8 @@ namespace Pets_Web.Persistence
         public DbSet<IdentificationOfAnimal> IdentificationOfAnimals { get; set; }
         public DbSet<LocationOfMicrochip> LocationOfMicrochips { get; set; }
         public DbSet<Gender> Genders { get; set; }
+
+        public DbSet<Company> Companies { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
