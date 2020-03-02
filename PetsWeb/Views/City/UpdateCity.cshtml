@@ -1,6 +1,6 @@
 ﻿@model PetsWeb.ViewModels.CitySearchFilterVM
 @{
-    ViewBag.Title = "Add New City";
+    ViewBag.Title = "Update City";
 }
 <script>
     $("#ArabicName").focus();
@@ -11,7 +11,7 @@
         <div style="padding-top:20px;">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    @Resources.Resource.SaveCity
+                    @Resources.Resource.UpdateCity
                 </div>
                 <div class="panel-body">
                     <div class="col-lg-12">
@@ -34,10 +34,11 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <button type="submit" class="btn btn-primary fa fa-plus" id="SaveCity">@Resources.Resource.Save</button>
+                    <button type="submit" class="btn btn-success fa fa-edit" id="UpdateCity" data-dismiss="modal">@Resources.Resource.Update</button>
                     <button type="button" class="btn btn-danger  fa fa-times" data-dismiss="modal">@Resources.Resource.Close</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

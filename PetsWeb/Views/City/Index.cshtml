@@ -144,6 +144,7 @@
                     url: "/City/GetAllCity",
                     "data": function (d) {
                         d.CityName = $("#CityName").val();
+                        d.CountryID = $("#CountryID").val();
                     },
                     dataSrc: ""
                 },
@@ -207,7 +208,7 @@
                                 });
                                 var dataToSave = {
                                     CityID: $("#CityID").val(),
-                                    CountryNo: $("#CountryID").val(),
+                                    CountryID: $("#CountryNo").val(),
                                     ArabicName: $("#ArabicName").val(),
                                     EnglishName: $("#EnglishName").val()
                                 };
@@ -228,7 +229,7 @@
                                             document.getElementById("CityID").value = data.LastID;
                                             document.getElementById("ArabicName").value = "";
                                             document.getElementById("EnglishName").value = "";
-                                            document.getElementById("CountryID").value = 1;
+                                            document.getElementById("CountryNo").value = 1;
                                             $("#ArabicName").focus();
                                             tabelMemRef.ajax.reload();
                                         }
@@ -292,7 +293,7 @@
                                 });
                                 var dataToUpdate = {
                                     CityID: $("#CityID").val(),
-                                    CountryID: $("#CountryID").val(),
+                                    CountryID: $("#CountryNo").val(),
                                     ArabicName: $("#ArabicName").val(),
                                     EnglishName: $("#EnglishName").val()
                                 };

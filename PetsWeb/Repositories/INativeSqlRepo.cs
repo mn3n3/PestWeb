@@ -1,4 +1,5 @@
-﻿using PetsWeb.ViewModels;
+﻿using PetsWeb.Models;
+using PetsWeb.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
