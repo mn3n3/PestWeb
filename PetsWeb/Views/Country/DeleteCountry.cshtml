@@ -1,0 +1,40 @@
+﻿@model PetsWeb.Models.Country
+@{
+    ViewBag.Title = "Delete Country";
+}
+
+<div class="row" id="MemberShipType">
+    <div class="col-md-3 col-md-offset-5">
+        <div style="padding-top:20px;">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    @Resources.Resource.DeleteCountry
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CountryID)
+                            @Html.TextBoxFor(m => m.CountryID, new { @id = "CountryID", @class = "form-control", @readonly = "readonly" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ArabicName)
+                            @Html.TextBoxFor(m => m.ArabicName, new { @id = "ArabicName",  @class = "form-control" ,@readonly = "readonly"})
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.EnglishName)
+                            @Html.TextBoxFor(m => m.EnglishName, new { @id = "EnglishName", @class = "form-control" ,@readonly = "readonly"})
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="submit" class="btn btn-danger  fa fa-trash-o" id="DeleteCountry" data-dismiss="modal">@Resources.Resource.Delete</button>
+                    <button type="button" class="btn btn-danger  fa fa-times" data-dismiss="modal">@Resources.Resource.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

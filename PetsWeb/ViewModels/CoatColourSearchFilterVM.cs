@@ -6,12 +6,12 @@ using System.Web;
 
 namespace PetsWeb.ViewModels
 {
-    public class CountrySearchFilterVM
+    public class CoatColourSearchFilterVM
     {
-        [Display(Name = "CountryName", ResourceType = typeof(Resources.Resource))]
-        public string CountryName { get; set; }
+        [Display(Name = "CoatColourName", ResourceType = typeof(Resources.Resource))]
+        public string CoatColourName { get; set; }
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
         public string UserName { get; set; }
-        public int CountryID { get; set; }
+        public int CoatColourID { get; set; }
     }
 }

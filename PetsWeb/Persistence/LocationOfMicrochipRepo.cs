@@ -31,12 +31,12 @@ namespace PetsWeb.Persistence
             }
         }
 
-        public IEnumerable<LocationOfMicrochip> GetAllCountry(int CompanyID)
+        public IEnumerable<LocationOfMicrochip> GetAllLocationOfMicrochip(int CompanyID)
         {
             return _context.LocationOfMicrochips.Where(m => m.CompanyID == CompanyID).ToList();
         }
 
-        public LocationOfMicrochip GetCountryByID(int CompanyID, int LocationOfMicrochipID)
+        public LocationOfMicrochip GetLocationOfMicrochipByID(int CompanyID, int LocationOfMicrochipID)
         {
             return _context.LocationOfMicrochips.FirstOrDefault(m => m.CompanyID == CompanyID && m.LocationOfMicrochipID == LocationOfMicrochipID);
         }

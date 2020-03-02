@@ -13,11 +13,10 @@ using System.Web.Mvc;
 
 namespace PetsWeb.Controllers
 {
-    [Authorize]
-    public class CountryController : BaseController
+    public class CityController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
-        public CountryController()
+        public CityController()
         {
             _unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
@@ -25,62 +24,81 @@ namespace PetsWeb.Controllers
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-            var CountryFilter = new CountrySearchFilterVM
+            var AllCountry = _unitOfWork.NativeSql.GetAllCountryInfo(UserInfo.fCompanyId);
+            var CityFilter = new CitySearchFilterVM
             {
-
+                Country = AllCountry 
             };
-            return View(CountryFilter);
+            return View(CityFilter);
         }
         [HttpPost]
-        public JsonResult GetAllCountry(CountrySearchFilterVM Obj)
+        public JsonResult GetAllCity(CitySearchFilterVM Obj)
         {
             try
             {
                 var userId = User.Identity.GetUserId();
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-                var AllCountry = _unitOfWork.NativeSql.GetAllCountryInfo(UserInfo.fCompanyId);
-                if (AllCountry == null)
+                var AllCity = _unitOfWork.NativeSql.GetAllCityInfo(UserInfo.fCompanyId);
+                if (AllCity == null)
                 {
-                    return Json(new List<CountrySearchFilterVM>(), JsonRequestBehavior.AllowGet);
+                    return Json(new List<CitySearchFilterVM>(), JsonRequestBehavior.AllowGet);
                 }
-                if (!String.IsNullOrEmpty(Obj.CountryName))
+                if (!String.IsNullOrEmpty(Obj.CityName))
                 {
-                    AllCountry = AllCountry.Where(m => m.CountryName.ToUpper().Contains(Obj.CountryName) || 
-                                                        m.CountryName.ToLower().Contains(Obj.CountryName)).ToList();
+                    AllCity = AllCity.Where(m => m.CityName.ToUpper().Contains(Obj.CityName) ||
+                                                        m.CityName.ToLower().Contains(Obj.CityName)).ToList();
                 }
-                return Json(AllCountry, JsonRequestBehavior.AllowGet);
+                if (Obj.CountryID != 0)
+                {
+                    AllCity = AllCity.Where(m => m.CountryID == Obj.CountryID).ToList();
+                }
+                return Json(AllCity, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 ViewBag.Error = ex.Message.ToString();
-                return Json(new List<CountrySearchFilterVM>(), JsonRequestBehavior.AllowGet);
+                return Json(new List<CitySearchFilterVM>(), JsonRequestBehavior.AllowGet);
             }
 
         }
-        public ActionResult SaveCountry()
+        public ActionResult SaveCity()
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-            Country Obj = new Country
+            var AllCountry = _unitOfWork.NativeSql.GetAllCountryInfo(UserInfo.fCompanyId);
+            CitySearchFilterVM Obj = new CitySearchFilterVM
             {
-                CountryID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId)
+                CityID = _unitOfWork.City.GetMaxSerial(UserInfo.fCompanyId),
+                Country = AllCountry,
+                CountryID = 1
             };
             return PartialView(Obj);
         }
         [HttpPost]
-        public JsonResult SaveCountry(Country ObjToSave)
+        public JsonResult SaveCity(CitySearchFilterVM ObjToSave)
         {
             MsgUnit Msg = new MsgUnit();
             try
             {
+
                 var userId = User.Identity.GetUserId();
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-                ObjToSave.CountryID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId);
+                var SaveCity = new City();
+                ObjToSave.CityID = _unitOfWork.City.GetMaxSerial(UserInfo.fCompanyId);
                 ObjToSave.InsDateTime = DateTime.Now;
                 ObjToSave.InsUserID = userId;
                 ObjToSave.CompanyID = UserInfo.fCompanyId;
                 if (String.IsNullOrEmpty(ObjToSave.EnglishName))
                     ObjToSave.EnglishName = ObjToSave.ArabicName;
+
+                SaveCity.CityID = ObjToSave.CityID;
+                SaveCity.CountryID = ObjToSave.CountryID;
+                SaveCity.ArabicName = ObjToSave.ArabicName;
+                SaveCity.EnglishName = ObjToSave.EnglishName;
+                SaveCity.InsDateTime = ObjToSave.InsDateTime;
+                SaveCity.InsUserID = ObjToSave.InsUserID;
+                SaveCity.CompanyID = ObjToSave.CompanyID;
+
                 if (!ModelState.IsValid)
                 {
                     string Err = " ";
@@ -95,9 +113,9 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Add(ObjToSave);
+                _unitOfWork.City.Add(SaveCity);
                 _unitOfWork.Complete();
-                Msg.LastID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId).ToString();
+                Msg.LastID = _unitOfWork.City.GetMaxSerial(UserInfo.fCompanyId).ToString();
                 Msg.Code = 1;
                 Msg.Msg = Resources.Resource.AddedSuccessfully;
                 return Json(Msg, JsonRequestBehavior.AllowGet);

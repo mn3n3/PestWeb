@@ -13,11 +13,10 @@ using System.Web.Mvc;
 
 namespace PetsWeb.Controllers
 {
-    [Authorize]
-    public class CountryController : BaseController
+    public class LocationOfMicrochipController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
-        public CountryController()
+        public LocationOfMicrochipController()
         {
             _unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
@@ -25,57 +24,57 @@ namespace PetsWeb.Controllers
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-            var CountryFilter = new CountrySearchFilterVM
+            var LocationOfMicrochipFilter = new LocationOfMicrochipSearchFilterVM
             {
 
             };
-            return View(CountryFilter);
+            return View(LocationOfMicrochipFilter);
         }
         [HttpPost]
-        public JsonResult GetAllCountry(CountrySearchFilterVM Obj)
+        public JsonResult GetAllLocationOfMicrochip(LocationOfMicrochipSearchFilterVM Obj)
         {
             try
             {
                 var userId = User.Identity.GetUserId();
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-                var AllCountry = _unitOfWork.NativeSql.GetAllCountryInfo(UserInfo.fCompanyId);
-                if (AllCountry == null)
+                var AllLocationOfMicrochip = _unitOfWork.NativeSql.GetAllLocationOfMicrochipInfo(UserInfo.fCompanyId);
+                if (AllLocationOfMicrochip == null)
                 {
-                    return Json(new List<CountrySearchFilterVM>(), JsonRequestBehavior.AllowGet);
+                    return Json(new List<LocationOfMicrochipSearchFilterVM>(), JsonRequestBehavior.AllowGet);
                 }
-                if (!String.IsNullOrEmpty(Obj.CountryName))
+                if (!String.IsNullOrEmpty(Obj.LocationOfMicrochipName))
                 {
-                    AllCountry = AllCountry.Where(m => m.CountryName.ToUpper().Contains(Obj.CountryName) || 
-                                                        m.CountryName.ToLower().Contains(Obj.CountryName)).ToList();
+                    AllLocationOfMicrochip = AllLocationOfMicrochip.Where(m => m.LocationOfMicrochipName.ToUpper().Contains(Obj.LocationOfMicrochipName) ||
+                                                        m.LocationOfMicrochipName.ToLower().Contains(Obj.LocationOfMicrochipName)).ToList();
                 }
-                return Json(AllCountry, JsonRequestBehavior.AllowGet);
+                return Json(AllLocationOfMicrochip, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 ViewBag.Error = ex.Message.ToString();
-                return Json(new List<CountrySearchFilterVM>(), JsonRequestBehavior.AllowGet);
+                return Json(new List<LocationOfMicrochipSearchFilterVM>(), JsonRequestBehavior.AllowGet);
             }
 
         }
-        public ActionResult SaveCountry()
+        public ActionResult SaveLocationOfMicrochip()
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-            Country Obj = new Country
+            LocationOfMicrochip Obj = new LocationOfMicrochip
             {
-                CountryID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId)
+                LocationOfMicrochipID = _unitOfWork.LocationOfMicrochip.GetMaxSerial(UserInfo.fCompanyId)
             };
             return PartialView(Obj);
         }
         [HttpPost]
-        public JsonResult SaveCountry(Country ObjToSave)
+        public JsonResult SaveLocationOfMicrochip(LocationOfMicrochip ObjToSave)
         {
             MsgUnit Msg = new MsgUnit();
             try
             {
                 var userId = User.Identity.GetUserId();
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-                ObjToSave.CountryID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId);
+                ObjToSave.LocationOfMicrochipID = _unitOfWork.LocationOfMicrochip.GetMaxSerial(UserInfo.fCompanyId);
                 ObjToSave.InsDateTime = DateTime.Now;
                 ObjToSave.InsUserID = userId;
                 ObjToSave.CompanyID = UserInfo.fCompanyId;
@@ -95,9 +94,9 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Add(ObjToSave);
+                _unitOfWork.LocationOfMicrochip.Add(ObjToSave);
                 _unitOfWork.Complete();
-                Msg.LastID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId).ToString();
+                Msg.LastID = _unitOfWork.LocationOfMicrochip.GetMaxSerial(UserInfo.fCompanyId).ToString();
                 Msg.Code = 1;
                 Msg.Msg = Resources.Resource.AddedSuccessfully;
                 return Json(Msg, JsonRequestBehavior.AllowGet);
@@ -110,7 +109,7 @@ namespace PetsWeb.Controllers
             }
 
         }
-        public ActionResult UpdateCountry(int id)
+        public ActionResult UpdateLocationOfMicrochip(int id)
         {
             try
             {
@@ -122,10 +121,10 @@ namespace PetsWeb.Controllers
                     {
                         RedirectToAction("", "");
                     }
-                    var Obj = _unitOfWork.Country.GetCountryByID(UserInfo.fCompanyId, id);
-                    return PartialView("UpdateCountry", Obj);
+                    var Obj = _unitOfWork.LocationOfMicrochip.GetLocationOfMicrochipByID(UserInfo.fCompanyId, id);
+                    return PartialView("UpdateLocationOfMicrochip", Obj);
                 }
-                return PartialView("UpdateCountry", new Country());
+                return PartialView("UpdateLocationOfMicrochip", new LocationOfMicrochip());
             }
             catch (Exception ex)
             {
@@ -134,7 +133,7 @@ namespace PetsWeb.Controllers
             }
         }
         [HttpPost]
-        public JsonResult UpdateCountry(Country ObjUpdate)
+        public JsonResult UpdateLocationOfMicrochip(LocationOfMicrochip ObjUpdate)
         {
             MsgUnit Msg = new MsgUnit();
             try
@@ -156,7 +155,7 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Update(ObjUpdate);
+                _unitOfWork.LocationOfMicrochip.Update(ObjUpdate);
                 _unitOfWork.Complete();
 
                 Msg.Code = 1;
@@ -171,7 +170,7 @@ namespace PetsWeb.Controllers
             }
 
         }
-        public ActionResult DeleteCountry(int id)
+        public ActionResult DeleteLocationOfMicrochip(int id)
         {
             try
             {
@@ -184,10 +183,10 @@ namespace PetsWeb.Controllers
                         RedirectToAction("", "");
                     }
 
-                    var Obj = _unitOfWork.Country.GetCountryByID(UserInfo.fCompanyId, id);
-                    return PartialView("DeleteCountry", Obj);
+                    var Obj = _unitOfWork.LocationOfMicrochip.GetLocationOfMicrochipByID(UserInfo.fCompanyId, id);
+                    return PartialView("DeleteLocationOfMicrochip", Obj);
                 }
-                return PartialView("DeleteCountry", new Country());
+                return PartialView("DeleteLocationOfMicrochip", new LocationOfMicrochip());
             }
             catch (Exception ex)
             {
@@ -196,7 +195,7 @@ namespace PetsWeb.Controllers
             }
         }
         [HttpPost]
-        public JsonResult DeleteCountry(Country ObjDelete)
+        public JsonResult DeleteLocationOfMicrochip(LocationOfMicrochip ObjDelete)
         {
             MsgUnit Msg = new MsgUnit();
             try
@@ -217,7 +216,7 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Delete(ObjDelete);
+                _unitOfWork.LocationOfMicrochip.Delete(ObjDelete);
                 _unitOfWork.Complete();
                 Msg.Code = 1;
                 Msg.Msg = Resources.Resource.DeletedSuccessfully;

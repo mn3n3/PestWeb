@@ -1,0 +1,44 @@
+﻿@model PetsWeb.Models.LocationOfMicrochip
+@{
+    ViewBag.Title = "Update LocationOfMicrochip";
+}
+
+<script>
+    $("#ArabicName").focus();
+</script>
+
+<div class="row" id="MemberShipType">
+    <div class="col-md-3 col-md-offset-5">
+        <div style="padding-top:20px;">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    @Resources.Resource.UpdateLocationOfMicrochip
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.LocationOfMicrochipID)
+                            @Html.TextBoxFor(m => m.LocationOfMicrochipID, new { @id = "LocationOfMicrochipID", @class = "form-control", @readonly = "readonly" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ArabicName)<span style="color:red">*</span>
+                            @Html.TextBoxFor(m => m.ArabicName, new { @id = "ArabicName", autofocus = "autofocus", @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.EnglishName)
+                            @Html.TextBoxFor(m => m.EnglishName, new { @id = "EnglishName", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="submit" class="btn btn-success fa fa-edit" id="UpdateLocationOfMicrochip" data-dismiss="modal">@Resources.Resource.Update</button>
+                    <button type="button" class="btn btn-danger  fa fa-times" data-dismiss="modal">@Resources.Resource.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

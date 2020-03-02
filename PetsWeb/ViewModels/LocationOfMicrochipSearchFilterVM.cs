@@ -6,12 +6,12 @@ using System.Web;
 
 namespace PetsWeb.ViewModels
 {
-    public class CountrySearchFilterVM
+    public class LocationOfMicrochipSearchFilterVM
     {
-        [Display(Name = "CountryName", ResourceType = typeof(Resources.Resource))]
-        public string CountryName { get; set; }
+        [Display(Name = "LocationOfMicrochipName", ResourceType = typeof(Resources.Resource))]
+        public string LocationOfMicrochipName { get; set; }
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
         public string UserName { get; set; }
-        public int CountryID { get; set; }
+        public int LocationOfMicrochipID { get; set; }
     }
 }

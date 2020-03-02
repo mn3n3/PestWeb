@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddedSuccessfully" xml:space="preserve">
+    <value>Added Successfully</value>
+  </data>
   <data name="Address" xml:space="preserve">
     <value>Address</value>
   </data>
   <data name="AnimalName" xml:space="preserve">
     <value>Animal Name</value>
+  </data>
+  <data name="AnimalTypeName" xml:space="preserve">
+    <value>Species Name</value>
   </data>
   <data name="ArabicName" xml:space="preserve">
     <value>Arabic Name</value>
@@ -129,17 +135,32 @@
   <data name="ArbAddress" xml:space="preserve">
     <value>Arabic Address</value>
   </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are You Sure ?</value>
+  </data>
   <data name="Breed" xml:space="preserve">
     <value>Breed</value>
+  </data>
+  <data name="BreedName" xml:space="preserve">
+    <value>Breed Name</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Change Password</value>
   </data>
+  <data name="City" xml:space="preserve">
+    <value>Cities</value>
+  </data>
   <data name="CityName" xml:space="preserve">
     <value>City Name</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value> Close </value>
+  </data>
   <data name="CoatColour" xml:space="preserve">
     <value>Coat Colour</value>
+  </data>
+  <data name="CoatColourName" xml:space="preserve">
+    <value>Coat Colour </value>
   </data>
   <data name="CompanyInfo" xml:space="preserve">
     <value>Company Info</value>
@@ -150,8 +171,8 @@
   <data name="Country" xml:space="preserve">
     <value>Countries</value>
   </data>
-  <data name="CountyName" xml:space="preserve">
-    <value>County Name</value>
+  <data name="CountryName" xml:space="preserve">
+    <value>Country Name</value>
   </data>
   <data name="CreateCompanyData" xml:space="preserve">
     <value>The company data and files are being created, 
@@ -171,6 +192,27 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   </data>
   <data name="Delete" xml:space="preserve">
     <value> Delete </value>
+  </data>
+  <data name="DeleteAnimalType" xml:space="preserve">
+    <value>Delete Species</value>
+  </data>
+  <data name="DeleteBreed" xml:space="preserve">
+    <value>Delete Breed</value>
+  </data>
+  <data name="DeleteCoatColour" xml:space="preserve">
+    <value>Delete Coat Colour</value>
+  </data>
+  <data name="DeleteCountry" xml:space="preserve">
+    <value>Delete Country</value>
+  </data>
+  <data name="DeletedSuccessfully" xml:space="preserve">
+    <value>Deleted Successfully</value>
+  </data>
+  <data name="DeleteLocationOfMicrochip" xml:space="preserve">
+    <value>Delete Location Of Microchip</value>
+  </data>
+  <data name="Deleting" xml:space="preserve">
+    <value>Deleting</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
@@ -223,6 +265,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="LocationOfMicrochip" xml:space="preserve">
     <value>Location Of Microchip</value>
   </data>
+  <data name="LocationOfMicrochipName" xml:space="preserve">
+    <value>Location Of Microchip</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -243,6 +288,12 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   </data>
   <data name="Next" xml:space="preserve">
     <value>Next</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
   </data>
   <data name="OwnerName" xml:space="preserve">
     <value>Owner Name</value>
@@ -280,6 +331,24 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="Save" xml:space="preserve">
     <value> Save </value>
   </data>
+  <data name="SaveAnimalType" xml:space="preserve">
+    <value>Save Species</value>
+  </data>
+  <data name="SaveBreed" xml:space="preserve">
+    <value>Save Breeds</value>
+  </data>
+  <data name="SaveCity" xml:space="preserve">
+    <value>Save Cities</value>
+  </data>
+  <data name="SaveCoatColour" xml:space="preserve">
+    <value>Save Coat Colours</value>
+  </data>
+  <data name="SaveCountry" xml:space="preserve">
+    <value>Save Countries</value>
+  </data>
+  <data name="SaveLocationOfMicrochip" xml:space="preserve">
+    <value>Save Location Of Microchips</value>
+  </data>
   <data name="Saving" xml:space="preserve">
     <value>Saving</value>
   </data>
@@ -310,6 +379,27 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="Update" xml:space="preserve">
     <value> Update </value>
   </data>
+  <data name="UpdateAnimalType" xml:space="preserve">
+    <value>Update  Species</value>
+  </data>
+  <data name="UpdateBreed" xml:space="preserve">
+    <value>Update Breed</value>
+  </data>
+  <data name="UpdateCoatColour" xml:space="preserve">
+    <value>Update Coat Colour</value>
+  </data>
+  <data name="UpdateCountry" xml:space="preserve">
+    <value>Update Country</value>
+  </data>
+  <data name="UpdatedSuccessfully" xml:space="preserve">
+    <value>Updated Successfully</value>
+  </data>
+  <data name="UpdateLocationOfMicrochip" xml:space="preserve">
+    <value>Update Location Of Microchip</value>
+  </data>
+  <data name="Updting" xml:space="preserve">
+    <value>Updting</value>
+  </data>
   <data name="Website" xml:space="preserve">
     <value>Website</value>
   </data>
@@ -318,6 +408,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   </data>
   <data name="WelcomeToCatnipSoft" xml:space="preserve">
     <value>Welcome To CatnipSoft </value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
   <data name="YourAccountIsBeingCreated" xml:space="preserve">
     <value>Your Account Is Being Created</value>
