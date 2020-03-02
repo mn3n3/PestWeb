@@ -319,7 +319,7 @@
     <value> طباعة اكسل </value>
   </data>
   <data name="Processing" xml:space="preserve">
-    <value>جارٍ التحميل...</value>
+    <value>جارٍ التحميل</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>انشاء حساب</value>

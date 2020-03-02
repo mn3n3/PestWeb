@@ -60,17 +60,43 @@ namespace PetsWeb.Controllers
                     ObjToSave.Id = CoData.Id;
 
                     _unitOfWork.Company.Update(ObjToSave);
+                    _unitOfWork.Complete();
 
                 }
                 else
                 {
                     _unitOfWork.Company.Add(ObjToSave);
+                    _unitOfWork.Complete();
+
+
+
+                    var path = Server.MapPath("~/AnimalDoc/" + ObjToSave.Id.ToString());
+                    Directory.CreateDirectory(path);
+
+                    var path2 = Server.MapPath("~/AnimalImg/" + ObjToSave.Id.ToString());
+                    Directory.CreateDirectory(path2);
+
+
+                    string fileName = "noimage.png";
+                    string sourcePath = Server.MapPath("~/Logos/Animal.png");
+                    string targetPath = Server.MapPath("~/AnimalImg/" + ObjToSave.Id.ToString());
+
+                    string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
+                    string destFile = System.IO.Path.Combine(targetPath, "\\");
+
+
+                    string fileToCopy = sourcePath;
+                    string destinationDirectory = targetPath + "\\";
+
+                    System.IO.File.Copy(fileToCopy, destinationDirectory + Path.GetFileName(fileToCopy));
+
+                 
 
                 }
 
 
 
-                _unitOfWork.Complete();
+              
 
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(ObjToSave.UserId);
                 UserInfo.fCompanyId = ObjToSave.Id;
@@ -89,29 +115,6 @@ namespace PetsWeb.Controllers
 
 
    
- 
-
-                var path = Server.MapPath("~/AnimalDoc/" + ObjToSave.Id.ToString());
-                Directory.CreateDirectory(path);
-
-                var path2 = Server.MapPath("~/AnimalImg/" + ObjToSave.Id.ToString());
-                Directory.CreateDirectory(path2);
-
-
-                string fileName = "noimage.png";
-                string sourcePath = Server.MapPath("~/Logos/Animal.png");
-                string targetPath = Server.MapPath("~/AnimalImg/" + ObjToSave.Id.ToString());
-
-                string sourceFile = System.IO.Path.Combine(sourcePath, fileName);
-                string destFile = System.IO.Path.Combine(targetPath, "\\");
-
-
-                string fileToCopy = sourcePath;
-                string destinationDirectory = targetPath + "\\";
-
-                System.IO.File.Copy(fileToCopy, destinationDirectory + Path.GetFileName(fileToCopy));
-
-
 
           
  
