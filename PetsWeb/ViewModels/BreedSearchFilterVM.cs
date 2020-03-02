@@ -4,14 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
+
 namespace PetsWeb.ViewModels
 {
-    public class CountrySearchFilterVM
+    public class BreedSearchFilterVM
     {
-        [Display(Name = "CountryName", ResourceType = typeof(Resources.Resource))]
-        public string CountryName { get; set; }
+        [Display(Name = "BreedName", ResourceType = typeof(Resources.Resource))]
+        public string BreedName { get; set; }
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
         public string UserName { get; set; }
-        public int CountryID { get; set; }
+        public int BreedID { get; set; }
     }
 }

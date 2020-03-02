@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Added Successfully.
+        /// </summary>
+        public static string AddedSuccessfully {
+            get {
+                return ResourceManager.GetString("AddedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -75,6 +84,15 @@ namespace Resources {
         public static string AnimalName {
             get {
                 return ResourceManager.GetString("AnimalName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Species Name.
+        /// </summary>
+        public static string AnimalTypeName {
+            get {
+                return ResourceManager.GetString("AnimalTypeName", resourceCulture);
             }
         }
         
@@ -97,11 +115,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are You Sure ?.
+        /// </summary>
+        public static string AreYouSure {
+            get {
+                return ResourceManager.GetString("AreYouSure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Breed.
         /// </summary>
         public static string Breed {
             get {
                 return ResourceManager.GetString("Breed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breed Name.
+        /// </summary>
+        public static string BreedName {
+            get {
+                return ResourceManager.GetString("BreedName", resourceCulture);
             }
         }
         
@@ -115,6 +151,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cities.
+        /// </summary>
+        public static string City {
+            get {
+                return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to City Name.
         /// </summary>
         public static string CityName {
@@ -124,11 +169,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  Close .
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Coat Colour.
         /// </summary>
         public static string CoatColour {
             get {
                 return ResourceManager.GetString("CoatColour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coat Colour .
+        /// </summary>
+        public static string CoatColourName {
+            get {
+                return ResourceManager.GetString("CoatColourName", resourceCulture);
             }
         }
         
@@ -160,11 +223,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to County Name.
+        ///   Looks up a localized string similar to Country Name.
         /// </summary>
-        public static string CountyName {
+        public static string CountryName {
             get {
-                return ResourceManager.GetString("CountyName", resourceCulture);
+                return ResourceManager.GetString("CountryName", resourceCulture);
             }
         }
         
@@ -220,6 +283,69 @@ namespace Resources {
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Species.
+        /// </summary>
+        public static string DeleteAnimalType {
+            get {
+                return ResourceManager.GetString("DeleteAnimalType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Breed.
+        /// </summary>
+        public static string DeleteBreed {
+            get {
+                return ResourceManager.GetString("DeleteBreed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Coat Colour.
+        /// </summary>
+        public static string DeleteCoatColour {
+            get {
+                return ResourceManager.GetString("DeleteCoatColour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Country.
+        /// </summary>
+        public static string DeleteCountry {
+            get {
+                return ResourceManager.GetString("DeleteCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleted Successfully.
+        /// </summary>
+        public static string DeletedSuccessfully {
+            get {
+                return ResourceManager.GetString("DeletedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Location Of Microchip.
+        /// </summary>
+        public static string DeleteLocationOfMicrochip {
+            get {
+                return ResourceManager.GetString("DeleteLocationOfMicrochip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleting.
+        /// </summary>
+        public static string Deleting {
+            get {
+                return ResourceManager.GetString("Deleting", resourceCulture);
             }
         }
         
@@ -377,6 +503,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Location Of Microchip.
+        /// </summary>
+        public static string LocationOfMicrochipName {
+            get {
+                return ResourceManager.GetString("LocationOfMicrochipName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {
@@ -436,6 +571,24 @@ namespace Resources {
         public static string Next {
             get {
                 return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        public static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
             }
         }
         
@@ -548,6 +701,60 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save Species.
+        /// </summary>
+        public static string SaveAnimalType {
+            get {
+                return ResourceManager.GetString("SaveAnimalType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Breeds.
+        /// </summary>
+        public static string SaveBreed {
+            get {
+                return ResourceManager.GetString("SaveBreed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Cities.
+        /// </summary>
+        public static string SaveCity {
+            get {
+                return ResourceManager.GetString("SaveCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Coat Colours.
+        /// </summary>
+        public static string SaveCoatColour {
+            get {
+                return ResourceManager.GetString("SaveCoatColour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Countries.
+        /// </summary>
+        public static string SaveCountry {
+            get {
+                return ResourceManager.GetString("SaveCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Location Of Microchips.
+        /// </summary>
+        public static string SaveLocationOfMicrochip {
+            get {
+                return ResourceManager.GetString("SaveLocationOfMicrochip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Saving.
         /// </summary>
         public static string Saving {
@@ -638,6 +845,69 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update  Species.
+        /// </summary>
+        public static string UpdateAnimalType {
+            get {
+                return ResourceManager.GetString("UpdateAnimalType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Breed.
+        /// </summary>
+        public static string UpdateBreed {
+            get {
+                return ResourceManager.GetString("UpdateBreed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Coat Colour.
+        /// </summary>
+        public static string UpdateCoatColour {
+            get {
+                return ResourceManager.GetString("UpdateCoatColour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Country.
+        /// </summary>
+        public static string UpdateCountry {
+            get {
+                return ResourceManager.GetString("UpdateCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updated Successfully.
+        /// </summary>
+        public static string UpdatedSuccessfully {
+            get {
+                return ResourceManager.GetString("UpdatedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Location Of Microchip.
+        /// </summary>
+        public static string UpdateLocationOfMicrochip {
+            get {
+                return ResourceManager.GetString("UpdateLocationOfMicrochip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updting.
+        /// </summary>
+        public static string Updting {
+            get {
+                return ResourceManager.GetString("Updting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Website.
         /// </summary>
         public static string Website {
@@ -661,6 +931,15 @@ namespace Resources {
         public static string WelcomeToCatnipSoft {
             get {
                 return ResourceManager.GetString("WelcomeToCatnipSoft", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         

@@ -173,10 +173,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnimalTypeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BreedController.cs" />
+    <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\CoatColourController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationOfMicrochipController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -231,8 +236,13 @@
     <Compile Include="Repositories\IUnitOfWork.cs" />
     <Compile Include="Repositories\IUserAccountRepo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AnimalTypeSearchFilterVM.cs" />
+    <Compile Include="ViewModels\BreedSearchFilterVM.cs" />
+    <Compile Include="ViewModels\CitySearchFilterVM.cs" />
+    <Compile Include="ViewModels\CoatColourSearchFilterVM.cs" />
     <Compile Include="ViewModels\CountrySearchFilterVM.cs" />
     <Compile Include="ViewModels\DashBoardVM.cs" />
+    <Compile Include="ViewModels\LocationOfMicrochipSearchFilterVM.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ORDER_HEADERViewModel.cs" />
     <Compile Include="ViewModels\PAY_METHODViewModel.cs" />
@@ -959,6 +969,27 @@
     <Content Include="Views\Company\CreateNew.cshtml" />
     <Content Include="Views\Company\Update.cshtml" />
     <Content Include="Views\Country\Index.cshtml" />
+    <Content Include="Views\Country\SaveCountry.cshtml" />
+    <Content Include="Views\Country\UpdateCountry.cshtml" />
+    <Content Include="Views\Country\DeleteCountry.cshtml" />
+    <Content Include="Views\Breed\Index.cshtml" />
+    <Content Include="Views\Breed\SaveBreed.cshtml" />
+    <Content Include="Views\Breed\UpdateBreed.cshtml" />
+    <Content Include="Views\Breed\DeleteBreed.cshtml" />
+    <Content Include="Views\CoatColour\Index.cshtml" />
+    <Content Include="Views\CoatColour\SaveCoatColour.cshtml" />
+    <Content Include="Views\CoatColour\UpdateCoatColour.cshtml" />
+    <Content Include="Views\CoatColour\DeleteCoatColour.cshtml" />
+    <Content Include="Views\AnimalType\Index.cshtml" />
+    <Content Include="Views\AnimalType\SaveAnimalType.cshtml" />
+    <Content Include="Views\AnimalType\UpdateAnimalType.cshtml" />
+    <Content Include="Views\AnimalType\DeleteAnimalType.cshtml" />
+    <Content Include="Views\LocationOfMicrochip\Index.cshtml" />
+    <Content Include="Views\LocationOfMicrochip\SaveLocationOfMicrochip.cshtml" />
+    <Content Include="Views\LocationOfMicrochip\UpdateLocationOfMicrochip.cshtml" />
+    <Content Include="Views\LocationOfMicrochip\DeleteLocationOfMicrochip.cshtml" />
+    <Content Include="Views\City\Index.cshtml" />
+    <Content Include="Views\City\SaveCity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

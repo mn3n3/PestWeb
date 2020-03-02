@@ -13,11 +13,10 @@ using System.Web.Mvc;
 
 namespace PetsWeb.Controllers
 {
-    [Authorize]
-    public class CountryController : BaseController
+    public class CoatColourController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
-        public CountryController()
+        public CoatColourController()
         {
             _unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
@@ -25,57 +24,57 @@ namespace PetsWeb.Controllers
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-            var CountryFilter = new CountrySearchFilterVM
+            var CoatColourFilter = new CoatColourSearchFilterVM
             {
 
             };
-            return View(CountryFilter);
+            return View(CoatColourFilter);
         }
         [HttpPost]
-        public JsonResult GetAllCountry(CountrySearchFilterVM Obj)
+        public JsonResult GetAllCoatColour(CoatColourSearchFilterVM Obj)
         {
             try
             {
                 var userId = User.Identity.GetUserId();
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-                var AllCountry = _unitOfWork.NativeSql.GetAllCountryInfo(UserInfo.fCompanyId);
-                if (AllCountry == null)
+                var AllCoatColour = _unitOfWork.NativeSql.GetAllCoatColourInfo(UserInfo.fCompanyId);
+                if (AllCoatColour == null)
                 {
-                    return Json(new List<CountrySearchFilterVM>(), JsonRequestBehavior.AllowGet);
+                    return Json(new List<CoatColourSearchFilterVM>(), JsonRequestBehavior.AllowGet);
                 }
-                if (!String.IsNullOrEmpty(Obj.CountryName))
+                if (!String.IsNullOrEmpty(Obj.CoatColourName))
                 {
-                    AllCountry = AllCountry.Where(m => m.CountryName.ToUpper().Contains(Obj.CountryName) || 
-                                                        m.CountryName.ToLower().Contains(Obj.CountryName)).ToList();
+                    AllCoatColour = AllCoatColour.Where(m => m.CoatColourName.ToUpper().Contains(Obj.CoatColourName) ||
+                                                        m.CoatColourName.ToLower().Contains(Obj.CoatColourName)).ToList();
                 }
-                return Json(AllCountry, JsonRequestBehavior.AllowGet);
+                return Json(AllCoatColour, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 ViewBag.Error = ex.Message.ToString();
-                return Json(new List<CountrySearchFilterVM>(), JsonRequestBehavior.AllowGet);
+                return Json(new List<CoatColourSearchFilterVM>(), JsonRequestBehavior.AllowGet);
             }
 
         }
-        public ActionResult SaveCountry()
+        public ActionResult SaveCoatColour()
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-            Country Obj = new Country
+            CoatColour Obj = new CoatColour
             {
-                CountryID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId)
+                CoatColourID = _unitOfWork.CoatColour.GetMaxSerial(UserInfo.fCompanyId)
             };
             return PartialView(Obj);
         }
         [HttpPost]
-        public JsonResult SaveCountry(Country ObjToSave)
+        public JsonResult SaveCoatColour(CoatColour ObjToSave)
         {
             MsgUnit Msg = new MsgUnit();
             try
             {
                 var userId = User.Identity.GetUserId();
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-                ObjToSave.CountryID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId);
+                ObjToSave.CoatColourID = _unitOfWork.CoatColour.GetMaxSerial(UserInfo.fCompanyId);
                 ObjToSave.InsDateTime = DateTime.Now;
                 ObjToSave.InsUserID = userId;
                 ObjToSave.CompanyID = UserInfo.fCompanyId;
@@ -95,9 +94,9 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Add(ObjToSave);
+                _unitOfWork.CoatColour.Add(ObjToSave);
                 _unitOfWork.Complete();
-                Msg.LastID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId).ToString();
+                Msg.LastID = _unitOfWork.CoatColour.GetMaxSerial(UserInfo.fCompanyId).ToString();
                 Msg.Code = 1;
                 Msg.Msg = Resources.Resource.AddedSuccessfully;
                 return Json(Msg, JsonRequestBehavior.AllowGet);
@@ -110,7 +109,7 @@ namespace PetsWeb.Controllers
             }
 
         }
-        public ActionResult UpdateCountry(int id)
+        public ActionResult UpdateCoatColour(int id)
         {
             try
             {
@@ -122,10 +121,10 @@ namespace PetsWeb.Controllers
                     {
                         RedirectToAction("", "");
                     }
-                    var Obj = _unitOfWork.Country.GetCountryByID(UserInfo.fCompanyId, id);
-                    return PartialView("UpdateCountry", Obj);
+                    var Obj = _unitOfWork.CoatColour.GetCoatColourByID(UserInfo.fCompanyId, id);
+                    return PartialView("UpdateCoatColour", Obj);
                 }
-                return PartialView("UpdateCountry", new Country());
+                return PartialView("UpdateCoatColour", new CoatColour());
             }
             catch (Exception ex)
             {
@@ -134,7 +133,7 @@ namespace PetsWeb.Controllers
             }
         }
         [HttpPost]
-        public JsonResult UpdateCountry(Country ObjUpdate)
+        public JsonResult UpdateCoatColour(CoatColour ObjUpdate)
         {
             MsgUnit Msg = new MsgUnit();
             try
@@ -156,7 +155,7 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Update(ObjUpdate);
+                _unitOfWork.CoatColour.Update(ObjUpdate);
                 _unitOfWork.Complete();
 
                 Msg.Code = 1;
@@ -171,7 +170,7 @@ namespace PetsWeb.Controllers
             }
 
         }
-        public ActionResult DeleteCountry(int id)
+        public ActionResult DeleteCoatColour(int id)
         {
             try
             {
@@ -184,10 +183,10 @@ namespace PetsWeb.Controllers
                         RedirectToAction("", "");
                     }
 
-                    var Obj = _unitOfWork.Country.GetCountryByID(UserInfo.fCompanyId, id);
-                    return PartialView("DeleteCountry", Obj);
+                    var Obj = _unitOfWork.CoatColour.GetCoatColourByID(UserInfo.fCompanyId, id);
+                    return PartialView("DeleteCoatColour", Obj);
                 }
-                return PartialView("DeleteCountry", new Country());
+                return PartialView("DeleteCoatColour", new CoatColour());
             }
             catch (Exception ex)
             {
@@ -196,7 +195,7 @@ namespace PetsWeb.Controllers
             }
         }
         [HttpPost]
-        public JsonResult DeleteCountry(Country ObjDelete)
+        public JsonResult DeleteCoatColour(CoatColour ObjDelete)
         {
             MsgUnit Msg = new MsgUnit();
             try
@@ -217,7 +216,7 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Delete(ObjDelete);
+                _unitOfWork.CoatColour.Delete(ObjDelete);
                 _unitOfWork.Complete();
                 Msg.Code = 1;
                 Msg.Msg = Resources.Resource.DeletedSuccessfully;

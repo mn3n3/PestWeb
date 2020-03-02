@@ -13,11 +13,10 @@ using System.Web.Mvc;
 
 namespace PetsWeb.Controllers
 {
-    [Authorize]
-    public class CountryController : BaseController
+    public class AnimalTypeController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
-        public CountryController()
+        public AnimalTypeController()
         {
             _unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
@@ -25,57 +24,57 @@ namespace PetsWeb.Controllers
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-            var CountryFilter = new CountrySearchFilterVM
+            var AnimalTypeFilter = new AnimalTypeSearchFilterVM
             {
 
             };
-            return View(CountryFilter);
+            return View(AnimalTypeFilter);
         }
         [HttpPost]
-        public JsonResult GetAllCountry(CountrySearchFilterVM Obj)
+        public JsonResult GetAllAnimalType(AnimalTypeSearchFilterVM Obj)
         {
             try
             {
                 var userId = User.Identity.GetUserId();
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-                var AllCountry = _unitOfWork.NativeSql.GetAllCountryInfo(UserInfo.fCompanyId);
-                if (AllCountry == null)
+                var AllAnimalType = _unitOfWork.NativeSql.GetAllAnimalTypeInfo(UserInfo.fCompanyId);
+                if (AllAnimalType == null)
                 {
-                    return Json(new List<CountrySearchFilterVM>(), JsonRequestBehavior.AllowGet);
+                    return Json(new List<AnimalTypeSearchFilterVM>(), JsonRequestBehavior.AllowGet);
                 }
-                if (!String.IsNullOrEmpty(Obj.CountryName))
+                if (!String.IsNullOrEmpty(Obj.AnimalTypeName))
                 {
-                    AllCountry = AllCountry.Where(m => m.CountryName.ToUpper().Contains(Obj.CountryName) || 
-                                                        m.CountryName.ToLower().Contains(Obj.CountryName)).ToList();
+                    AllAnimalType = AllAnimalType.Where(m => m.AnimalTypeName.ToUpper().Contains(Obj.AnimalTypeName) ||
+                                                        m.AnimalTypeName.ToLower().Contains(Obj.AnimalTypeName)).ToList();
                 }
-                return Json(AllCountry, JsonRequestBehavior.AllowGet);
+                return Json(AllAnimalType, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
                 ViewBag.Error = ex.Message.ToString();
-                return Json(new List<CountrySearchFilterVM>(), JsonRequestBehavior.AllowGet);
+                return Json(new List<AnimalTypeSearchFilterVM>(), JsonRequestBehavior.AllowGet);
             }
 
         }
-        public ActionResult SaveCountry()
+        public ActionResult SaveAnimalType()
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-            Country Obj = new Country
+            AnimalType Obj = new AnimalType
             {
-                CountryID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId)
+                AnimalTypeID = _unitOfWork.AnimalType.GetMaxSerial(UserInfo.fCompanyId)
             };
             return PartialView(Obj);
         }
         [HttpPost]
-        public JsonResult SaveCountry(Country ObjToSave)
+        public JsonResult SaveAnimalType(AnimalType ObjToSave)
         {
             MsgUnit Msg = new MsgUnit();
             try
             {
                 var userId = User.Identity.GetUserId();
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-                ObjToSave.CountryID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId);
+                ObjToSave.AnimalTypeID = _unitOfWork.AnimalType.GetMaxSerial(UserInfo.fCompanyId);
                 ObjToSave.InsDateTime = DateTime.Now;
                 ObjToSave.InsUserID = userId;
                 ObjToSave.CompanyID = UserInfo.fCompanyId;
@@ -95,9 +94,9 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Add(ObjToSave);
+                _unitOfWork.AnimalType.Add(ObjToSave);
                 _unitOfWork.Complete();
-                Msg.LastID = _unitOfWork.Country.GetMaxSerial(UserInfo.fCompanyId).ToString();
+                Msg.LastID = _unitOfWork.AnimalType.GetMaxSerial(UserInfo.fCompanyId).ToString();
                 Msg.Code = 1;
                 Msg.Msg = Resources.Resource.AddedSuccessfully;
                 return Json(Msg, JsonRequestBehavior.AllowGet);
@@ -110,7 +109,7 @@ namespace PetsWeb.Controllers
             }
 
         }
-        public ActionResult UpdateCountry(int id)
+        public ActionResult UpdateAnimalType(int id)
         {
             try
             {
@@ -122,10 +121,10 @@ namespace PetsWeb.Controllers
                     {
                         RedirectToAction("", "");
                     }
-                    var Obj = _unitOfWork.Country.GetCountryByID(UserInfo.fCompanyId, id);
-                    return PartialView("UpdateCountry", Obj);
+                    var Obj = _unitOfWork.AnimalType.GetAnimalTypeByID(UserInfo.fCompanyId, id);
+                    return PartialView("UpdateAnimalType", Obj);
                 }
-                return PartialView("UpdateCountry", new Country());
+                return PartialView("UpdateAnimalType", new AnimalType());
             }
             catch (Exception ex)
             {
@@ -134,7 +133,7 @@ namespace PetsWeb.Controllers
             }
         }
         [HttpPost]
-        public JsonResult UpdateCountry(Country ObjUpdate)
+        public JsonResult UpdateAnimalType(AnimalType ObjUpdate)
         {
             MsgUnit Msg = new MsgUnit();
             try
@@ -156,7 +155,7 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Update(ObjUpdate);
+                _unitOfWork.AnimalType.Update(ObjUpdate);
                 _unitOfWork.Complete();
 
                 Msg.Code = 1;
@@ -171,7 +170,7 @@ namespace PetsWeb.Controllers
             }
 
         }
-        public ActionResult DeleteCountry(int id)
+        public ActionResult DeleteAnimalType(int id)
         {
             try
             {
@@ -184,10 +183,10 @@ namespace PetsWeb.Controllers
                         RedirectToAction("", "");
                     }
 
-                    var Obj = _unitOfWork.Country.GetCountryByID(UserInfo.fCompanyId, id);
-                    return PartialView("DeleteCountry", Obj);
+                    var Obj = _unitOfWork.AnimalType.GetAnimalTypeByID(UserInfo.fCompanyId, id);
+                    return PartialView("DeleteAnimalType", Obj);
                 }
-                return PartialView("DeleteCountry", new Country());
+                return PartialView("DeleteAnimalType", new AnimalType());
             }
             catch (Exception ex)
             {
@@ -196,7 +195,7 @@ namespace PetsWeb.Controllers
             }
         }
         [HttpPost]
-        public JsonResult DeleteCountry(Country ObjDelete)
+        public JsonResult DeleteAnimalType(AnimalType ObjDelete)
         {
             MsgUnit Msg = new MsgUnit();
             try
@@ -217,7 +216,7 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Delete(ObjDelete);
+                _unitOfWork.AnimalType.Delete(ObjDelete);
                 _unitOfWork.Complete();
                 Msg.Code = 1;
                 Msg.Msg = Resources.Resource.DeletedSuccessfully;

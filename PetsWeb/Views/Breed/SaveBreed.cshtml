@@ -1,0 +1,39 @@
+﻿@model PetsWeb.Models.Breed
+@{
+    ViewBag.Title = "Add New Breed";
+}
+<script>
+    $("#ArabicName").focus();
+</script>
+
+<div class="row" id="MemberShipType">
+    <div class="col-md-3 col-md-offset-5">
+        <div style="padding-top:20px;">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    @Resources.Resource.SaveBreed
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.BreedID)
+                            @Html.TextBoxFor(m => m.BreedID, new { @id = "BreedID", @class = "form-control", @readonly = "readonly" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ArabicName)<span style="color:red">*</span>
+                            @Html.TextBoxFor(m => m.ArabicName, new { @id = "ArabicName", autofocus = "autofocus", @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.EnglishName)
+                            @Html.TextBoxFor(m => m.EnglishName, new { @id = "EnglishName", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="submit" class="btn btn-primary fa fa-plus" id="SaveBreed">@Resources.Resource.Save</button>
+                    <button type="button" class="btn btn-danger  fa fa-times" data-dismiss="modal">@Resources.Resource.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
