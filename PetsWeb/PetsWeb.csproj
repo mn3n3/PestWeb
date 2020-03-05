@@ -990,6 +990,8 @@
     <Content Include="Views\LocationOfMicrochip\DeleteLocationOfMicrochip.cshtml" />
     <Content Include="Views\City\Index.cshtml" />
     <Content Include="Views\City\SaveCity.cshtml" />
+    <Content Include="Views\City\UpdateCity.cshtml" />
+    <Content Include="Views\City\DeleteCity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

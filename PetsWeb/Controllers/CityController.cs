@@ -129,7 +129,7 @@ namespace PetsWeb.Controllers
             }
 
         }
-        public ActionResult UpdateCountry(int id)
+        public ActionResult UpdateCity(int id)
         {
             try
             {
@@ -141,10 +141,20 @@ namespace PetsWeb.Controllers
                     {
                         RedirectToAction("", "");
                     }
-                    var Obj = _unitOfWork.Country.GetCountryByID(UserInfo.fCompanyId, id);
-                    return PartialView("UpdateCountry", Obj);
+                    var AllCountry = _unitOfWork.NativeSql.GetAllCountryInfo(UserInfo.fCompanyId);
+                    var CityObj = _unitOfWork.City.GetCityByID(UserInfo.fCompanyId, id);
+                    var CountryID = CityObj.CountryID;
+                    CitySearchFilterVM Obj = new CitySearchFilterVM
+                    {
+                        CityID = CityObj.CityID,
+                        ArabicName = CityObj.ArabicName,
+                        EnglishName = CityObj.EnglishName,
+                        Country = AllCountry,
+                        CountryID = CityObj.CountryID
+                    };
+                    return PartialView("UpdateCity", Obj);
                 }
-                return PartialView("UpdateCountry", new Country());
+                return PartialView("UpdateCity", new CitySearchFilterVM());
             }
             catch (Exception ex)
             {
@@ -153,14 +163,28 @@ namespace PetsWeb.Controllers
             }
         }
         [HttpPost]
-        public JsonResult UpdateCountry(Country ObjUpdate)
+        public JsonResult UpdateCity(CitySearchFilterVM ObjUpdate)
         {
             MsgUnit Msg = new MsgUnit();
             try
             {
                 var userId = User.Identity.GetUserId();
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+                var UpdateCity = new City();
+                ObjUpdate.InsDateTime = DateTime.Now;
+                ObjUpdate.InsUserID = userId;
                 ObjUpdate.CompanyID = UserInfo.fCompanyId;
+                if (String.IsNullOrEmpty(ObjUpdate.EnglishName))
+                    ObjUpdate.EnglishName = ObjUpdate.ArabicName;
+
+                UpdateCity.CityID = ObjUpdate.CityID;
+                UpdateCity.CountryID = ObjUpdate.CountryID;
+                UpdateCity.ArabicName = ObjUpdate.ArabicName;
+                UpdateCity.EnglishName = ObjUpdate.EnglishName;
+                UpdateCity.InsDateTime = ObjUpdate.InsDateTime;
+                UpdateCity.InsUserID = ObjUpdate.InsUserID;
+                UpdateCity.CompanyID = ObjUpdate.CompanyID;
+
                 if (!ModelState.IsValid)
                 {
                     string Err = " ";
@@ -175,9 +199,9 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Update(ObjUpdate);
+                _unitOfWork.City.Update(UpdateCity);
                 _unitOfWork.Complete();
-
+                Msg.LastID = _unitOfWork.City.GetMaxSerial(UserInfo.fCompanyId).ToString();
                 Msg.Code = 1;
                 Msg.Msg = Resources.Resource.UpdatedSuccessfully;
                 return Json(Msg, JsonRequestBehavior.AllowGet);
@@ -190,7 +214,7 @@ namespace PetsWeb.Controllers
             }
 
         }
-        public ActionResult DeleteCountry(int id)
+        public ActionResult DeleteCity(int id)
         {
             try
             {
@@ -202,11 +226,24 @@ namespace PetsWeb.Controllers
                     {
                         RedirectToAction("", "");
                     }
-
-                    var Obj = _unitOfWork.Country.GetCountryByID(UserInfo.fCompanyId, id);
-                    return PartialView("DeleteCountry", Obj);
+                    var CityObj = _unitOfWork.City.GetCityByID(UserInfo.fCompanyId, id);
+                    var CountryObj = _unitOfWork.Country.GetCountryByID(UserInfo.fCompanyId, CityObj.CountryID);
+                    CitySearchFilterVM Obj = new CitySearchFilterVM { };
+                    Obj.CityID = CityObj.CityID;
+                    Obj.ArabicName = CityObj.ArabicName;
+                    Obj.EnglishName = CityObj.EnglishName;
+                    Obj.CountryID = CityObj.CountryID;
+                    if (Resources.Resource.CurLang == "Arb")
+                    {
+                        Obj.CountryName = CountryObj.ArabicName;
+                    }
+                    else
+                    {
+                        Obj.CountryName = CountryObj.EnglishName;
+                    }
+                    return PartialView("DeleteCity", Obj);
                 }
-                return PartialView("DeleteCountry", new Country());
+                return PartialView("DeleteCity", new CitySearchFilterVM());
             }
             catch (Exception ex)
             {
@@ -215,14 +252,17 @@ namespace PetsWeb.Controllers
             }
         }
         [HttpPost]
-        public JsonResult DeleteCountry(Country ObjDelete)
+        public JsonResult DeleteCity(CitySearchFilterVM ObjDelete)
         {
             MsgUnit Msg = new MsgUnit();
             try
             {
                 var userId = User.Identity.GetUserId();
                 var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+                var DeleteCity = new City();
                 ObjDelete.CompanyID = UserInfo.fCompanyId;
+                DeleteCity.CompanyID = ObjDelete.CompanyID;
+                DeleteCity.CityID = ObjDelete.CityID;
                 if (!ModelState.IsValid)
                 {
                     string Err = " ";
@@ -236,7 +276,7 @@ namespace PetsWeb.Controllers
                     return Json(Msg, JsonRequestBehavior.AllowGet);
 
                 }
-                _unitOfWork.Country.Delete(ObjDelete);
+                _unitOfWork.City.Delete(DeleteCity);
                 _unitOfWork.Complete();
                 Msg.Code = 1;
                 Msg.Msg = Resources.Resource.DeletedSuccessfully;

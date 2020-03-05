@@ -305,6 +305,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete City.
+        /// </summary>
+        public static string DeleteCity {
+            get {
+                return ResourceManager.GetString("DeleteCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete Coat Colour.
         /// </summary>
         public static string DeleteCoatColour {
@@ -859,6 +868,15 @@ namespace Resources {
         public static string UpdateBreed {
             get {
                 return ResourceManager.GetString("UpdateBreed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update City.
+        /// </summary>
+        public static string UpdateCity {
+            get {
+                return ResourceManager.GetString("UpdateCity", resourceCulture);
             }
         }
         

@@ -199,6 +199,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="DeleteBreed" xml:space="preserve">
     <value>Delete Breed</value>
   </data>
+  <data name="DeleteCity" xml:space="preserve">
+    <value>Delete City</value>
+  </data>
   <data name="DeleteCoatColour" xml:space="preserve">
     <value>Delete Coat Colour</value>
   </data>
@@ -384,6 +387,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   </data>
   <data name="UpdateBreed" xml:space="preserve">
     <value>Update Breed</value>
+  </data>
+  <data name="UpdateCity" xml:space="preserve">
+    <value>Update City</value>
   </data>
   <data name="UpdateCoatColour" xml:space="preserve">
     <value>Update Coat Colour</value>

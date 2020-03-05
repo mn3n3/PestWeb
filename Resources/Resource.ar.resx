@@ -169,7 +169,7 @@
     <value>تأكيد كلمة المرور</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>المدن</value>
+    <value>الدول</value>
   </data>
   <data name="CountryName" xml:space="preserve">
     <value>اسم الدولة</value>
@@ -197,6 +197,9 @@
   </data>
   <data name="DeleteBreed" xml:space="preserve">
     <value>حذف سلالة</value>
+  </data>
+  <data name="DeleteCity" xml:space="preserve">
+    <value>حذف مدينة</value>
   </data>
   <data name="DeleteCoatColour" xml:space="preserve">
     <value>حذف اللون الخارجي</value>
@@ -386,6 +389,9 @@
   </data>
   <data name="UpdateBreed" xml:space="preserve">
     <value>تعديل سلالة</value>
+  </data>
+  <data name="UpdateCity" xml:space="preserve">
+    <value>تعديل مدينة</value>
   </data>
   <data name="UpdateCoatColour" xml:space="preserve">
     <value>تعديل اللون الخارجي</value>
