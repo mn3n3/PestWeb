@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace PetsWeb.Controllers
 {
+    [Authorize]
     public class CityController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
