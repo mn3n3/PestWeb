@@ -1,0 +1,200 @@
+﻿@model PetsWeb.ViewModels.DiscriptionOfAnimalSearchFilterVM
+@{
+    ViewBag.Title = "Add New Description Of Animal";
+}
+
+<div style="padding-top:20px;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @Resources.Resource.SaveDescriptionOfAnimal
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AnimalID)
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.AnimalID, new { @id = "AnimalID", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AnimalName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.AnimalName, new { @id = "AnimalName", @class = "form-control", @style = "max-width:480px" })
+                        @Html.ValidationMessageFor(m => m.AnimalName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.OwnerName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.TextBoxFor(m => m.OwnerName, new { @id = "OwnerName", @class = "form-control", @style = "max-width:480px" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-default btn-circle fa fa-search" type="button" id="BtnSearchOwner">
+                            </button>
+                        </span>
+
+                        <span class="input-group-btn">
+                            <a class=" btn btn-primary btn-circle fa fa-plus" id="SaveOwner" href="/DetailsOfOwnership/SaveDetailsOfOwnership"></a>
+                        </span>
+                        @Html.ValidationMessageFor(m => m.OwnerName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DateOfBirth)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "DateOfBirth", @class = "form-control", @Value = Model.DateOfBirth.ToString("dd/MM/yyyy"), @style = "max-width:480px" })
+                        @Html.ValidationMessageFor(m => m.DateOfBirth)
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.GenderName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.DropDownListFor(m => m.GenderID, new List<SelectListItem>
+                   {
+                       new SelectListItem{ Text=Resources.Resource.Male, Value = "1",Selected=true },
+                       new SelectListItem{ Text=Resources.Resource.Female, Value = "2",Selected=false }
+                   }, new { @id = "GenderNo", @class = "form-control", @style = "max-width:480px" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AnimalTypeName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.DropDownListFor(m => m.AnimalTypeID, new SelectList(Model.AnimalType, "AnimalTypeID", "AnimalTypeName"), new { @id = "AnimalTypeNo", @class = "form-control", @style = "max-width:480px" })
+                        <span class="input-group-btn">
+                            <a a class=" btn btn-primary btn-circle fa fa-plus  js-Pop" id="SaveAnimalType" href="/AnimalType/SaveAnimalType"></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.BreedName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.DropDownListFor(m => m.BreedID, new SelectList(Model.Breed, "BreedID", "BreedName"), new { @id = "BreedNo", @class = "form-control", @style = "max-width:480px" })
+                        <span class="input-group-btn">
+                            <a a class=" btn btn-primary btn-circle fa fa-plus  js-Pop" id="SaveBreed" href="/Breed/SaveBreed"></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CoatColourName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.DropDownListFor(m => m.CoatColourID, new SelectList(Model.CoatColour, "CoatColourId", "CoatColourName"), new { @id = "CoatColourNo", @class = "form-control", @style = "max-width:480px" })
+                        <span class="input-group-btn">
+                            <a a class=" btn btn-primary btn-circle fa fa-plus  js-Pop" id="SaveCoatColour" href="/CoatColour/SaveCoatColour"></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary fa fa-plus" id="SaveDescriptionOfAnimal">@Resources.Resource.Save</button>
+            <button type="button" class="btn btn-danger  fa fa-times" id="Close">@Resources.Resource.Close</button>
+        </div>
+    </div>
+</div>
+<div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-content">
+    </div>
+</div>
+@Html.TextBoxFor(m => m.OwnerID, new { @id = "OwnerID", @class = "form-control", @style = "visibility : hidden;"})
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            $("#AnimalName").focus();
+            $.fn.datepicker.defaults.format = "dd/mm/yyyy";
+            $('#DateOfBirth').datepicker({
+                autoclose: true
+            });
+            $(document).on('click', '#Close', function () {
+                window.location = "/DescriptionOfAnimal/Index";
+            });
+            $("#AnimalName").keyup(function (event) {
+                if (event.keyCode == 13)
+                    $("#OwnerName").focus();
+            });
+            $("#OwnerName").keyup(function (event) {
+                if (event.keyCode == 13)
+                    $("#DateOfBirth").focus();
+            });
+            $("#DateOfBirth").keyup(function (event) {
+                if (event.keyCode == 13)
+                    $("#AnimalName").focus();
+            });
+            $('#tdataTable').on('click', '.modal-close-btn', function () {
+                $('#modal-container').modal('hide');
+            });
+            $(document).on('click', '.js-Pop', function (e) {
+                $('#modal-container').removeData('bs.modal');
+                e.preventDefault();
+                $(this).attr('data-target', '#modal-container');
+                $(this).attr('data-toggle', 'modal');
+
+            });
+            $('#modal-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+            $('#CancelModal').on('click', function () {
+                return false;
+            });
+            $("body").on("keyup", "#ArabicName", function (event) {
+                if (event.keyCode == 13) {
+                    $("#EnglishName").focus();
+                    document.getElementById('EnglishName').style.direction = "ltr";
+                }
+            });
+            $("body").on("keyup", "#EnglishName", function (event) {
+                if (event.keyCode == 13) {
+                    $("#ArabicName").focus();
+                    document.getElementById('ArabicName').style.direction = "rtl";
+                }
+            });
+        });
+    </script>
+}
+

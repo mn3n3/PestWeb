@@ -180,6 +180,8 @@
     <Compile Include="Controllers\CoatColourController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\DetailsOfOwnershipController.cs" />
+    <Compile Include="Controllers\DiscriptionOfAnimalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationOfMicrochipController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -198,6 +200,10 @@
     <Compile Include="Migrations\202002122254100_mohammedawad120220202.cs" />
     <Compile Include="Migrations\202002122254100_mohammedawad120220202.Designer.cs">
       <DependentUpon>202002122254100_mohammedawad120220202.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003081306135_MohammedAwad080320201.cs" />
+    <Compile Include="Migrations\202003081306135_MohammedAwad080320201.Designer.cs">
+      <DependentUpon>202003081306135_MohammedAwad080320201.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -220,6 +226,8 @@
     <Compile Include="Persistence\CoatColourRepo.cs" />
     <Compile Include="Persistence\CompanyRepo.cs" />
     <Compile Include="Persistence\CountryRepo.cs" />
+    <Compile Include="Persistence\DetailsOfOwnershipRepo.cs" />
+    <Compile Include="Persistence\DiscriptionOfAnimalRepo.cs" />
     <Compile Include="Persistence\LocationOfMicrochipRepo.cs" />
     <Compile Include="Persistence\NativeSqlRepo.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
@@ -231,6 +239,8 @@
     <Compile Include="Repositories\ICoatColourRepo.cs" />
     <Compile Include="Repositories\ICompanyRepo.cs" />
     <Compile Include="Repositories\ICountryRepo.cs" />
+    <Compile Include="Repositories\IDetailsOfOwnershipRepo.cs" />
+    <Compile Include="Repositories\IDiscriptionOfAnimalRepo.cs" />
     <Compile Include="Repositories\ILocationOfMicrochipRepo.cs" />
     <Compile Include="Repositories\INativeSqlRepo.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
@@ -242,6 +252,8 @@
     <Compile Include="ViewModels\CoatColourSearchFilterVM.cs" />
     <Compile Include="ViewModels\CountrySearchFilterVM.cs" />
     <Compile Include="ViewModels\DashBoardVM.cs" />
+    <Compile Include="ViewModels\DetailsOfOwnershipSearchFilterVM.cs" />
+    <Compile Include="ViewModels\DiscriptionOfAnimalSearchFilterVM.cs" />
     <Compile Include="ViewModels\LocationOfMicrochipSearchFilterVM.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ORDER_HEADERViewModel.cs" />
@@ -989,9 +1001,16 @@
     <Content Include="Views\LocationOfMicrochip\UpdateLocationOfMicrochip.cshtml" />
     <Content Include="Views\LocationOfMicrochip\DeleteLocationOfMicrochip.cshtml" />
     <Content Include="Views\City\Index.cshtml" />
+    <Content Include="Views\DetailsOfOwnership\Index.cshtml" />
     <Content Include="Views\City\SaveCity.cshtml" />
     <Content Include="Views\City\UpdateCity.cshtml" />
     <Content Include="Views\City\DeleteCity.cshtml" />
+    <Content Include="Views\DetailsOfOwnership\SaveDetailsOfOwnership.cshtml" />
+    <Content Include="Views\DetailsOfOwnership\SaveCity.cshtml" />
+    <Content Include="Views\DetailsOfOwnership\UpdateDetailsOfOwnership.cshtml" />
+    <Content Include="Views\DetailsOfOwnership\DeleteDetailsOfOwnership.cshtml" />
+    <Content Include="Views\DiscriptionOfAnimal\Index.cshtml" />
+    <Content Include="Views\DiscriptionOfAnimal\SaveDiscriptionOfAnimal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1033,6 +1052,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002122254100_mohammedawad120220202.resx">
       <DependentUpon>202002122254100_mohammedawad120220202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003081306135_MohammedAwad080320201.resx">
+      <DependentUpon>202003081306135_MohammedAwad080320201.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

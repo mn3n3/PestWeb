@@ -1,12 +1,12 @@
 ﻿@model PetsWeb.ViewModels.CitySearchFilterVM
 @{
-    ViewBag.Title = "Update  City";
+    ViewBag.Title = "Add New City";
 }
 
 <div style="padding-top:20px;">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            @Resources.Resource.UpdateCity
+            @Resources.Resource.SaveCity
         </div>
         <div class="panel-body">
             <div class="col-lg-12">
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="panel-footer">
-            <button type="submit" class="btn btn-success fa fa-edit" id="UpdateCity">@Resources.Resource.Update</button>
+            <button type="submit" class="btn btn-primary fa fa-plus" id="SaveCity">@Resources.Resource.Save</button>
             <button type="button" class="btn btn-danger  fa fa-times" id="Close">@Resources.Resource.Close</button>
         </div>
     </div>
@@ -79,9 +79,9 @@
         $(document).ready(function () {
             $("#CityArabichName").focus();
             $(document).on('click', '#Close', function () {
-                window.location = "/City/Index";
+                window.location = "/DetailsOfOwnership/SaveDetailsOfOwnership";
             });
-            $(document).on('click', '#UpdateCity', function () {
+            $(document).on('click', '#SaveCity', function () {
                 bootbox.confirm({
                     message: "@Resources.Resource.AreYouSure",
                     buttons: {
@@ -112,7 +112,7 @@
                             {
                                 var dialog = bootbox.dialog({
                                     title: '@Resources.Resource.PleaseWait',
-                                    message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Updting...</p>',
+                                    message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Saving...</p>',
                                     closeButton: false
                                 });
                                 var CountryID = "";
@@ -122,7 +122,7 @@
                                 else {
                                     CountryID = $("#CountryNo").val();
                                 }
-                                var dataToUpdate = {
+                                var dataToSave = {
                                     CityID: $("#CityID").val(),
                                     CountryID: CountryID,
                                     ArabicName: $("#CityArabicName").val(),
@@ -130,8 +130,8 @@
                                 };
                                 $.ajax({
                                     type: "POST",
-                                    url: "/City/UpdateCity",
-                                    data: JSON.stringify(dataToUpdate),
+                                    url: "/DetailsOfOwnership/SaveCity",
+                                    data: JSON.stringify(dataToSave),
                                     contentType: 'application/json',
                                     success: function (data) {
                                         dialog.modal('hide');
@@ -142,31 +142,11 @@
                                         else if (data.Code == 1) {
                                             toastr.success(data.Msg);
                                             bootbox.alert(data.Msg);
-                                            var CityID = $('#CityNo');
-				                            CityID.empty();
-                                             $.ajax({
-					                            method: "GET",
-					                            url: "/City/RefillAllCity",
-					                            success: function (data) {
-                                                      CityID.append($('<option/>', {
-                                                            value: 0,
-                                                            text: '@Resources.Resource.City'
-							                            }));
-                                                    $.each(data, function (id, region) {
-                                                        CityID.append($('<option/>', {
-                                                            value: region.CityID,
-                                                            text: region.CityName
-							                            }));
-						                            });
-
-                                                    dialog.modal('hide');
-                                                    window.location = "/City/Index";
-					                            },
-					                            error: function (xhr, AJAXOptions, thrownError) {
-						                            dialog.modal('hide');
-						                            alert('Failed to retrieve .');
-					                            }
-				                            });
+                                            document.getElementById("CityID").value = data.LastID;
+                                            document.getElementById("CityArabicName").value = "";
+                                            document.getElementById("CityEnglishName").value = "";
+                                            document.getElementById("CountryNo").value = 1;
+                                            $("#CityArabicName").focus();
                                         }
                                     },
                                     error: function (data) {
@@ -269,6 +249,10 @@
 					                            method: "GET",
 					                            url: "/Country/RefillAllCountry",
 					                            success: function (data) {
+                                                      CountryID.append($('<option/>', {
+                                                            value: 0,
+                                                            text: '@Resources.Resource.Country'
+							                            }));
                                                     $.each(data, function (id, region) {
                                                         CountryID.append($('<option/>', {
                                                             value: region.CountryID,

@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace PetsWeb.Controllers
 {
+    [Authorize]
     public class LocationOfMicrochipController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -24,9 +25,10 @@ namespace PetsWeb.Controllers
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+            var AllLocationOfMicrochip = _unitOfWork.NativeSql.GetAllLocationOfMicrochipInfo(UserInfo.fCompanyId);
             var LocationOfMicrochipFilter = new LocationOfMicrochipSearchFilterVM
             {
-
+                LocationOfMicrochip = AllLocationOfMicrochip
             };
             return View(LocationOfMicrochipFilter);
         }
@@ -42,10 +44,9 @@ namespace PetsWeb.Controllers
                 {
                     return Json(new List<LocationOfMicrochipSearchFilterVM>(), JsonRequestBehavior.AllowGet);
                 }
-                if (!String.IsNullOrEmpty(Obj.LocationOfMicrochipName))
+                if (Obj.LocationOfMicrochipID != 0)
                 {
-                    AllLocationOfMicrochip = AllLocationOfMicrochip.Where(m => m.LocationOfMicrochipName.ToUpper().Contains(Obj.LocationOfMicrochipName) ||
-                                                        m.LocationOfMicrochipName.ToLower().Contains(Obj.LocationOfMicrochipName)).ToList();
+                    AllLocationOfMicrochip = AllLocationOfMicrochip.Where(m => m.LocationOfMicrochipID == Obj.LocationOfMicrochipID).ToList();
                 }
                 return Json(AllLocationOfMicrochip, JsonRequestBehavior.AllowGet);
             }
@@ -228,6 +229,28 @@ namespace PetsWeb.Controllers
                 Msg.Code = 0;
                 return Json(Msg, JsonRequestBehavior.AllowGet);
             }
+        }
+        [HttpGet]
+        public JsonResult RefillAllLocationOfMicrochip()
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+                var AllLocationOfMicrochip = _unitOfWork.NativeSql.GetAllLocationOfMicrochipInfo(UserInfo.fCompanyId);
+                if (AllLocationOfMicrochip == null)
+                {
+                    return Json(new List<LocationOfMicrochip>(), JsonRequestBehavior.AllowGet);
+                }
+
+                return Json(AllLocationOfMicrochip, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message.ToString();
+                return Json(new List<LocationOfMicrochip>(), JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }

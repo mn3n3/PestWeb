@@ -16,7 +16,8 @@ namespace PetsWeb.Persistence
         public IBreedRepo Breed { get; set; }
         public ICoatColourRepo CoatColour { get; set; }
         public ILocationOfMicrochipRepo LocationOfMicrochip { get; set; }
-
+        public IDetailsOfOwnershipRepo DetailsOfOwnership { get; set; }
+        public IDiscriptionOfAnimalRepo DiscriptionOfAnimal { get; set; }
         public ICompanyRepo  Company { get; set; }
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -29,6 +30,8 @@ namespace PetsWeb.Persistence
             Breed = new BreedRepo(_context);
             CoatColour = new CoatColourRepo(_context);
             LocationOfMicrochip = new LocationOfMicrochipRepo(_context);
+            DetailsOfOwnership = new DetailsOfOwnershipRepo(_context);
+            DiscriptionOfAnimal = new DiscriptionOfAnimalRepo(_context);
             NativeSql = new NativeSqlRepo(_context);
         }
         public void Complete()

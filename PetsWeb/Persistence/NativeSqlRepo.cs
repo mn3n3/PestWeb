@@ -22,8 +22,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<CountrySearchFilterVM>(
-                    " Select C.ArabicName As CountryName, C.CountryID, A.UserName " +
-                    " From Countries C, AspNetUsers A " +
+                    " Select Distinct C.ArabicName As CountryName, C.CountryID, A.UserName, " +
+                    " Case WHEN C.CountryID = CC.CountryID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,Countries C " +
+                    " Left join Cities CC On " +
+                    " C.CountryID = CC.CountryID " +
+                    " And " +
+                    " C.CompanyID = CC.CompanyID " +
                     " Where " +
                     " C.CompanyID = A.fCompanyId " +
                     " And " +
@@ -45,8 +53,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<CountrySearchFilterVM>(
-                    " Select C.EnglishName As CountryName, C.CountryID, A.UserName " +
-                    " From Countries C, AspNetUsers A " +
+                    " Select Distinct C.English As CountryName, C.CountryID, A.UserName, " +
+                    " Case WHEN C.CountryID = CC.CountryID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,Countries C " +
+                    " Left join Cities CC On " +
+                    " C.CountryID = CC.CountryID " +
+                    " And " +
+                    " C.CompanyID = CC.CompanyID " +
                     " Where " +
                     " C.CompanyID = A.fCompanyId " +
                     " And " +
@@ -267,19 +283,27 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<CitySearchFilterVM>(
-                    " Select C.ArabicName As CityName, CO.ArabicName As CountryName,C.CountryID,C.CityID, A.UserName " +
-                    " From Cities C, Countries CO, AspNetUsers A " +
-                    " Where " +
-                    " C.CompanyID = A.fCompanyId " +
+                    " Select Distinct C.ArabicName As CityName, CO.ArabicName As CountryName,C.CountryID,C.CityID, A.UserName, " +
+                    " Case WHEN C.CityID = D.CityID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,Cities C " +
+                    " Left join Countries CO On " +
+                    " C.CountryID = Co.CountryID " +
                     " And " +
                     " C.CompanyID = CO.CompanyID " +
+                    " Left join DetailsOfOwnerships D On " +
+                    " C.CityID = D.CityID " +
+                    " And " +
+                    " C.CompanyID = D.CompanyID " +
+                    " Where " +
+                    " C.CompanyID = A.fCompanyId " +
                     " And " +
                     " C.InsUserID = A.Id " +
                     " And " +
                     " C.CompanyID = @CompanyID " +
-                    " And " +
-                    " C.CountryID = Co.CountryID " +
-                    " Order By C.CountryID "
+                    " Order By C.CityID "
                     , new SqlParameter("@CompanyID", CompanyID)
 
                 ).ToList();
@@ -294,7 +318,112 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<CitySearchFilterVM>(
-                    " Select C.EnglishName As CityName, CO.EnglishName As CountryName,C.CountryID,C.CityID,A.UserName " +
+                    " Select Distinct C.EnglishName As CityName, CO.EnglishName As CountryName,C.CountryID,C.CityID, A.UserName, " +
+                    " Case WHEN C.CityID = D.CityID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,Cities C " +
+                    " Left join Countries CO On " +
+                    " C.CountryID = Co.CountryID " +
+                    " And " +
+                    " C.CompanyID = CO.CompanyID " +
+                    " Left join DetailsOfOwnerships D On " +
+                    " C.CityID = D.CityID " +
+                    " And " +
+                    " C.CompanyID = D.CompanyID " +
+                    " Where " +
+                    " C.CompanyID = A.fCompanyId " +
+                    " And " +
+                    " C.InsUserID = A.Id " +
+                    " And " +
+                    " C.CompanyID = @CompanyID " +
+                    " Order By C.CityID "
+                    , new SqlParameter("@CompanyID", CompanyID)
+
+                ).ToList();
+                }
+                catch
+                {
+                    return new List<CitySearchFilterVM>();
+                }
+            }
+        }
+        public IEnumerable<DetailsOfOwnershipSearchFilterVM> GetAllDetailsOfOwnershipInfo(int CompanyID)
+        {
+            if (Resources.Resource.CurLang == "Arb")
+            {
+                try
+                {
+                    return _context.Database.SqlQuery<DetailsOfOwnershipSearchFilterVM>(
+                    " Select C.ArabicName As CityName, CO.ArabicName As CountryName, CO.CountryID, C.CityID, A.UserName, " +
+                    " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, D.PosCode, D.Address " +
+                    " From  AspNetUsers A, DetailsOfOwnerships D " +
+                    " left Join Cities C On " +
+                    " D.CompanyID = C.CompanyID " +
+                    " And " +
+                    " D.CityID = C.CityID " +
+                    " left Join Countries CO On " +
+                    " D.CompanyID = CO.CompanyID " +
+                    " And " +
+                    " D.CountryID = CO.CountryID " +
+                    " Where " +
+                    " D.CompanyID = A.fCompanyId " +
+                    " And " +
+                    " D.InsUserID = A.Id " +
+                    " And " +
+                    " D.CompanyID = @CompanyID " +
+                    " Order By D.OwnerID " 
+                    , new SqlParameter("@CompanyID", CompanyID)
+
+                ).ToList();
+                }
+                catch
+                {
+                    return new List<DetailsOfOwnershipSearchFilterVM>();
+                }
+            }
+            else
+            {
+                try
+                {
+                    return _context.Database.SqlQuery<DetailsOfOwnershipSearchFilterVM>(
+                    " Select C.EnglishName As CityName, CO.EnglishName As CountryName, CO.CountryID, C.CityID, A.UserName, " +
+                    " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, D.PosCode, D.Address " +
+                    " From  AspNetUsers A, DetailsOfOwnerships D " +
+                    " left Join Cities C On " +
+                    " D.CompanyID = C.CompanyID " +
+                    " And " +
+                    " D.CityID = C.CityID " +
+                    " left Join Countries CO On " +
+                    " D.CompanyID = CO.CompanyID " +
+                    " And " +
+                    " D.CountryID = CO.CountryID " +
+                    " Where " +
+                    " D.CompanyID = A.fCompanyId " +
+                    " And " +
+                    " D.InsUserID = A.Id " +
+                    " And " +
+                    " D.CompanyID = @CompanyID " +
+                    " Order By D.OwnerID "
+                    , new SqlParameter("@CompanyID", CompanyID)
+
+                ).ToList();
+                }
+                catch
+                {
+                    return new List<DetailsOfOwnershipSearchFilterVM>();
+                }
+            }
+        }
+        public CitySearchFilterVM GetCountryName(int CompanyID, int CityID)
+        {
+            if (Resources.Resource.CurLang == "Arb")
+            {
+                try
+                {
+                    return _context.Database.SqlQuery<CitySearchFilterVM>(
+                    " Select CO.ArabicName As CountryName " +
                     " From Cities C, Countries CO, AspNetUsers A " +
                     " Where " +
                     " C.CompanyID = A.fCompanyId " +
@@ -305,15 +434,193 @@ namespace PetsWeb.Persistence
                     " And " +
                     " C.CompanyID = @CompanyID " +
                     " And " +
-                    " C.CountryID = Co.CountryID " +
-                    " Order By C.CountryID "
+                    " C.CityID = @CityID " +
+                    " And " +
+                    " C.CountryID = Co.CountryID "
+                    , new SqlParameter("@CompanyID", CompanyID)
+                    , new SqlParameter("@CityID", CityID)
+
+                ).FirstOrDefault();
+                }
+                catch
+                {
+                    return new CitySearchFilterVM();
+                }
+            }
+            else 
+            {
+                try
+                {
+                    return _context.Database.SqlQuery<CitySearchFilterVM>(
+                    " Select CO.EnglishName As CountryName " +
+                    " From Cities C, Countries CO, AspNetUsers A " +
+                    " Where " +
+                    " C.CompanyID = A.fCompanyId " +
+                    " And " +
+                    " C.CompanyID = CO.CompanyID " +
+                    " And " +
+                    " C.InsUserID = A.Id " +
+                    " And " +
+                    " C.CompanyID = @CompanyID " +
+                    " And " +
+                    " C.CityID = @CityID " +
+                    " And " +
+                    " C.CountryID = Co.CountryID "
+                    , new SqlParameter("@CompanyID", CompanyID)
+                    , new SqlParameter("@CityID", CityID)
+
+                ).FirstOrDefault();
+                }
+                catch
+                {
+                    return new CitySearchFilterVM();
+                }
+            }
+        }
+        public CitySearchFilterVM GetCountryID(int CompanyID, int CityID)
+        {
+            try
+            {
+                return _context.Database.SqlQuery<CitySearchFilterVM>(
+                " Select CO.CountryID " +
+                " From Cities C, Countries CO, AspNetUsers A " +
+                " Where " +
+                " C.CompanyID = A.fCompanyId " +
+                " And " +
+                " C.CompanyID = CO.CompanyID " +
+                " And " +
+                " C.InsUserID = A.Id " +
+                " And " +
+                " C.CompanyID = @CompanyID " +
+                " And " +
+                " C.CityID = @CityID " +
+                " And " +
+                " C.CountryID = Co.CountryID "
+                , new SqlParameter("@CompanyID", CompanyID)
+                , new SqlParameter("@CityID", CityID)
+
+            ).FirstOrDefault();
+            }
+            catch
+            {
+                return new CitySearchFilterVM();
+            }
+        }
+        public int GetFirstCityID(int CompanyID)
+        {
+            int CityID = _context.Database.SqlQuery<int>(
+                " Select Top 1 C.CityID " +
+                " From Cities C, Countries CO, AspNetUsers A " +
+                " Where " +
+                " C.CompanyID = A.fCompanyId " +
+                " And " +
+                " C.CompanyID = CO.CompanyID " +
+                " And " +
+                " C.InsUserID = A.Id " +
+                " And " +
+                " C.CompanyID = @CompanyID " +
+                " And " +
+                " C.CountryID = Co.CountryID " +
+                " Order By C.CityID "
+                , new SqlParameter("@CompanyID", CompanyID)
+                ).First();
+
+            return CityID;
+        }
+        public IEnumerable<DiscriptionOfAnimalSearchFilterVM> GetAllDiscriptionOfAnimalInfo(int CompanyID)
+        {
+            if (Resources.Resource.CurLang == "Arb")
+            {
+                try
+                {
+                    return _context.Database.SqlQuery<DiscriptionOfAnimalSearchFilterVM>(
+                    " Select DA.AnimalID, DA.AnimalName, DA.DateOfBirth, DA.GenderID, " +
+                    " Case When DA.GenderID = 1 " +
+                    " Then N'ذكر' " +
+                    " Else N'انثى' " +
+                    " End As GenderName, " +
+                    " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, " +
+                    " B.ArabicName As BreedName, B.BreedID, " +
+                    " CC.ArabicName As BreedName, CC.CoatColourID, " +
+                    " ATY.ArabicName As AnimalTypeName, ATY.AnimalTypeID " +
+                    " From AspNetUsers A, DiscriptionOfAnimals DA " +
+                    " Left Join DetailsOfOwnerships D On " +
+                    " DA.CompanyID = D.CompanyID " +
+                    " And " +
+                    " DA.OwnerID = D.OwnerID " +
+                    " Left Join Breeds B On " +
+                    " DA.CompanyID = B.CompanyID " +
+                    " And " +
+                    " DA.BreedID = B.BreedID " +
+                    " Left Join CoatColours CC On " +
+                    " DA.CompanyID = CC.CompanyID " +
+                    " And " +
+                    " DA.CoatColourID = CC.CoatColourID " +
+                    " Left Join AnimalTypes ATY On " +
+                    " DA.CompanyID = ATY.CompanyID " +
+                    " And " +
+                    " DA.AnimalTypeID = ATY.AnimalTypeID " +
+                    " Where " +
+                    " DA.CompanyID = A.fCompanyId " +
+                    " And " +
+                    " DA.InsUserID = A.Id " +
+                    " And " +
+                    " DA.CompanyID = @CompanyID " +
+                    " Order By DA.AnimalID " 
                     , new SqlParameter("@CompanyID", CompanyID)
 
                 ).ToList();
                 }
                 catch
                 {
-                    return new List<CitySearchFilterVM>();
+                    return new List<DiscriptionOfAnimalSearchFilterVM>();
+                }
+            }
+            else
+            {
+                try
+                {
+                    return _context.Database.SqlQuery<DiscriptionOfAnimalSearchFilterVM>(
+                    " Select DA.AnimalID, DA.AnimalName, DA.DateOfBirth, DA.GenderID, " +
+                    " Case When DA.GenderID = 1 " +
+                    " Then 'Male' " +
+                    " Else 'Female' " +
+                    " End As GenderName, " +
+                    " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, " +
+                    " B.EnglishName As BreedName, B.BreedID, " +
+                    " CC.EnglishName As BreedName, CC.CoatColourID, " +
+                    " ATY.EnglishName As AnimalTypeName, ATY.AnimalTypeID " +
+                    " From AspNetUsers A, DiscriptionOfAnimals DA " +
+                    " Left Join DetailsOfOwnerships D On " +
+                    " DA.CompanyID = D.CompanyID " +
+                    " And " +
+                    " DA.OwnerID = D.OwnerID " +
+                    " Left Join Breeds B On " +
+                    " DA.CompanyID = B.CompanyID " +
+                    " And " +
+                    " DA.BreedID = B.BreedID " +
+                    " Left Join CoatColours CC On " +
+                    " DA.CompanyID = CC.CompanyID " +
+                    " And " +
+                    " DA.CoatColourID = CC.CoatColourID " +
+                    " Left Join AnimalTypes ATY On " +
+                    " DA.CompanyID = ATY.CompanyID " +
+                    " And " +
+                    " DA.AnimalTypeID = ATY.AnimalTypeID " +
+                    " Where " +
+                    " DA.CompanyID = A.fCompanyId " +
+                    " And " +
+                    " DA.InsUserID = A.Id " +
+                    " And " +
+                    " DA.CompanyID = @CompanyID " +
+                    " Order By DA.AnimalID "
+                    , new SqlParameter("@CompanyID", CompanyID)
+
+                ).ToList();
+                }
+                catch
+                {
+                    return new List<DiscriptionOfAnimalSearchFilterVM>();
                 }
             }
         }

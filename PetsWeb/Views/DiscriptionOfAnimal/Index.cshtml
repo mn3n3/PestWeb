@@ -1,0 +1,262 @@
+﻿@model PetsWeb.ViewModels.DiscriptionOfAnimalSearchFilterVM
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .dt-button {
+        display: none !important;
+    }
+</style>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        @Resources.Resource.DiscriptionOfAnimal
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-12">
+            <div class="col-lg-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AnimalName)
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.AnimalName, new { @id = "AnimalName", @class = "form-control", @style = "max-width:480px" })
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.OwnerName)
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.OwnerName, new { @id = "OwnerName", @class = "form-control", @style = "max-width:480px" })
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Telephone)
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Telephone, new { @id = "Telephone", @class = "form-control", @style = "max-width:480px" })
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.AnimalTypeName)
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    @Html.DropDownListFor(m => m.AnimalTypeID, new SelectList(Model.AnimalType, "AnimalTypeID", "AnimalTypeName"), Resources.Resource.Species, new { @id = "AnimalTypeNo", @class = "form-control", @style = "max-width:480px" })
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.BreedName)
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    @Html.DropDownListFor(m => m.BreedID, new SelectList(Model.Breed, "BreedID", "BreedName"), Resources.Resource.Breed, new { @id = "BreedNo", @class = "form-control", @style = "max-width:480px" })
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.CoatColourName)
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    @Html.DropDownListFor(m => m.CoatColourID, new SelectList(Model.CoatColour, "CoatColourID", "CoatColourName"), Resources.Resource.CoatColour, new { @id = "CoatColourNo", @class = "form-control", @style = "max-width:480px" })
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="col-lg-2">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.GenderName)
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    @Html.DropDownListFor(m => m.GenderID, new List<SelectListItem>
+               {
+                   new SelectListItem{ Text=Resources.Resource.Gender, Value = "0",Selected=true },
+                   new SelectListItem{ Text=Resources.Resource.Male, Value = "1",Selected=false },
+                   new SelectListItem{ Text=Resources.Resource.Female, Value = "2",Selected=false }
+               }, new { @id = "GenderNo", @class = "form-control", @style = "max-width:480px" })
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <a class="btn btn-info fa fa-search" id="btnSearch">@Resources.Resource.Search</a>
+            <a class="btn btn-primary fa fa-plus" id="btnSave">@Resources.Resource.Save</a>
+            <a class="btn btn-warning fa fa-file-excel-o" id="btnPrintExcel">@Resources.Resource.PrintExcel</a>
+        </div>
+        <div class="col-lg-12" style="margin-top:10px;">
+            <table id="tdataTable" class="table table-striped table-bordered table-hover dataTable no-footer dtr-inline" style="width:100%;cursor:pointer" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>@Resources.Resource.AnimalName</th>
+                        <th>@Resources.Resource.OwnerName</th>
+                        <th>@Resources.Resource.Telephone</th>
+                        <th>@Resources.Resource.DateOfBirth</th>
+                        <th>@Resources.Resource.Gender</th>
+                        <th>@Resources.Resource.AnimalTypeName</th>
+                        <th>@Resources.Resource.BreedName</th>
+                        <th>@Resources.Resource.CoatColourName</th>
+                        <th>@Resources.Resource.InsUserName</th>
+                        <th>@Resources.Resource.Update</th>
+                        <th>@Resources.Resource.Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="panel-footer">
+
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '#btnSearch', function () {
+              $('#tdataTable').DataTable().clear().draw();
+              $('#tdataTable').DataTable().ajax.reload();
+            });
+            $(document).on('click', '#btnSave', function () {
+                 window.location = "/DiscriptionOfAnimal/SaveDiscriptionOfAnimal";
+            });
+            $(document).on('click', '#btnPrintExcel', function () {
+                $(".dt-button").click();
+            });
+            $(document).on('click', '#reload', function () {
+                tabelMemRef.ajax.reload();
+            });
+            var tabelMemRef = $("#tdataTable").DataTable({
+                "language": {
+                    "emptyTable": '@Resources.Resource.EmptyTable',
+                    "search": '@Resources.Resource.Search',
+                    "loadingRecords": '@Resources.Resource.LoadingRecords',
+                    "processing": '@Resources.Resource.Processing',
+                    "zeroRecords": '@Resources.Resource.ZeroRecords',
+                    "info": '@Resources.Resource.Info',
+                    "infoEmpty": '@Resources.Resource.InfoEmpty',
+                    "lengthMenu": '@Resources.Resource.LengthMenu',
+                    "infoFiltered": '@Resources.Resource.InfoFiltered',
+                    "paginate": {
+                        "previous": '@Resources.Resource.Previous',
+                        "next": '@Resources.Resource.Next',
+                        "first": '@Resources.Resource.First',
+                        "last": '@Resources.Resource.Last',
+                    },
+                    "aria": {
+                        "sortAscending": '@Resources.Resource.SortAscending',
+                        "sortDescending": '@Resources.Resource.SortDescending'
+                    }
+                },
+                "searching": false,
+                "scrollX": true,
+                "columnDefs": [
+                    {
+                        "className": "dt-center",
+                        "targets": "_all",
+                        "orderable": false,
+                    }],
+                dom: 'Bfrtip',
+                buttons: [
+                    {
+                        messageTop: '@Resources.Resource.City',
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: [0, 1,2,3,4,5,6,7,8]
+                        }
+                    }
+                ],
+                ajax: {
+                    "type": "POST",
+                    url: "/DiscriptionOfAnimal/GetAllDiscriptionOfAnimal",
+                    "data": function (d) {
+                        d.AnimalName = $("#AnimalName").val();
+                        d.OwnerName = $("#OwnerName").val();
+                        d.Telephone = $("#Telephone").val();
+                        d.AnimalTypeID = $("#AnimalTypeNo").val();
+                        d.BreedID = $("#BreedNo").val();
+                        d.CoatColourID = $("#CoatColourNo").val();
+                        d.GenderID = $("#GenderNo").val();
+                    },
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "AnimalName"
+                    },
+                    {
+                        data: "OwnerName"
+                    },
+                    {
+                        data: "Telephone"
+                    },
+                    {
+                        data: "DateOfBirth"
+                    },
+                    {
+                        data: "GenderName"
+                    },
+                    {
+                        data: "AnimalTypeName"
+                    },
+                    {
+                        data: "BreedName"
+                    },
+                    {
+                        data: "CoatColourName"
+                    },
+                    {
+                        data: "UserName"
+                    },
+                    {
+                        data: "AnimalID",
+                        render: function (data, type, r) {
+                             return "<a  class='btn btn-success btn-circle fa fa-edit' href='/DiscriptionOfAnimal/UpdateDiscriptionOfAnimal/" + data + " '></a>";
+                        }
+                    },
+                    {
+                        data: "AnimalID",
+                        render: function (data, type, r) {
+                             return "<a  class='btn btn-danger btn-circle fa fa-trash-o' href='/DiscriptionOfAnimal/DeleteDiscriptionOfAnimal/" + data + " '></a>";
+                        }
+                    }
+                ]
+            });
+            $('#AnimalTypeNo').change(function () {
+                $('#tdataTable').DataTable().clear().draw();
+                $('#tdataTable').DataTable().ajax.reload();
+            });
+            $('#BreedNo').change(function () {
+                $('#tdataTable').DataTable().clear().draw();
+                $('#tdataTable').DataTable().ajax.reload();
+            });
+            $('#CoatColourNo').change(function () {
+                $('#tdataTable').DataTable().clear().draw();
+                $('#tdataTable').DataTable().ajax.reload();
+            });
+            $('#GenderNo').change(function () {
+                $('#tdataTable').DataTable().clear().draw();
+                $('#tdataTable').DataTable().ajax.reload();
+            });
+        });
+    </script>
+}

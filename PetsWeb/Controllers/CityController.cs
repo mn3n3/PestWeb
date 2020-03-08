@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace PetsWeb.Controllers
 {
+    [Authorize]
     public class CityController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -25,9 +26,11 @@ namespace PetsWeb.Controllers
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
             var AllCountry = _unitOfWork.NativeSql.GetAllCountryInfo(UserInfo.fCompanyId);
+            var AllCity = _unitOfWork.NativeSql.GetAllCityInfo(UserInfo.fCompanyId);
             var CityFilter = new CitySearchFilterVM
             {
-                Country = AllCountry 
+                Country = AllCountry,
+                City = AllCity
             };
             return View(CityFilter);
         }
@@ -43,10 +46,9 @@ namespace PetsWeb.Controllers
                 {
                     return Json(new List<CitySearchFilterVM>(), JsonRequestBehavior.AllowGet);
                 }
-                if (!String.IsNullOrEmpty(Obj.CityName))
+                if (Obj.CityID != 0)
                 {
-                    AllCity = AllCity.Where(m => m.CityName.ToUpper().Contains(Obj.CityName) ||
-                                                        m.CityName.ToLower().Contains(Obj.CityName)).ToList();
+                    AllCity = AllCity.Where(m => m.CityID == Obj.CityID).ToList();
                 }
                 if (Obj.CountryID != 0)
                 {
@@ -72,7 +74,7 @@ namespace PetsWeb.Controllers
                 Country = AllCountry,
                 CountryID = 1
             };
-            return PartialView(Obj);
+            return View(Obj);
         }
         [HttpPost]
         public JsonResult SaveCity(CitySearchFilterVM ObjToSave)
@@ -151,9 +153,9 @@ namespace PetsWeb.Controllers
                         Country = AllCountry,
                         CountryID = CityObj.CountryID
                     };
-                    return PartialView("UpdateCity", Obj);
+                    return View("UpdateCity", Obj);
                 }
-                return PartialView("UpdateCity", new CitySearchFilterVM());
+                return View("UpdateCity", new CitySearchFilterVM());
             }
             catch (Exception ex)
             {
@@ -240,9 +242,9 @@ namespace PetsWeb.Controllers
                     {
                         Obj.CountryName = CountryObj.EnglishName;
                     }
-                    return PartialView("DeleteCity", Obj);
+                    return View("DeleteCity", Obj);
                 }
-                return PartialView("DeleteCity", new CitySearchFilterVM());
+                return View("DeleteCity", new CitySearchFilterVM());
             }
             catch (Exception ex)
             {
@@ -287,6 +289,68 @@ namespace PetsWeb.Controllers
                 Msg.Code = 0;
                 return Json(Msg, JsonRequestBehavior.AllowGet);
             }
+        }
+        [HttpGet]
+        public JsonResult RefillAllCity()
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+                var AllCity = _unitOfWork.NativeSql.GetAllCityInfo(UserInfo.fCompanyId);
+                if (AllCity == null)
+                {
+                    return Json(new List<City>(), JsonRequestBehavior.AllowGet);
+                }
+
+                return Json(AllCity, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message.ToString();
+                return Json(new List<City>(), JsonRequestBehavior.AllowGet);
+            }
+
+        }
+        [HttpGet]
+        public JsonResult GetCountryName(int CityID)
+        {
+            var userId = User.Identity.GetUserId();
+            var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+            if (CityID != 0)
+            {
+                var CountryName = _unitOfWork.NativeSql.GetCountryName(UserInfo.fCompanyId, CityID);
+                if (CountryName == null)
+                {
+                    CountryName = new CitySearchFilterVM
+                    {
+                        CountryName = ""
+                    };
+                };
+
+                return Json(CountryName.CountryName, JsonRequestBehavior.AllowGet);
+            }
+            return Json("", JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public JsonResult GetCountryID(int CityID)
+        {
+            var userId = User.Identity.GetUserId();
+            var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+            if (CityID != 0)
+            {
+                var CountryID = _unitOfWork.NativeSql.GetCountryID(UserInfo.fCompanyId, CityID);
+                if (CountryID == null)
+                {
+                    CountryID = new CitySearchFilterVM
+                    {
+                        CountryID = 0
+                    };
+                };
+
+                return Json(CountryID.CountryID, JsonRequestBehavior.AllowGet);
+            }
+            return Json(0, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -12,8 +12,9 @@ namespace PetsWeb.Repositories
         IBreedRepo Breed { get; }
         ICoatColourRepo CoatColour { get; }
         ILocationOfMicrochipRepo LocationOfMicrochip { get; }
-
         IUserAccountRepo UserAccount { get; }
+        IDetailsOfOwnershipRepo DetailsOfOwnership { get; }
+        IDiscriptionOfAnimalRepo DiscriptionOfAnimal { get; }
         void Complete();
     }
 }
