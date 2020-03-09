@@ -13,5 +13,7 @@ namespace PetsWeb.ViewModels
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
         public string UserName { get; set; }
         public int CountryID { get; set; }
+        public IEnumerable<CountrySearchFilterVM> Country { get; set; }
+        public int Used { get; set; }
     }
 }

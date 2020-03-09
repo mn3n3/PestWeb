@@ -13,5 +13,6 @@ namespace PetsWeb.ViewModels
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
         public string UserName { get; set; }
         public int CoatColourID { get; set; }
+        public IEnumerable<CoatColourSearchFilterVM> CoatColour { get; set; }
     }
 }

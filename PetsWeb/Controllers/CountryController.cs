@@ -25,9 +25,10 @@ namespace PetsWeb.Controllers
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+            var AllCountry = _unitOfWork.NativeSql.GetAllCountryInfo(UserInfo.fCompanyId);
             var CountryFilter = new CountrySearchFilterVM
             {
-
+                Country = AllCountry
             };
             return View(CountryFilter);
         }
@@ -43,10 +44,9 @@ namespace PetsWeb.Controllers
                 {
                     return Json(new List<CountrySearchFilterVM>(), JsonRequestBehavior.AllowGet);
                 }
-                if (!String.IsNullOrEmpty(Obj.CountryName))
+                if (Obj.CountryID != 0)
                 {
-                    AllCountry = AllCountry.Where(m => m.CountryName.ToUpper().Contains(Obj.CountryName) || 
-                                                        m.CountryName.ToLower().Contains(Obj.CountryName)).ToList();
+                    AllCountry = AllCountry.Where(m => m.CountryID == Obj.CountryID).ToList();
                 }
                 return Json(AllCountry, JsonRequestBehavior.AllowGet);
             }
@@ -229,6 +229,28 @@ namespace PetsWeb.Controllers
                 Msg.Code = 0;
                 return Json(Msg, JsonRequestBehavior.AllowGet);
             }
+        }
+        [HttpGet]
+        public JsonResult RefillAllCountry()
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+                var AllCountry = _unitOfWork.NativeSql.GetAllCountryInfo(UserInfo.fCompanyId);
+                if (AllCountry == null)
+                {
+                    return Json(new List<Country>(), JsonRequestBehavior.AllowGet);
+                }
+
+                return Json(AllCountry, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message.ToString();
+                return Json(new List<Country>(), JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }

@@ -139,10 +139,16 @@
     <value>هل انت متأكد ؟ </value>
   </data>
   <data name="Breed" xml:space="preserve">
-    <value>السلالة</value>
+    <value>السلالات</value>
   </data>
   <data name="BreedName" xml:space="preserve">
     <value>اسم السلالة</value>
+  </data>
+  <data name="CantDeleteCity" xml:space="preserve">
+    <value>لا يمكن حذف المدينة , مرتبطة مع معلومات المالك</value>
+  </data>
+  <data name="CantDeleteCountry" xml:space="preserve">
+    <value>لا يمكن حذف الدولة , مرتبطة مع مدينة</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>تغير كلمة المرور</value>
@@ -205,7 +211,10 @@
     <value>حذف اللون الخارجي</value>
   </data>
   <data name="DeleteCountry" xml:space="preserve">
-    <value>حذف مدينة</value>
+    <value>حذف دولة</value>
+  </data>
+  <data name="DeleteDetailsOfOwnership" xml:space="preserve">
+    <value>حذف تفاصيل الملكية</value>
   </data>
   <data name="DeletedSuccessfully" xml:space="preserve">
     <value>تمت عملية الحذف بنجاح</value>
@@ -215,6 +224,12 @@
   </data>
   <data name="Deleting" xml:space="preserve">
     <value>جاري عملية الحذف</value>
+  </data>
+  <data name="DetailsOfOwnership" xml:space="preserve">
+    <value>تفاصيل الملكية</value>
+  </data>
+  <data name="DiscriptionOfAnimal" xml:space="preserve">
+    <value>وصف الحيوان</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>البريد الإلكتروني</value>
@@ -227,6 +242,9 @@
   </data>
   <data name="EnglishName" xml:space="preserve">
     <value>الاسم بالاتيني</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>انثى</value>
   </data>
   <data name="First" xml:space="preserve">
     <value>الأول</value>
@@ -282,6 +300,9 @@
   <data name="MainSetup" xml:space="preserve">
     <value>الاعدادات الرئيسية</value>
   </data>
+  <data name="Male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
   <data name="MicrochipNumber" xml:space="preserve">
     <value>رقم الرقاقة</value>
   </data>
@@ -334,22 +355,28 @@
     <value> تخزين </value>
   </data>
   <data name="SaveAnimalType" xml:space="preserve">
-    <value>حفظ الانواع</value>
+    <value>تخزين الانواع</value>
   </data>
   <data name="SaveBreed" xml:space="preserve">
-    <value>حفظ السلالات</value>
+    <value>تخزين السلالات</value>
   </data>
   <data name="SaveCity" xml:space="preserve">
     <value>تخزين المدن</value>
   </data>
   <data name="SaveCoatColour" xml:space="preserve">
-    <value>حفظ الألوان الخارجية</value>
+    <value>تخزين الألوان الخارجية</value>
   </data>
   <data name="SaveCountry" xml:space="preserve">
-    <value>حفظ المدن</value>
+    <value>تخزينالدول</value>
+  </data>
+  <data name="SaveDescriptionOfAnimal" xml:space="preserve">
+    <value>تخزين وصف الحيوان</value>
+  </data>
+  <data name="SaveDetailsOfOwnership" xml:space="preserve">
+    <value>تخزين تفاصيل ملكية</value>
   </data>
   <data name="SaveLocationOfMicrochip" xml:space="preserve">
-    <value>حفظ مواقع الرقاقات</value>
+    <value>تخزين مواقع الرقاقات</value>
   </data>
   <data name="Saving" xml:space="preserve">
     <value>جاري التخزين</value>
@@ -397,7 +424,10 @@
     <value>تعديل اللون الخارجي</value>
   </data>
   <data name="UpdateCountry" xml:space="preserve">
-    <value>تعديل مدينة</value>
+    <value>تعديل دولة</value>
+  </data>
+  <data name="UpdateDetailsOfOwnership" xml:space="preserve">
+    <value>تعديل تفاصيل الملكية</value>
   </data>
   <data name="UpdatedSuccessfully" xml:space="preserve">
     <value>تم التعديل بنجاح</value>

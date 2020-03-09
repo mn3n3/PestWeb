@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace PetsWeb.Controllers
 {
+    [Authorize]
     public class CoatColourController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -24,9 +25,10 @@ namespace PetsWeb.Controllers
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+            var AllCoatColour = _unitOfWork.NativeSql.GetAllCoatColourInfo(UserInfo.fCompanyId);
             var CoatColourFilter = new CoatColourSearchFilterVM
             {
-
+                CoatColour = AllCoatColour
             };
             return View(CoatColourFilter);
         }
@@ -42,10 +44,9 @@ namespace PetsWeb.Controllers
                 {
                     return Json(new List<CoatColourSearchFilterVM>(), JsonRequestBehavior.AllowGet);
                 }
-                if (!String.IsNullOrEmpty(Obj.CoatColourName))
+                if (Obj.CoatColourID != 0)
                 {
-                    AllCoatColour = AllCoatColour.Where(m => m.CoatColourName.ToUpper().Contains(Obj.CoatColourName) ||
-                                                        m.CoatColourName.ToLower().Contains(Obj.CoatColourName)).ToList();
+                    AllCoatColour = AllCoatColour.Where(m => m.CoatColourID == Obj.CoatColourID).ToList();
                 }
                 return Json(AllCoatColour, JsonRequestBehavior.AllowGet);
             }
@@ -228,6 +229,28 @@ namespace PetsWeb.Controllers
                 Msg.Code = 0;
                 return Json(Msg, JsonRequestBehavior.AllowGet);
             }
+        }
+        [HttpGet]
+        public JsonResult RefillAllCoatColour()
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+                var AllCoatColour = _unitOfWork.NativeSql.GetAllCoatColourInfo(UserInfo.fCompanyId);
+                if (AllCoatColour == null)
+                {
+                    return Json(new List<CoatColour>(), JsonRequestBehavior.AllowGet);
+                }
+
+                return Json(AllCoatColour, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message.ToString();
+                return Json(new List<CoatColour>(), JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }

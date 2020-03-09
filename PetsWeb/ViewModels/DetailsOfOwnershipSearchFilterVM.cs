@@ -7,7 +7,7 @@ using System.Web;
 
 namespace PetsWeb.ViewModels
 {
-    public class CitySearchFilterVM
+    public class DetailsOfOwnershipSearchFilterVM
     {
         public int CompanyID { get; set; }
         [Display(Name = "CityName", ResourceType = typeof(Resources.Resource))]
@@ -18,18 +18,28 @@ namespace PetsWeb.ViewModels
         public string UserName { get; set; }
         [Display(Name = "Serial", ResourceType = typeof(Resources.Resource))]
         public int CityID { get; set; }
-        public int CountryID{ get; set; }
-        public IEnumerable<CountrySearchFilterVM> Country { get; set; }
+        public int CountryID { get; set; }
         public IEnumerable<CitySearchFilterVM> City { get; set; }
+        public IEnumerable<CountrySearchFilterVM> Country { get; set; }
+        [Display(Name = "Serial", ResourceType = typeof(Resources.Resource))]
+        public int OwnerID { get; set; }
         [Required]
-        [Display(Name = "ArabicName", ResourceType = typeof(Resources.Resource))]
-        public string ArabicName { get; set; }
-        [Display(Name = "EnglishName", ResourceType = typeof(Resources.Resource))]
-        public string EnglishName { get; set; }
+        [Display(Name = "Surname", ResourceType = typeof(Resources.Resource))]
+        public string Surname { get; set; }
+        [Required]
+        [Display(Name = "FirstName", ResourceType = typeof(Resources.Resource))]
+        public string FirstName { get; set; }
+        [Display(Name = "Address", ResourceType = typeof(Resources.Resource))]
+        public string Address { get; set; }
+        [Display(Name = "PostCode", ResourceType = typeof(Resources.Resource))]
+        public string PosCode { get; set; }
+        [Display(Name = "Telephone", ResourceType = typeof(Resources.Resource))]
+        public string Telephone { get; set; }
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
         public string InsUserID { get; set; }
         [Display(Name = "InsDateTime", ResourceType = typeof(Resources.Resource))]
         public DateTime InsDateTime { get; set; }
-        public int Used { get; set; }
+        [Display(Name = "OwnerName", ResourceType = typeof(Resources.Resource))]
+        public string OwnerName { get; set; }
     }
 }

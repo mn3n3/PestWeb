@@ -15,5 +15,10 @@ namespace PetsWeb.Repositories
         IEnumerable<AnimalTypeSearchFilterVM> GetAllAnimalTypeInfo(int CompanyID);
         IEnumerable<LocationOfMicrochipSearchFilterVM> GetAllLocationOfMicrochipInfo(int CompanyID);
         IEnumerable<CitySearchFilterVM> GetAllCityInfo(int CompanyID);
+        IEnumerable<DetailsOfOwnershipSearchFilterVM> GetAllDetailsOfOwnershipInfo(int CompanyID);
+        IEnumerable<DiscriptionOfAnimalSearchFilterVM> GetAllDiscriptionOfAnimalInfo(int CompanyID);
+        CitySearchFilterVM GetCountryName(int CompanyID, int CityID);
+        CitySearchFilterVM GetCountryID(int CompanyID, int CityID);
+        int GetFirstCityID(int CompanyID);
     }
 }

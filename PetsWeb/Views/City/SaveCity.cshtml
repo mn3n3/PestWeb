@@ -2,42 +2,317 @@
 @{
     ViewBag.Title = "Add New City";
 }
-<script>
-    $("#ArabicName").focus();
-</script>
 
-<div class="row" id="MemberShipType">
-    <div class="col-md-3 col-md-offset-5">
-        <div style="padding-top:20px;">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    @Resources.Resource.SaveCity
-                </div>
-                <div class="panel-body">
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.CityID)
-                            @Html.TextBoxFor(m => m.CityID, new { @id = "CityID", @class = "form-control", @readonly = "readonly" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.ArabicName)<span style="color:red">*</span>
-                            @Html.TextBoxFor(m => m.ArabicName, new { @id = "ArabicName", autofocus = "autofocus", @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.EnglishName)
-                            @Html.TextBoxFor(m => m.EnglishName, new { @id = "EnglishName", @class = "form-control" })
-                        </div>
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.CountryName)
-                            @Html.DropDownListFor(m => m.CountryID, new SelectList(Model.Country, "CountryID", "CountryName"), new { @id = "CountryNo", @class = "form-control", @style = "max-width:480px" })
-                        </div>
+<div style="padding-top:20px;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @Resources.Resource.SaveCity
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CityID)
                     </div>
                 </div>
-                <div class="panel-footer">
-                    <button type="submit" class="btn btn-primary fa fa-plus" id="SaveCity">@Resources.Resource.Save</button>
-                    <button type="button" class="btn btn-danger  fa fa-times" data-dismiss="modal">@Resources.Resource.Close</button>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.CityID, new { @id = "CityID", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ArabicName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.ArabicName, new { @id = "CityArabicName", @class = "form-control", @style = "max-width:480px" })
+                        @Html.ValidationMessageFor(m => m.ArabicName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.EnglishName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.TextBoxFor(m => m.EnglishName, new { @id = "CityEnglishName", @class = "form-control", @style = "max-width:480px"  })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2"> 
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CountryName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.DropDownListFor(m => m.CountryID, new SelectList(Model.Country, "CountryID", "CountryName"), new { @id = "CountryNo", @class = "form-control", @style = "max-width:480px"  })
+                        <span class="input-group-btn">
+                            <a a class=" btn btn-primary btn-circle fa fa-plus  js-Pop" id="SaveCounty" href="/Country/SaveCountry"></a>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary fa fa-plus" id="SaveCity">@Resources.Resource.Save</button>
+            <button type="button" class="btn btn-danger  fa fa-times" id="Close">@Resources.Resource.Close</button>
+        </div>
     </div>
 </div>
+<div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-content">
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            $("#CityArabichName").focus();
+            $(document).on('click', '#Close', function () {
+                window.location = "/City/Index";
+            });
+            $(document).on('click', '#SaveCity', function () {
+                bootbox.confirm({
+                    message: "@Resources.Resource.AreYouSure",
+                    buttons: {
+                        confirm: {
+                            label: '@Resources.Resource.Yes',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: '@Resources.Resource.No',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            if ($("#CityArabicName").val() == '') {
+                                bootbox.alert({
+                                    message: '@Resources.Resource.PleasefillalRequiredfields',
+                                    size: 'small',
+                                    buttons: {
+                                        ok: {
+                                            label: '@Resources.Resource.Ok',
+                                            className: 'btn-info'
+                                        }
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                var dialog = bootbox.dialog({
+                                    title: '@Resources.Resource.PleaseWait',
+                                    message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Saving...</p>',
+                                    closeButton: false
+                                });
+                                var CountryID = "";
+                                if ($("#CountryNo").val() == "") {
+                                    CountryID = 0;
+                                }
+                                else {
+                                    CountryID = $("#CountryNo").val();
+                                }
+                                var dataToSave = {
+                                    CityID: $("#CityID").val(),
+                                    CountryID: CountryID,
+                                    ArabicName: $("#CityArabicName").val(),
+                                    EnglishName: $("#CityEnglishName").val()
+                                };
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/City/SaveCity",
+                                    data: JSON.stringify(dataToSave),
+                                    contentType: 'application/json',
+                                    success: function (data) {
+                                        dialog.modal('hide');
+                                        if (data.Code == 0) {
+                                            toastr.error(data.Msg);
+                                            bootbox.alert(data.Msg);
+                                        }
+                                        else if (data.Code == 1) {
+                                            toastr.success(data.Msg);
+                                            bootbox.alert(data.Msg);
+                                            document.getElementById("CityID").value = data.LastID;
+                                            document.getElementById("CityArabicName").value = "";
+                                            document.getElementById("CityEnglishName").value = "";
+                                            document.getElementById("CountryNo").value = 1;
+                                            $("#CityArabicName").focus();
+                                            var CityID = $('#CityNo');
+				                            CityID.empty();
+                                             $.ajax({
+					                            method: "GET",
+					                            url: "/City/RefillAllCity",
+					                            success: function (data) {
+                                                    $.each(data, function (id, region) {
+                                                        CityID.append($('<option/>', {
+                                                            value: region.CityID,
+                                                            text: region.CityName
+							                            }));
+						                            });
+
+						                            dialog.modal('hide');
+					                            },
+					                            error: function (xhr, AJAXOptions, thrownError) {
+						                            dialog.modal('hide');
+						                            alert('Failed to retrieve .');
+					                            }
+				                            });
+                                        }
+                                    },
+                                    error: function (data) {
+                                        dialog.modal('hide');
+                                        toastr.error(data);
+                                        bootbox.alert(data.Msg);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            });
+            $("#CityArabicName").keyup(function (event) {
+                if (event.keyCode == 13)
+                    $("#CityEnglishName").focus();
+                document.getElementById('CityEnglishName').style.direction="ltr";
+            });
+            $("#CityEnglishName").keyup(function (event) {
+                if (event.keyCode == 13)
+                    $("#CityArabicName").focus();
+               document.getElementById('CityArabicName').style.direction="rtl";
+            });
+            $('#tdataTable').on('click', '.modal-close-btn', function () {
+                $('#modal-container').modal('hide');
+            });
+			$(document).on('click', '.js-Pop', function (e) {
+				$('#modal-container').removeData('bs.modal');
+				e.preventDefault();
+				$(this).attr('data-target', '#modal-container');
+				$(this).attr('data-toggle', 'modal');
+
+			});
+			$('#modal-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+			});
+            $('#CancelModal').on('click', function () {
+                return false;
+            });
+            $(document).on('click', '#SaveCountry', function () {
+                bootbox.confirm({
+                    message: "@Resources.Resource.AreYouSure",
+                    buttons: {
+                        confirm: {
+                            label: '@Resources.Resource.Yes',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: '@Resources.Resource.No',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            if ($("#ArabicName").val() == '') {
+                                bootbox.alert({
+                                    message: '@Resources.Resource.PleasefillalRequiredfields',
+                                    size: 'small',
+                                    buttons: {
+                                        ok: {
+                                            label: '@Resources.Resource.Ok',
+                                            className: 'btn-info'
+                                        }
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                var dialog = bootbox.dialog({
+                                    title: '@Resources.Resource.PleaseWait',
+                                    message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Saving...</p>',
+                                    closeButton: false
+                                });
+                                var dataToSave = {
+                                    CountryID: $("#CountryID").val(),
+                                    ArabicName: $("#ArabicName").val(),
+                                    EnglishName: $("#EnglishName").val()
+                                };
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/Country/SaveCountry",
+                                    data: JSON.stringify(dataToSave),
+                                    contentType: 'application/json',
+                                    success: function (data) {
+                                        dialog.modal('hide');
+                                        if (data.Code == 0) {
+                                            toastr.error(data.Msg);
+                                            bootbox.alert(data.Msg);
+                                        }
+                                        else if (data.Code == 1) {
+                                            toastr.success(data.Msg);
+                                            bootbox.alert(data.Msg);
+                                            document.getElementById("CountryID").value = data.LastID;
+                                            document.getElementById("ArabicName").value = "";
+                                            document.getElementById("EnglishName").value = "";
+                                            $("#ArabicName").focus();
+                                            var CountryID = $('#CountryNo');
+				                            CountryID.empty();
+                                             $.ajax({
+					                            method: "GET",
+					                            url: "/Country/RefillAllCountry",
+					                            success: function (data) {
+                                                      CountryID.append($('<option/>', {
+                                                            value: 0,
+                                                            text: '@Resources.Resource.Country'
+							                            }));
+                                                    $.each(data, function (id, region) {
+                                                        CountryID.append($('<option/>', {
+                                                            value: region.CountryID,
+                                                            text: region.CountryName
+							                            }));
+						                            });
+
+						                            dialog.modal('hide');
+					                            },
+					                            error: function (xhr, AJAXOptions, thrownError) {
+						                            dialog.modal('hide');
+						                            alert('Failed to retrieve .');
+					                            }
+				                            });
+                                        }
+                                    },
+                                    error: function (data) {
+                                        dialog.modal('hide');
+                                        toastr.error(data);
+                                        bootbox.alert(data.Msg);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            });
+            $("body").on("keyup", "#ArabicName", function (event) {
+            if (event.keyCode == 13) {
+                $("#EnglishName").focus();
+                document.getElementById('EnglishName').style.direction="ltr";
+            }
+            });
+            $("body").on("keyup", "#EnglishName", function (event) {
+            if (event.keyCode == 13) {
+                $("#ArabicName").focus();
+                document.getElementById('ArabicName').style.direction="rtl";
+            }
+            });
+       });
+    </script>
+}
+

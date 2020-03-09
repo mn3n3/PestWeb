@@ -23,14 +23,13 @@
             </div>
             <div class="col-lg-4">
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.AnimalTypeName, new { @id = "AnimalTypeName", @class = "form-control", @style = "max-width:480px" })
+                    @Html.DropDownListFor(m => m.AnimalTypeID, new SelectList(Model.AnimalType, "AnimalTypeID", "AnimalTypeName"), Resources.Resource.Species, new { @id = "AnimalTypeNo", @class = "form-control", @style = "max-width:480px" })
                 </div>
             </div>
         </div>
         <div class="col-lg-12">
-            <a class="btn btn-info fa fa-search" id="btnSearch">@Resources.Resource.Search</a>
             <a class="btn btn-primary fa fa-plus js-Pop" id="btnSave" href="/AnimalType/SaveAnimalType">@Resources.Resource.Save</a>
-            <a class="btn btn-success fa fa-file-excel-o" id="btnPrintExcel">@Resources.Resource.PrintExcel</a>
+            <a class="btn btn-warning fa fa-file-excel-o" id="btnPrintExcel">@Resources.Resource.PrintExcel</a>
         </div>
 
         <div class="col-lg-12" style="margin-top:10px;">
@@ -61,7 +60,6 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script>
         $(document).ready(function () {
-            $("#AnimalTypeName").focus();
             $('#tdataTable').on('click', '.modal-close-btn', function () {
                 $('#modal-container').modal('hide');
             });
@@ -80,10 +78,6 @@
 			});
             $(document).on('click', '#btnPrintExcel', function () {
                 $(".dt-button").click();
-            });
-            $(document).on('click', '#btnSearch', function () {
-                $('#tdataTable').DataTable().clear().draw();
-                $('#tdataTable').DataTable().ajax.reload();
             });
             $(document).on('click', '#reload', function () {
                 tabelMemRef.ajax.reload();
@@ -132,7 +126,7 @@
                     "type": "POST",
                     url: "/AnimalType/GetAllAnimalType",
                     "data": function (d) {
-                        d.AnimalTypeName = $("#AnimalTypeName").val();
+                        d.AnimalTypeID = $("#AnimalTypeNo").val();
                     },
                     dataSrc: ""
                 },
@@ -215,6 +209,30 @@
                                             document.getElementById("EnglishName").value = "";
                                             $("#ArabicName").focus();
                                             tabelMemRef.ajax.reload();
+                                            var AnimalTypeID = $('#AnimalTypeNo');
+				                            AnimalTypeID.empty();
+                                             $.ajax({
+					                            method: "GET",
+					                            url: "/AnimalType/RefillAllAnimalType",
+					                            success: function (data) {
+                                                      AnimalTypeID.append($('<option/>', {
+                                                            value: 0,
+                                                            text: '@Resources.Resource.Species'
+							                            }));
+                                                    $.each(data, function (id, region) {
+                                                        AnimalTypeID.append($('<option/>', {
+                                                            value: region.AnimalTypeID,
+                                                            text: region.AnimalTypeName
+							                            }));
+						                            });
+
+						                            dialog.modal('hide');
+					                            },
+					                            error: function (xhr, AJAXOptions, thrownError) {
+						                            dialog.modal('hide');
+						                            alert('Failed to retrieve .');
+					                            }
+				                            });
                                         }
                                     },
                                     error: function (data) {
@@ -294,6 +312,30 @@
                                             toastr.success(data.Msg);
                                             bootbox.alert(data.Msg);
                                             tabelMemRef.ajax.reload();
+                                            var AnimalTypeID = $('#AnimalTypeNo');
+				                            AnimalTypeID.empty();
+                                             $.ajax({
+					                            method: "GET",
+					                            url: "/AnimalType/RefillAllAnimalType",
+					                            success: function (data) {
+                                                      AnimalTypeID.append($('<option/>', {
+                                                            value: 0,
+                                                            text: '@Resources.Resource.Species'
+							                            }));
+                                                    $.each(data, function (id, region) {
+                                                        AnimalTypeID.append($('<option/>', {
+                                                            value: region.AnimalTypeID,
+                                                            text: region.AnimalTypeName
+							                            }));
+						                            });
+
+						                            dialog.modal('hide');
+					                            },
+					                            error: function (xhr, AJAXOptions, thrownError) {
+						                            dialog.modal('hide');
+						                            alert('Failed to retrieve .');
+					                            }
+				                            });
                                         }
                                     },
                                     error: function (data) {
@@ -361,6 +403,30 @@
                                             toastr.success(data.Msg);
                                             bootbox.alert(data.Msg);
                                             tabelMemRef.ajax.reload();
+                                            var AnimalTypeID = $('#AnimalTypeNo');
+				                            AnimalTypeID.empty();
+                                             $.ajax({
+					                            method: "GET",
+					                            url: "/AnimalType/RefillAllAnimalType",
+					                            success: function (data) {
+                                                      AnimalTypeID.append($('<option/>', {
+                                                            value: 0,
+                                                            text: '@Resources.Resource.Species'
+							                            }));
+                                                    $.each(data, function (id, region) {
+                                                        AnimalTypeID.append($('<option/>', {
+                                                            value: region.AnimalTypeID,
+                                                            text: region.AnimalTypeName
+							                            }));
+						                            });
+
+						                            dialog.modal('hide');
+					                            },
+					                            error: function (xhr, AJAXOptions, thrownError) {
+						                            dialog.modal('hide');
+						                            alert('Failed to retrieve .');
+					                            }
+				                            });
                                         }
                                     },
                                     error: function (data) {
@@ -373,7 +439,11 @@
                         }
                     }
                 });
-			});
+            });
+            $('#AnimalTypeNo').change(function () {
+                $('#tdataTable').DataTable().clear().draw();
+                $('#tdataTable').DataTable().ajax.reload();
+            });
         });
     </script>
 }

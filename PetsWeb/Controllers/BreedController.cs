@@ -12,6 +12,7 @@ using System.Web;
 using System.Web.Mvc;
 namespace PetsWeb.Controllers
 {
+    [Authorize]
     public class BreedController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -23,9 +24,10 @@ namespace PetsWeb.Controllers
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+            var AllBreed = _unitOfWork.NativeSql.GetAllBreedInfo(UserInfo.fCompanyId);
             var BreedFilter = new BreedSearchFilterVM
             {
-
+                Breed = AllBreed
             };
             return View(BreedFilter);
         }
@@ -41,10 +43,9 @@ namespace PetsWeb.Controllers
                 {
                     return Json(new List<BreedSearchFilterVM>(), JsonRequestBehavior.AllowGet);
                 }
-                if (!String.IsNullOrEmpty(Obj.BreedName))
+                if (Obj.BreedID != 0)
                 {
-                    AllBreed = AllBreed.Where(m => m.BreedName.ToUpper().Contains(Obj.BreedName) ||
-                                                        m.BreedName.ToLower().Contains(Obj.BreedName)).ToList();
+                    AllBreed = AllBreed.Where(m => m.BreedID == Obj.BreedID).ToList();
                 }
                 return Json(AllBreed, JsonRequestBehavior.AllowGet);
             }
@@ -227,6 +228,28 @@ namespace PetsWeb.Controllers
                 Msg.Code = 0;
                 return Json(Msg, JsonRequestBehavior.AllowGet);
             }
+        }
+        [HttpGet]
+        public JsonResult RefillAllBreed()
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+                var AllBreed = _unitOfWork.NativeSql.GetAllBreedInfo(UserInfo.fCompanyId);
+                if (AllBreed == null)
+                {
+                    return Json(new List<Breed>(), JsonRequestBehavior.AllowGet);
+                }
+
+                return Json(AllBreed, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message.ToString();
+                return Json(new List<Breed>(), JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }

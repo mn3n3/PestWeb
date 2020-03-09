@@ -13,6 +13,7 @@ using System.Web.Mvc;
 
 namespace PetsWeb.Controllers
 {
+    [Authorize]
     public class AnimalTypeController : BaseController
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -24,9 +25,10 @@ namespace PetsWeb.Controllers
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+            var AllAnimalType = _unitOfWork.NativeSql.GetAllAnimalTypeInfo(UserInfo.fCompanyId);
             var AnimalTypeFilter = new AnimalTypeSearchFilterVM
             {
-
+              AnimalType = AllAnimalType
             };
             return View(AnimalTypeFilter);
         }
@@ -42,10 +44,9 @@ namespace PetsWeb.Controllers
                 {
                     return Json(new List<AnimalTypeSearchFilterVM>(), JsonRequestBehavior.AllowGet);
                 }
-                if (!String.IsNullOrEmpty(Obj.AnimalTypeName))
+                if (Obj.AnimalTypeID != 0)
                 {
-                    AllAnimalType = AllAnimalType.Where(m => m.AnimalTypeName.ToUpper().Contains(Obj.AnimalTypeName) ||
-                                                        m.AnimalTypeName.ToLower().Contains(Obj.AnimalTypeName)).ToList();
+                    AllAnimalType = AllAnimalType.Where(m => m.AnimalTypeID == Obj.AnimalTypeID).ToList();
                 }
                 return Json(AllAnimalType, JsonRequestBehavior.AllowGet);
             }
@@ -228,6 +229,28 @@ namespace PetsWeb.Controllers
                 Msg.Code = 0;
                 return Json(Msg, JsonRequestBehavior.AllowGet);
             }
+        }
+        [HttpGet]
+        public JsonResult RefillAllAnimalType()
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+                var AllAnimalType = _unitOfWork.NativeSql.GetAllAnimalTypeInfo(UserInfo.fCompanyId);
+                if (AllAnimalType == null)
+                {
+                    return Json(new List<AnimalType>(), JsonRequestBehavior.AllowGet);
+                }
+
+                return Json(AllAnimalType, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message.ToString();
+                return Json(new List<AnimalType>(), JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }

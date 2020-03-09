@@ -23,14 +23,13 @@
             </div>
             <div class="col-lg-4">
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.CountryName, new { @id = "CountryName", @class = "form-control",  @style = "max-width:480px" })
+                    @Html.DropDownListFor(m => m.CountryID, new SelectList(Model.Country, "CountryID", "CountryName"), Resources.Resource.Country, new { @id = "CountryNo", @class = "form-control", @style = "max-width:480px" })
                 </div>
             </div>
         </div>
         <div class="col-lg-12">
-            <a class="btn btn-info fa fa-search" id="btnSearch">@Resources.Resource.Search</a>
             <a class="btn btn-primary fa fa-plus js-Pop" id="btnSave" href="/Country/SaveCountry">@Resources.Resource.Save</a>
-            <a class="btn btn-success fa fa-file-excel-o" id="btnPrintExcel">@Resources.Resource.PrintExcel</a>
+            <a class="btn btn-warning fa fa-file-excel-o" id="btnPrintExcel">@Resources.Resource.PrintExcel</a>
         </div>
 
         <div class="col-lg-12" style="margin-top:10px;">
@@ -61,7 +60,6 @@
     @Scripts.Render("~/bundles/jqueryval")
     <script>
         $(document).ready(function () {
-            $("#CountryName").focus();
             $('#tdataTable').on('click', '.modal-close-btn', function () {
                 $('#modal-container').modal('hide');
             });
@@ -80,10 +78,6 @@
 			});
             $(document).on('click', '#btnPrintExcel', function () {
                 $(".dt-button").click();
-            });
-            $(document).on('click', '#btnSearch', function () {
-                $('#tdataTable').DataTable().clear().draw();
-                $('#tdataTable').DataTable().ajax.reload();
             });
             $(document).on('click', '#reload', function () {
                 tabelMemRef.ajax.reload();
@@ -132,7 +126,7 @@
                     "type": "POST",
                     url: "/Country/GetAllCountry",
                     "data": function (d) {
-                        d.CountryName = $("#CountryName").val();
+                        d.CountryID = $("#CountryNo").val();
                     },
                     dataSrc: ""
                 },
@@ -152,7 +146,12 @@
                     {
                         data: "CountryID",
                         render: function (data, type, r) {
-                             return "<a  class='btn btn-danger btn-circle fa fa-trash-o js-Pop' href='/Country/DeleteCountry/" + data + " '></a>";
+                            if (r.Used == 1) {
+                                 return "<a  class='btn btn-danger btn-circle fa fa-trash-o' href='#' id='Used'></a>";
+                             }
+                             else {
+                                 return "<a  class='btn btn-danger btn-circle fa fa-trash-o js-Pop' href='/Country/DeleteCountry/" + data + " '></a>";
+                             } 
                         }
                     }
                 ]
@@ -215,6 +214,30 @@
                                             document.getElementById("EnglishName").value = "";
                                             $("#ArabicName").focus();
                                             tabelMemRef.ajax.reload();
+                                            var CountryID = $('#CountryNo');
+				                            CountryID.empty();
+                                             $.ajax({
+					                            method: "GET",
+					                            url: "/Country/RefillAllCountry",
+					                            success: function (data) {
+                                                      CountryID.append($('<option/>', {
+                                                            value: 0,
+                                                            text: '@Resources.Resource.Country'
+							                            }));
+                                                    $.each(data, function (id, region) {
+                                                        CountryID.append($('<option/>', {
+                                                            value: region.CountryID,
+                                                            text: region.CountryName
+							                            }));
+						                            });
+
+						                            dialog.modal('hide');
+					                            },
+					                            error: function (xhr, AJAXOptions, thrownError) {
+						                            dialog.modal('hide');
+						                            alert('Failed to retrieve .');
+					                            }
+				                            });
                                         }
                                     },
                                     error: function (data) {
@@ -237,7 +260,7 @@
             $("body").on("keyup", "#EnglishName", function (event) {
             if (event.keyCode == 13) {
                 $("#ArabicName").focus();
-                document.getElementById('EnglishName').style.direction="rtl";
+                document.getElementById('ArabicName').style.direction="rtl";
             }
             });
             $(document).on('click', '#UpdateCountry', function () {
@@ -294,6 +317,30 @@
                                             toastr.success(data.Msg);
                                             bootbox.alert(data.Msg);
                                             tabelMemRef.ajax.reload();
+                                            var CountryID = $('#CountryNo');
+				                            CountryID.empty();
+                                             $.ajax({
+					                            method: "GET",
+					                            url: "/Country/RefillAllCountry",
+					                            success: function (data) {
+                                                      CountryID.append($('<option/>', {
+                                                            value: 0,
+                                                            text: '@Resources.Resource.Country'
+							                            }));
+                                                    $.each(data, function (id, region) {
+                                                        CountryID.append($('<option/>', {
+                                                            value: region.CountryID,
+                                                            text: region.CountryName
+							                            }));
+						                            });
+
+						                            dialog.modal('hide');
+					                            },
+					                            error: function (xhr, AJAXOptions, thrownError) {
+						                            dialog.modal('hide');
+						                            alert('Failed to retrieve .');
+					                            }
+				                            });
                                         }
                                     },
                                     error: function (data) {
@@ -361,6 +408,30 @@
                                             toastr.success(data.Msg);
                                             bootbox.alert(data.Msg);
                                             tabelMemRef.ajax.reload();
+                                            var CountryID = $('#CountryNo');
+				                            CountryID.empty();
+                                             $.ajax({
+					                            method: "GET",
+					                            url: "/Country/RefillAllCountry",
+					                            success: function (data) {
+                                                      CountryID.append($('<option/>', {
+                                                            value: 0,
+                                                            text: '@Resources.Resource.Country'
+							                            }));
+                                                    $.each(data, function (id, region) {
+                                                        CountryID.append($('<option/>', {
+                                                            value: region.CountryID,
+                                                            text: region.CountryName
+							                            }));
+						                            });
+
+						                            dialog.modal('hide');
+					                            },
+					                            error: function (xhr, AJAXOptions, thrownError) {
+						                            dialog.modal('hide');
+						                            alert('Failed to retrieve .');
+					                            }
+				                            });
                                         }
                                     },
                                     error: function (data) {
@@ -373,7 +444,23 @@
                         }
                     }
                 });
-			});
+            });
+            $('#CountryNo').change(function () {
+                $('#tdataTable').DataTable().clear().draw();
+                $('#tdataTable').DataTable().ajax.reload();
+            });
+            $(document).on("click","#Used",function(){
+                 bootbox.alert({
+                     message: '@Resources.Resource.CantDeleteCountry',
+                     buttons: {
+                         ok: {
+                             label: '@Resources.Resource.Ok',
+                                    className: 'btn-info'
+                         }
+                     },
+                  size: 'small'
+                 });
+                });
         });
 </script>
 }

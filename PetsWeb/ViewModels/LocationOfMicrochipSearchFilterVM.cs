@@ -13,5 +13,6 @@ namespace PetsWeb.ViewModels
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
         public string UserName { get; set; }
         public int LocationOfMicrochipID { get; set; }
+        public IEnumerable<LocationOfMicrochipSearchFilterVM> LocationOfMicrochip { get; set; }
     }
 }

@@ -1,47 +1,83 @@
-﻿@model PetsWeb.ViewModels.CitySearchFilterVM
+﻿@model PetsWeb.ViewModels.DetailsOfOwnershipSearchFilterVM
 @{
-    ViewBag.Title = "Delete  City";
+    ViewBag.Title = "Delete Details Of Ownership";
 }
 
 <div style="padding-top:20px;">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            @Resources.Resource.DeleteCity
+            @Resources.Resource.DeleteDetailsOfOwnership
         </div>
         <div class="panel-body">
             <div class="col-lg-12">
                 <div class="col-lg-2">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.CityID)
+                        @Html.LabelFor(m => m.OwnerID)
                     </div>
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
-                        @Html.TextBoxFor(m => m.CityID, new { @id = "CityID", @class = "form-control", @readonly = "readonly" })
+                        @Html.TextBoxFor(m => m.OwnerID, new { @id = "OwnerID", @class = "form-control", @readonly = "readonly" })
                     </div>
                 </div>
             </div>
             <div class="col-lg-12">
                 <div class="col-lg-2">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.ArabicName)
+                        @Html.LabelFor(m => m.Surname)
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        @Html.TextBoxFor(m => m.ArabicName, new { @id = "ArabicName", autofocus = "autofocus", @class = "form-control", @readonly = "readonly", @style = "max-width:480px"  })
+                        @Html.TextBoxFor(m => m.Surname, new { @id = "Surname", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
                     </div>
                 </div>
             </div>
             <div class="col-lg-12">
                 <div class="col-lg-2">
                     <div class="form-group">
-                        @Html.LabelFor(m => m.EnglishName)
+                        @Html.LabelFor(m => m.FirstName)
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group  input-group">
-                        @Html.TextBoxFor(m => m.EnglishName, new { @id = "EnglishName", @class = "form-control", @readonly = "readonly", @style = "max-width:480px"  })
+                        @Html.TextBoxFor(m => m.FirstName, new { @id = "FirstName", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Telephone)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.TextBoxFor(m => m.Telephone, new { @id = "Telephone", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PosCode)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.TextBoxFor(m => m.PosCode, new { @id = "PosCode", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Address)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.TextBoxFor(m => m.Address, new { @id = "Address", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
                     </div>
                 </div>
             </div>
@@ -52,12 +88,26 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    @Html.TextBoxFor(m => m.CountryName, new { @id = "CountryName", @class = "form-control", @readonly = "readonly", @style = "max-width:480px" })
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.CountryName, new { @id = "CountryName", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CityName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.CityName, new { @id = "CityName", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
                 </div>
             </div>
         </div>
         <div class="panel-footer">
-            <button type="submit" class="btn btn-danger  fa fa-trash-o" id="DeleteCity">@Resources.Resource.Delete</button>
+            <button type="submit" class="btn btn-danger  fa fa-trash-o" id="DeleteDetailsOfOwnership">@Resources.Resource.Delete</button>
             <button type="button" class="btn btn-danger  fa fa-times" id="Close">@Resources.Resource.Close</button>
         </div>
     </div>
@@ -68,9 +118,9 @@
     <script>
         $(document).ready(function () {
             $(document).on('click', '#Close', function () {
-                window.location = "/City/Index";
+                window.location = "/DetailsOfOwnership/Index";
             });
-             $(document).on('click', '#DeleteCity', function () {
+             $(document).on('click', '#DeleteDetailsOfOwnership', function () {
                 bootbox.confirm({
                     message: "@Resources.Resource.AreYouSure",
                     buttons: {
@@ -85,7 +135,19 @@
                     },
                     callback: function (result) {
                         if (result) {
-                            if ($("#ArabicName").val() == '') {
+                            if ($("#Surname").val() == '') {
+                                bootbox.alert({
+                                    message: '@Resources.Resource.PleasefillalRequiredfields',
+                                    size: 'small',
+                                    buttons: {
+                                        ok: {
+                                            label: '@Resources.Resource.Ok',
+                                            className: 'btn-info'
+                                        }
+                                    }
+                                });
+                            }
+                            else if ($("#FirstName").val() == '') {
                                 bootbox.alert({
                                     message: '@Resources.Resource.PleasefillalRequiredfields',
                                     size: 'small',
@@ -105,13 +167,13 @@
                                     closeButton: false
                                 });
                                 var dataToDelete = {
-                                    CityID: $("#CityID").val(),
-                                    ArabicName: $("#ArabicName").val(),
-                                    EnglishName: $("#EnglishName").val()
+                                    OwnerID: $("#OwnerID").val(),
+                                    Surname: $("#Surname").val(),
+                                    FirstName: $("#FirstName").val()
                                 };
                                 $.ajax({
                                     type: "POST",
-                                    url: "/City/DeleteCity",
+                                    url: "/DetailsOfOwnership/DeleteDetailsOfOwnership",
                                     data: JSON.stringify(dataToDelete),
                                     contentType: 'application/json',
                                     success: function (data) {
@@ -123,31 +185,7 @@
                                         else if (data.Code == 1) {
                                             toastr.success(data.Msg);
                                             bootbox.alert(data.Msg);
-                                            var CityID = $('#CityNo');
-				                            CityID.empty();
-                                             $.ajax({
-					                            method: "GET",
-					                            url: "/City/RefillAllCity",
-					                            success: function (data) {
-                                                      CityID.append($('<option/>', {
-                                                            value: 0,
-                                                            text: '@Resources.Resource.City'
-							                            }));
-                                                    $.each(data, function (id, region) {
-                                                        CityID.append($('<option/>', {
-                                                            value: region.CityID,
-                                                            text: region.CityName
-							                            }));
-						                            });
-
-                                                    dialog.modal('hide');
-                                                    window.location = "/City/Index";
-					                            },
-					                            error: function (xhr, AJAXOptions, thrownError) {
-						                            dialog.modal('hide');
-						                            alert('Failed to retrieve .');
-					                            }
-				                            });
+                                            window.location = "/DetailsOfOwnership/Index";
                                         }
                                     },
                                     error: function (data) {
@@ -164,6 +202,5 @@
        });
     </script>
 }
-
 
 

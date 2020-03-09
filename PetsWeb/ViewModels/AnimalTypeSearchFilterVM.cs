@@ -12,5 +12,6 @@ namespace PetsWeb.ViewModels
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
         public string UserName { get; set; }
         public int AnimalTypeID { get; set; }
+        public IEnumerable<AnimalTypeSearchFilterVM> AnimalType { get; set; }
     }
 }
