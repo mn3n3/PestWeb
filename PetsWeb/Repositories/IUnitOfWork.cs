@@ -15,6 +15,7 @@ namespace PetsWeb.Repositories
         IUserAccountRepo UserAccount { get; }
         IDetailsOfOwnershipRepo DetailsOfOwnership { get; }
         IDiscriptionOfAnimalRepo DiscriptionOfAnimal { get; }
+        IPhysicalExaminationRepo PhysicalExamination { get; }
         void Complete();
     }
 }

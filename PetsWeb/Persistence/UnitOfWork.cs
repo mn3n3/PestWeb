@@ -19,9 +19,11 @@ namespace PetsWeb.Persistence
         public IDetailsOfOwnershipRepo DetailsOfOwnership { get; set; }
         public IDiscriptionOfAnimalRepo DiscriptionOfAnimal { get; set; }
         public ICompanyRepo  Company { get; set; }
+        public IPhysicalExaminationRepo PhysicalExamination { get; set; }
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
+            PhysicalExamination=new PhysicalExaminationRepo(context);
             Company = new  CompanyRepo(context);
             UserAccount = new UserAccountRepo(context);
             Country = new CountryRepo(_context);
