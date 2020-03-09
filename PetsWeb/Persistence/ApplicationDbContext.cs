@@ -19,6 +19,8 @@ namespace PetsWeb.Persistence
         public DbSet<LocationOfMicrochip> LocationOfMicrochips { get; set; }
         public DbSet<Company> Companies { get; set; }
 
+        public DbSet<PhysicalExamination> PhysicalExaminations { get; set; }
+        
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

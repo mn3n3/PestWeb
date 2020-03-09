@@ -17,12 +17,15 @@ namespace PetsWeb.Persistence
         public ICoatColourRepo CoatColour { get; set; }
         public ILocationOfMicrochipRepo LocationOfMicrochip { get; set; }
 
-        public ICompanyRepo  Company { get; set; }
+        public ICompanyRepo Company { get; set; }
+        public IPhysicalExaminationRepo PhysicalExamination { get; set; }
+        
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
-            Company = new  CompanyRepo(context);
-            UserAccount = new UserAccountRepo(context);
+            PhysicalExamination = new PhysicalExaminationRepo(_context);
+            Company = new  CompanyRepo(_context);
+            UserAccount = new UserAccountRepo(_context);
             Country = new CountryRepo(_context);
             City = new CityRepo(_context);
             AnimalType = new AnimalTypeRepo(_context);

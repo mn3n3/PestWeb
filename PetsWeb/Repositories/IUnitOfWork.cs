@@ -14,6 +14,8 @@ namespace PetsWeb.Repositories
         ILocationOfMicrochipRepo LocationOfMicrochip { get; }
 
         IUserAccountRepo UserAccount { get; }
+
+        IPhysicalExaminationRepo PhysicalExamination { get; }
         void Complete();
     }
 }
