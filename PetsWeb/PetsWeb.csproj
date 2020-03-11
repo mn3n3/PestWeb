@@ -185,6 +185,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationOfMicrochipController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PhysicalExaminationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +206,10 @@
     <Compile Include="Migrations\202003081306135_MohammedAwad080320201.Designer.cs">
       <DependentUpon>202003081306135_MohammedAwad080320201.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003091537408_ReCreateData2.cs" />
+    <Compile Include="Migrations\202003091537408_ReCreateData2.Designer.cs">
+      <DependentUpon>202003091537408_ReCreateData2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnimalType.cs" />
@@ -219,6 +224,7 @@
     <Compile Include="Models\IdentificationOfAnimal.cs" />
     <Compile Include="Models\LocationOfMicrochip.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PhysicalExamination.cs" />
     <Compile Include="Persistence\AnimalTypeRepo.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
     <Compile Include="Persistence\BreedRepo.cs" />
@@ -230,6 +236,7 @@
     <Compile Include="Persistence\DiscriptionOfAnimalRepo.cs" />
     <Compile Include="Persistence\LocationOfMicrochipRepo.cs" />
     <Compile Include="Persistence\NativeSqlRepo.cs" />
+    <Compile Include="Persistence\PhysicalExaminationRepo.cs" />
     <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Persistence\UserAccountRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -243,6 +250,7 @@
     <Compile Include="Repositories\IDiscriptionOfAnimalRepo.cs" />
     <Compile Include="Repositories\ILocationOfMicrochipRepo.cs" />
     <Compile Include="Repositories\INativeSqlRepo.cs" />
+    <Compile Include="Repositories\IPhysicalExaminationRepo.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
     <Compile Include="Repositories\IUserAccountRepo.cs" />
     <Compile Include="Startup.cs" />
@@ -1011,6 +1019,7 @@
     <Content Include="Views\DetailsOfOwnership\DeleteDetailsOfOwnership.cshtml" />
     <Content Include="Views\DiscriptionOfAnimal\Index.cshtml" />
     <Content Include="Views\DiscriptionOfAnimal\SaveDiscriptionOfAnimal.cshtml" />
+    <Content Include="Views\PhysicalExamination\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1055,6 +1064,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003081306135_MohammedAwad080320201.resx">
       <DependentUpon>202003081306135_MohammedAwad080320201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003091537408_ReCreateData2.resx">
+      <DependentUpon>202003091537408_ReCreateData2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
