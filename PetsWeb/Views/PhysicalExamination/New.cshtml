@@ -64,63 +64,230 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="Page1">
-                            <div class="col-lg-6" style="margin-top:10px;">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        General appearance/Normal
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="form-group col-lg-4">
-
-                                            @Html.CheckBoxFor(m => m.Ch1, new { @id = "Ch1" })
-
-                                            @Html.Label("Bright")
-
+                            <div class=" col-lg-12">
+                                <div class="col-md-4" style="margin-top:10px;">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            General appearance/Normal
                                         </div>
-                                        <div class="form-group col-lg-8">
-
-
-                                            @Html.TextBoxFor(m => m.CoatColour, new { @id = "CoatColour", autofocus = "autofocus", @class = "form-control input-sm" })
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch1, new { @id = "Ch1" })
+                                                @Html.Label("Bright")
+                                                @Html.TextBoxFor(m => m.Tx1, new { @id = "Tx1", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch2, new { @id = "Ch2" })
+                                                @Html.Label("Alert")
+                                                @Html.TextBoxFor(m => m.Tx2, new { @id = "Tx2", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch3, new { @id = "Ch3" })
+                                                @Html.Label("Responsive")
+                                                @Html.TextBoxFor(m => m.Tx3, new { @id = "Tx3", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch4, new { @id = "Ch4" })
+                                                @Html.Label("General symmetry")
+                                                @Html.TextBoxFor(m => m.Tx4, new { @id = "Tx4", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6" style="margin-top:10px;">
-                                <div class="panel panel-danger">
-                                    <div class="panel-heading">
-                                        General appearance/Abnormal
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="form-group col-lg-4">
-
-                                            @Html.CheckBoxFor(m => m.Ch1, new { @id = "Ch1" })
-
-                                            @Html.Label("Bright")
+                                <div class="col-md-4" style="margin-top:10px;">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            General appearance/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch5, new { @id = "Ch5" })
+                                                @Html.Label("Lethargic")
+                                                @Html.TextBoxFor(m => m.Tx5, new { @id = "Tx5", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch6, new { @id = "Ch6" })
+                                                @Html.Label("Depressed")
+                                                @Html.TextBoxFor(m => m.Tx6, new { @id = "Tx6", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch7, new { @id = "Ch7" })
+                                                @Html.Label("Collapsed")
+                                                @Html.TextBoxFor(m => m.Tx7, new { @id = "Tx7", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch8, new { @id = "Ch8" })
+                                                @Html.Label("Hyperactive")
+                                                @Html.TextBoxFor(m => m.Tx8, new { @id = "Tx8", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
 
                                         </div>
-                                        <div class="form-group col-lg-8">
 
-
-                                            @Html.TextBoxFor(m => m.CoatColour, new { @id = "CoatColour", autofocus = "autofocus", @class = "form-control input-sm" })
-                                        </div>
                                     </div>
-
                                 </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-info" style="margin-top:10px;">
+                                        <div class="panel-heading">
+                                            Body weight and condition/Normal
+                                        </div>
+                                        <div class="panel-body">
+ 
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch9, new { @id = "Ch9" })
+                                                @Html.Label("Normal for breed")
+                                                @Html.TextBoxFor(m => m.Tx9, new { @id = "Tx9", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+ 
+                                        </div>
+
+                                    </div>
+
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Body weight and condition/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch10, new { @id = "Ch10" })
+                                                @Html.Label("Too fat or thin")
+                                                @Html.TextBoxFor(m => m.Tx10, new { @id = "Tx10", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
                             </div>
+                           
+
+                            <div class=" col-lg-12">
+                                <div class="col-md-4"  >
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                           Eye/Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch11, new { @id = "Ch11" })
+                                                @Html.Label("Bright")
+                                                @Html.TextBoxFor(m => m.Tx11, new { @id = "Tx11", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch12, new { @id = "Ch12" })
+                                                @Html.Label("Clear")
+                                                @Html.TextBoxFor(m => m.Tx12, new { @id = "Tx12", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch13, new { @id = "Ch13" })
+                                                @Html.Label("Moist")
+                                                @Html.TextBoxFor(m => m.Tx13, new { @id = "Tx13", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch14, new { @id = "Ch14" })
+                                                @Html.Label("Normal pupil size")
+                                                @Html.TextBoxFor(m => m.Tx14, new { @id = "Tx14", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4"  >
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Eye/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch15, new { @id = "Ch15" })
+                                                @Html.Label("Dlscharge")
+                                                @Html.TextBoxFor(m => m.Tx15, new { @id = "Tx15", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch16, new { @id = "Ch16" })
+                                                @Html.Label("Redness")
+                                                @Html.TextBoxFor(m => m.Tx16, new { @id = "Tx16", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch17, new { @id = "Ch17" })
+                                                @Html.Label("Opaction")
+                                                @Html.TextBoxFor(m => m.Tx17, new { @id = "Tx17", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch18, new { @id = "Ch18" })
+                                                @Html.Label("Abnormal mucous membrane colour")
+                                                @Html.TextBoxFor(m => m.Tx18, new { @id = "Tx18", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch19, new { @id = "Ch19" })
+                                                @Html.Label("Anlsocorla")
+                                                @Html.TextBoxFor(m => m.Tx19, new { @id = "Tx19", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-info"  >
+                                        <div class="panel-heading">
+                                           Nose/Normal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch20, new { @id = "Ch20" })
+                                                @Html.Label("Moist")
+                                                @Html.TextBoxFor(m => m.Tx20, new { @id = "Tx20", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch21, new { @id = "Ch21" })
+                                                @Html.Label("Cobblestone appearance")
+                                                @Html.TextBoxFor(m => m.Tx21, new { @id = "Tx21", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Nose/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch22, new { @id = "Ch22" })
+                                                @Html.Label("Discharge")
+                                                @Html.TextBoxFor(m => m.Tx22, new { @id = "Tx22", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch23, new { @id = "Ch23" })
+                                                @Html.Label("Leslons")
+                                                @Html.TextBoxFor(m => m.Tx23, new { @id = "Tx23", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
                         </div>
                         <div class="tab-pane fade" id="profile">
-                            <h4>Profile Tab</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
+                             </div>
                         <div class="tab-pane fade" id="messages">
-                            <h4>Messages Tab</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
+                                 </div>
                         <div class="tab-pane fade" id="settings">
-                            <h4>Settings Tab</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
+                             </div>
                     </div>
                 </div>
                 <!-- /.panel-body -->
