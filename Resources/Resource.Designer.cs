@@ -755,6 +755,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please Create Your Company Profile First.
+        /// </summary>
+        public static string PleaseCreateYourCompanyProfileFisrt {
+            get {
+                return ResourceManager.GetString("PleaseCreateYourCompanyProfileFisrt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please fill all  Required fields.
         /// </summary>
         public static string PleasefillalRequiredfields {

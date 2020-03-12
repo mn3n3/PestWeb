@@ -349,6 +349,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="PhysicalExamination" xml:space="preserve">
     <value>Physical Examination</value>
   </data>
+  <data name="PleaseCreateYourCompanyProfileFisrt" xml:space="preserve">
+    <value>Please Create Your Company Profile First</value>
+  </data>
   <data name="PleasefillalRequiredfields" xml:space="preserve">
     <value>Please fill all  Required fields</value>
   </data>
