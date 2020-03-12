@@ -1,0 +1,1340 @@
+﻿@model PetsWeb.Models.PhysicalExamination
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Physical Examination
+    </div>
+    <div class="panel-body">
+        <div class="col-lg-12">
+            <div class="col-lg-4">
+                @Html.LabelFor(m => m.AnimalName)
+                @Html.TextBoxFor(m => m.AnimalName, new { @id = "AnimalName", @class = "form-control input-sm" })
+                @Html.LabelFor(m => m.OwnerName)<span style="color:red">*</span>
+                @Html.TextBoxFor(m => m.OwnerName, new { @id = "OwnerName", autofocus = "autofocus", @class = "form-control input-sm" })
+                @Html.LabelFor(m => m.Species)<span style="color:red">*</span>
+                @Html.TextBoxFor(m => m.Species, new { @id = "Species", autofocus = "autofocus", @class = "form-control input-sm" })
+
+            </div>
+
+
+            <div class="col-lg-4">
+                @Html.LabelFor(m => m.Breed)<span style="color:red">*</span>
+                @Html.TextBoxFor(m => m.Breed, new { @id = "Breed", autofocus = "autofocus", @class = "form-control input-sm" })
+                @Html.LabelFor(m => m.Sex)<span style="color:red">*</span>
+                @Html.TextBoxFor(m => m.Sex, new { @id = "Sex", autofocus = "autofocus", @class = "form-control input-sm" })
+
+                @Html.LabelFor(m => m.CoatColour)<span style="color:red">*</span>
+                @Html.TextBoxFor(m => m.CoatColour, new { @id = "CoatColour", autofocus = "autofocus", @class = "form-control input-sm" })
+
+            </div>
+
+
+            <div class="col-lg-4">
+                @Html.LabelFor(m => m.DateOfBirth)*
+                @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "DateOfBirth", @class = " form-control input-sm", @Value = Model.DateOfBirth.ToString("dd/MM/yyyy") })
+                @Html.LabelFor(m => m.Note)
+                @Html.TextAreaFor(m => m.Note, new { @id = "Note", autofocus = "autofocus", @class = "form-control input-sm" })
+
+            </div>
+
+            <div class="col-lg-12">
+
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#page1" data-toggle="tab" aria-expanded="true">Page1</a>
+                        </li>
+                        <li class="">
+                            <a href="#page2" data-toggle="tab" aria-expanded="false">Page2</a>
+                        </li>
+                        <li>
+                            <a href="#page3" data-toggle="tab">Page3</a>
+                        </li>
+                        <li>
+                            <a href="#page4" data-toggle="tab">Page4</a>
+                        </li>
+                        <li>
+                            <a href="#page5" data-toggle="tab">Page5</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade active in" id="Page1">
+                            <div class=" col-lg-12">
+                                <div class="col-md-4" style="margin-top:10px;">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            General appearance/Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch1, new { @id = "Ch1" })
+                                                @Html.Label("Bright")
+                                                @Html.TextBoxFor(m => m.Tx1, new { @id = "Tx1", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch2, new { @id = "Ch2" })
+                                                @Html.Label("Alert")
+                                                @Html.TextBoxFor(m => m.Tx2, new { @id = "Tx2", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch3, new { @id = "Ch3" })
+                                                @Html.Label("Responsive")
+                                                @Html.TextBoxFor(m => m.Tx3, new { @id = "Tx3", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch4, new { @id = "Ch4" })
+                                                @Html.Label("General symmetry")
+                                                @Html.TextBoxFor(m => m.Tx4, new { @id = "Tx4", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="margin-top:10px;">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            General appearance/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch5, new { @id = "Ch5" })
+                                                @Html.Label("Lethargic")
+                                                @Html.TextBoxFor(m => m.Tx5, new { @id = "Tx5", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch6, new { @id = "Ch6" })
+                                                @Html.Label("Depressed")
+                                                @Html.TextBoxFor(m => m.Tx6, new { @id = "Tx6", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch7, new { @id = "Ch7" })
+                                                @Html.Label("Collapsed")
+                                                @Html.TextBoxFor(m => m.Tx7, new { @id = "Tx7", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch8, new { @id = "Ch8" })
+                                                @Html.Label("Hyperactive")
+                                                @Html.TextBoxFor(m => m.Tx8, new { @id = "Tx8", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-info" style="margin-top:10px;">
+                                        <div class="panel-heading">
+                                            Body weight and condition/Normal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch9, new { @id = "Ch9" })
+                                                @Html.Label("Normal for breed")
+                                                @Html.TextBoxFor(m => m.Tx9, new { @id = "Tx9", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Body weight and condition/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch10, new { @id = "Ch10" })
+                                                @Html.Label("Too fat or thin")
+                                                @Html.TextBoxFor(m => m.Tx10, new { @id = "Tx10", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class=" col-lg-12">
+                                <div class="col-md-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Eye/Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch11, new { @id = "Ch11" })
+                                                @Html.Label("Bright")
+                                                @Html.TextBoxFor(m => m.Tx11, new { @id = "Tx11", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch12, new { @id = "Ch12" })
+                                                @Html.Label("Clear")
+                                                @Html.TextBoxFor(m => m.Tx12, new { @id = "Tx12", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch13, new { @id = "Ch13" })
+                                                @Html.Label("Moist")
+                                                @Html.TextBoxFor(m => m.Tx13, new { @id = "Tx13", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch14, new { @id = "Ch14" })
+                                                @Html.Label("Normal pupil size")
+                                                @Html.TextBoxFor(m => m.Tx14, new { @id = "Tx14", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Eye/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch15, new { @id = "Ch15" })
+                                                @Html.Label("Dlscharge")
+                                                @Html.TextBoxFor(m => m.Tx15, new { @id = "Tx15", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch16, new { @id = "Ch16" })
+                                                @Html.Label("Redness")
+                                                @Html.TextBoxFor(m => m.Tx16, new { @id = "Tx16", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch17, new { @id = "Ch17" })
+                                                @Html.Label("Opaction")
+                                                @Html.TextBoxFor(m => m.Tx17, new { @id = "Tx17", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch18, new { @id = "Ch18" })
+                                                @Html.Label("Abnormal mucous membrane colour")
+                                                @Html.TextBoxFor(m => m.Tx18, new { @id = "Tx18", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch19, new { @id = "Ch19" })
+                                                @Html.Label("Anlsocorla")
+                                                @Html.TextBoxFor(m => m.Tx19, new { @id = "Tx19", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Nose/Normal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch20, new { @id = "Ch20" })
+                                                @Html.Label("Moist")
+                                                @Html.TextBoxFor(m => m.Tx20, new { @id = "Tx20", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch21, new { @id = "Ch21" })
+                                                @Html.Label("Cobblestone appearance")
+                                                @Html.TextBoxFor(m => m.Tx21, new { @id = "Tx21", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Nose/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch22, new { @id = "Ch22" })
+                                                @Html.Label("Discharge")
+                                                @Html.TextBoxFor(m => m.Tx22, new { @id = "Tx22", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch23, new { @id = "Ch23" })
+                                                @Html.Label("Leslons")
+                                                @Html.TextBoxFor(m => m.Tx23, new { @id = "Tx23", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="page2">
+                            <div class=" col-lg-12">
+                                <div class="col-md-4" style="margin-top:10px;">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Mouth/Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch24, new { @id = "Ch24" })
+                                                @Html.Label("Clean teeth")
+                                                @Html.TextBoxFor(m => m.Tx24, new { @id = "Tx24", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch25, new { @id = "Ch25" })
+                                                @Html.Label("Healthy gums")
+                                                @Html.TextBoxFor(m => m.Tx25, new { @id = "Tx25", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch26, new { @id = "Ch26" })
+                                                @Html.Label("Pink mucous membranes")
+                                                @Html.TextBoxFor(m => m.Tx26, new { @id = "Tx26", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch27, new { @id = "Ch27" })
+                                                @Html.Label("CRT <2 seconds")
+                                                @Html.TextBoxFor(m => m.Tx27, new { @id = "Tx27", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch28, new { @id = "Ch28" })
+                                                @Html.Label("Normal tongue and palate")
+                                                @Html.TextBoxFor(m => m.Tx28, new { @id = "Tx28", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch29, new { @id = "Ch29" })
+                                                @Html.Label("Normal pharynx")
+                                                @Html.TextBoxFor(m => m.Tx29, new { @id = "Tx29", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="margin-top:10px;">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Mouth/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch30, new { @id = "Ch30" })
+                                                @Html.Label("Tartar")
+                                                @Html.TextBoxFor(m => m.Tx30, new { @id = "Tx30", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch31, new { @id = "Ch31" })
+                                                @Html.Label("Periodontal disease")
+                                                @Html.TextBoxFor(m => m.Tx31, new { @id = "Tx31", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch32, new { @id = "Ch32" })
+                                                @Html.Label("Abnormal mucous membrane colour")
+                                                @Html.TextBoxFor(m => m.Tx32, new { @id = "Tx32", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch33, new { @id = "Ch33" })
+                                                @Html.Label("CRT > 2 seconds")
+                                                @Html.TextBoxFor(m => m.Tx33, new { @id = "Tx33", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch34, new { @id = "Ch34" })
+                                                @Html.Label("Inflammation")
+                                                @Html.TextBoxFor(m => m.Tx34, new { @id = "Tx34", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch35, new { @id = "Ch35" })
+                                                @Html.Label("Ulceration")
+                                                @Html.TextBoxFor(m => m.Tx35, new { @id = "Tx35", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch36, new { @id = "Ch36" })
+                                                @Html.Label("Foreign bodies")
+                                                @Html.TextBoxFor(m => m.Tx36, new { @id = "Tx36", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch37, new { @id = "Ch37" })
+                                                @Html.Label("Swollen tonsils")
+                                                @Html.TextBoxFor(m => m.Tx37, new { @id = "Tx37", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-info" style="margin-top:10px;">
+                                        <div class="panel-heading">
+                                            Ears/Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch38, new { @id = "Ch38" })
+                                                @Html.Label("Clean")
+                                                @Html.TextBoxFor(m => m.Tx38, new { @id = "Tx38", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Ears/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch39, new { @id = "Ch39" })
+                                                @Html.Label("Inflammation")
+                                                @Html.TextBoxFor(m => m.Tx39, new { @id = "Tx39", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch40, new { @id = "Ch40" })
+                                                @Html.Label("Discharge")
+                                                @Html.TextBoxFor(m => m.Tx40, new { @id = "Tx40", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch41, new { @id = "Ch41" })
+                                                @Html.Label("Odour")
+                                                @Html.TextBoxFor(m => m.Tx41, new { @id = "Tx41", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class=" col-lg-12">
+                                <div class="col-md-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Lymph nodes :submandibular,prescapular and popliteal/Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch42, new { @id = "Ch42" })
+                                                @Html.Label("Normal size (prescapular may noe be palpable in normal animal )")
+                                                @Html.TextBoxFor(m => m.Tx42, new { @id = "Tx42", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Lymph nodes :submandibular,prescapular and popliteal/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch43, new { @id = "Ch43" })
+                                                @Html.Label("Enlarged")
+                                                @Html.TextBoxFor(m => m.Tx43, new { @id = "Tx43", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch44, new { @id = "Ch44" })
+                                                @Html.Label("Painful")
+                                                @Html.TextBoxFor(m => m.Tx44, new { @id = "Tx44", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="page3">
+                            <div class=" col-lg-12" style="margin-top:10px">
+                                <div class="col-md-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Larynx and traches/Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch45, new { @id = "Ch45" })
+                                                @Html.Label("Normal shape on palpation")
+                                                @Html.TextBoxFor(m => m.Tx45, new { @id = "Tx45", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch46, new { @id = "Ch46" })
+                                                @Html.Label("Cough not induced by gentle palpation")
+                                                @Html.TextBoxFor(m => m.Tx46, new { @id = "Tx46", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Larynx and traches/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch47, new { @id = "Ch47" })
+                                                @Html.Label("Cough induced by gentle palpation")
+                                                @Html.TextBoxFor(m => m.Tx47, new { @id = "Tx47", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class=" col-lg-12">
+                                <div class="col-md-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Thorax (asses by auscultation)/Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch48, new { @id = "Ch48" })
+                                                @Html.Label("Normal heart sounds")
+                                                @Html.TextBoxFor(m => m.Tx48, new { @id = "Tx48", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch49, new { @id = "Ch49" })
+                                                @Html.Label("Normal heart rate (correlate with pulse rate)")
+                                                @Html.TextBoxFor(m => m.Tx49, new { @id = "Tx49", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch50, new { @id = "Ch50" })
+                                                @Html.Label("Normal heart rhythm")
+                                                @Html.TextBoxFor(m => m.Tx50, new { @id = "Tx50", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch51, new { @id = "Ch51" })
+                                                @Html.Label("Breathing pattern normal")
+                                                @Html.TextBoxFor(m => m.Tx51, new { @id = "Tx51", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch52, new { @id = "Ch52" })
+                                                @Html.Label("Normal resplratory")
+                                                @Html.TextBoxFor(m => m.Tx52, new { @id = "Tx52", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch53, new { @id = "Ch53" })
+                                                @Html.Label("Normal beath sounds")
+                                                @Html.TextBoxFor(m => m.Tx53, new { @id = "Tx53", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Thorax (asses by auscultation)/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch54, new { @id = "Ch54" })
+                                                @Html.Label("Mumurs")
+                                                @Html.TextBoxFor(m => m.Tx54, new { @id = "Tx54", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch55, new { @id = "Ch55" })
+                                                @Html.Label("Tachycardia")
+                                                @Html.TextBoxFor(m => m.Tx55, new { @id = "Tx55", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch56, new { @id = "Ch56" })
+                                                @Html.Label("Bradycardia")
+                                                @Html.TextBoxFor(m => m.Tx56, new { @id = "Tx56", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch57, new { @id = "Ch57" })
+                                                @Html.Label("Avnormal rhythm")
+                                                @Html.TextBoxFor(m => m.Tx57, new { @id = "Tx57", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch58, new { @id = "Ch58" })
+                                                @Html.Label("Laboured breathing")
+                                                @Html.TextBoxFor(m => m.Tx58, new { @id = "Tx58", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch59, new { @id = "Ch59" })
+                                                @Html.Label("Increased resplretory rate")
+                                                @Html.TextBoxFor(m => m.Tx59, new { @id = "Tx59", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch60, new { @id = "Ch60" })
+                                                @Html.Label("Increased lung sounds or audilble crackles/wheezes")
+                                                @Html.TextBoxFor(m => m.Tx60, new { @id = "Tx60", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="page4">
+                            <div class=" col-lg-12" style="margin-top:10px;">
+                                <div class="col-md-6">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Abdoman(assess by palpation)/Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch61, new { @id = "Ch61" })
+                                                @Html.Label("Normal size")
+                                                @Html.TextBoxFor(m => m.Tx61, new { @id = "Tx61", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch62, new { @id = "Ch62" })
+                                                @Html.Label("Liver not palpable")
+                                                @Html.TextBoxFor(m => m.Tx62, new { @id = "Tx62", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch63, new { @id = "Ch63" })
+                                                @Html.Label("Stomach not palpable")
+                                                @Html.TextBoxFor(m => m.Tx63, new { @id = "Tx63", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch64, new { @id = "Ch64" })
+                                                @Html.Label("Spleen not palpable")
+                                                @Html.TextBoxFor(m => m.Tx64, new { @id = "Tx64", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch65, new { @id = "Ch65" })
+                                                @Html.Label("Interstimes feel like  squelchy tubes")
+                                                @Html.TextBoxFor(m => m.Tx65, new { @id = "Tx65", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch66, new { @id = "Ch66" })
+                                                @Html.Label("Normal kldneys(easier to palpate in case)")
+                                                @Html.TextBoxFor(m => m.Tx66, new { @id = "Tx66", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch67, new { @id = "Ch67" })
+                                                @Html.Label("Normal baldder")
+                                                @Html.TextBoxFor(m => m.Tx67, new { @id = "Tx67", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch68, new { @id = "Ch68" })
+                                                @Html.Label("No abnormal masses")
+                                                @Html.TextBoxFor(m => m.Tx68, new { @id = "Tx68", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Abdoman(assess by palpation)/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch69, new { @id = "Ch69" })
+                                                @Html.Label("Distended or pendulous abdomen")
+                                                @Html.TextBoxFor(m => m.Tx69, new { @id = "Tx69", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch70, new { @id = "Ch70" })
+                                                @Html.Label("Hepatomegaly")
+                                                @Html.TextBoxFor(m => m.Tx70, new { @id = "Tx70", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch71, new { @id = "Ch71" })
+                                                @Html.Label("Stomach enlarged with food or gas")
+                                                @Html.TextBoxFor(m => m.Tx71, new { @id = "Tx71", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch72, new { @id = "Ch72" })
+                                                @Html.Label("Splenomegaly")
+                                                @Html.TextBoxFor(m => m.Tx72, new { @id = "Tx72", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch73, new { @id = "Ch73" })
+                                                @Html.Label("Can palpate intestinal gas,thickening,foreign bodles,constipation,pain")
+                                                @Html.TextBoxFor(m => m.Tx73, new { @id = "Tx73", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch74, new { @id = "Ch74" })
+                                                @Html.Label("Enlarged or painful kidneys")
+                                                @Html.TextBoxFor(m => m.Tx74, new { @id = "Tx74", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch75, new { @id = "Ch75" })
+                                                @Html.Label("Bladder distended or painfull")
+                                                @Html.TextBoxFor(m => m.Tx75, new { @id = "Tx75", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch76, new { @id = "Ch76" })
+                                                @Html.Label("Abnormal mass palpable")
+                                                @Html.TextBoxFor(m => m.Tx76, new { @id = "Tx76", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="page5">
+                            <div class=" col-lg-12" style="margin-top:10px;">
+                                <div class="col-md-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Perinem/genitalia /Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch77, new { @id = "Ch77" })
+                                                @Html.Label("Normal anus")
+                                                @Html.TextBoxFor(m => m.Tx77, new { @id = "Tx77", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch78, new { @id = "Ch78" })
+                                                @Html.Label("Normal vulva")
+                                                @Html.TextBoxFor(m => m.Tx78, new { @id = "Tx78", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch79, new { @id = "Ch79" })
+                                                @Html.Label("Normal/Absent ")
+                                                @Html.TextBoxFor(m => m.Tx79, new { @id = "Tx79", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch80, new { @id = "Ch80" })
+                                                @Html.Label("Normal penis/prepuce")
+                                                @Html.TextBoxFor(m => m.Tx80, new { @id = "Tx80", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Perinem/genitalia  /Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch81, new { @id = "Ch81" })
+                                                @Html.Label("Masses or lesions")
+                                                @Html.TextBoxFor(m => m.Tx81, new { @id = "Tx81", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch82, new { @id = "Ch82" })
+                                                @Html.Label("Swelling")
+                                                @Html.TextBoxFor(m => m.Tx82, new { @id = "Tx82", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch83, new { @id = "Ch83" })
+                                                @Html.Label("Discharge (pus or blood)")
+                                                @Html.TextBoxFor(m => m.Tx83, new { @id = "Tx83", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Limbs /Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch84, new { @id = "Ch84" })
+                                                @Html.Label("Normal musculature")
+                                                @Html.TextBoxFor(m => m.Tx84, new { @id = "Tx84", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch85, new { @id = "Ch85" })
+                                                @Html.Label("Normal joints")
+                                                @Html.TextBoxFor(m => m.Tx85, new { @id = "Tx85", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Limbs/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch86, new { @id = "Ch86" })
+                                                @Html.Label("Lameness/abnormal gait")
+                                                @Html.TextBoxFor(m => m.Tx86, new { @id = "Tx86", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch87, new { @id = "Ch87" })
+                                                @Html.Label("Swollen Or Painful Joints")
+                                                @Html.TextBoxFor(m => m.Tx87, new { @id = "Tx87", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch88, new { @id = "Ch88" })
+                                                @Html.Label("Limited range of movmement")
+                                                @Html.TextBoxFor(m => m.Tx88, new { @id = "Tx88", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch89, new { @id = "Ch89" })
+                                                @Html.Label("Atrophy")
+                                                @Html.TextBoxFor(m => m.Tx89, new { @id = "Tx89", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class=" col-lg-12">
+                                <div class="col-md-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Skin /Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch90, new { @id = "Ch90" })
+                                                @Html.Label("Shiny coat")
+                                                @Html.TextBoxFor(m => m.Tx90, new { @id = "Tx90", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch91, new { @id = "Ch91" })
+                                                @Html.Label("Healthy skin")
+                                                @Html.TextBoxFor(m => m.Tx91, new { @id = "Tx91", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch92, new { @id = "Ch92" })
+                                                @Html.Label("Normal elasticity ")
+                                                @Html.TextBoxFor(m => m.Tx92, new { @id = "Tx92", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Skin/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch93, new { @id = "Ch93" })
+                                                @Html.Label("Skin lesions")
+                                                @Html.TextBoxFor(m => m.Tx93, new { @id = "Tx93", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch94, new { @id = "Ch94" })
+                                                @Html.Label("Parasites")
+                                                @Html.TextBoxFor(m => m.Tx94, new { @id = "Tx94", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch95, new { @id = "Ch95" })
+                                                @Html.Label("Skin tenting(dehydration)")
+                                                @Html.TextBoxFor(m => m.Tx95, new { @id = "Tx95", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            Rectal temperature /Normal
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch96, new { @id = "Ch96" })
+                                                @Html.Label("Normal")
+                                                @Html.TextBoxFor(m => m.Tx96, new { @id = "Tx96", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">
+                                            Rectal temperature/Abnormal
+                                        </div>
+                                        <div class="panel-body">
+
+
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch97, new { @id = "Ch97" })
+                                                @Html.Label("Elevated")
+                                                @Html.TextBoxFor(m => m.Tx97, new { @id = "Tx97", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+                                            <div class="form-group">
+                                                @Html.CheckBoxFor(m => m.Ch98, new { @id = "Ch98" })
+                                                @Html.Label("Decreased")
+                                                @Html.TextBoxFor(m => m.Tx98, new { @id = "Tx98", autofocus = "autofocus", @class = "form-control input-sm" })
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+        <div class="col-lg-12">
+
+            <!-- /.panel -->
+        </div>
+    </div>
+    <div class="panel-footer">
+        Panel Footer
+    </div>
+</div>
+
+<div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-content">
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+    <script>
+	$(document).ready(function () {
+		var LastId = 1;
+        ClearForm();
+
+		$("#DepartmentArName").keyup(function (event) {
+			if (event.keyCode == 13) {
+				if ($("#DepartmentArName").val() == '') {
+					bootbox.alert({
+						message: '@Resources.Resource.PleasefillalRequiredfields',
+						size: 'small'
+					});
+
+				}
+				else {
+
+
+				var dialog = bootbox.dialog({
+					title: '@Resources.Resource.PleaseWait',
+					message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Saving...</p>',
+					closeButton: false
+				});
+
+
+                    var dataToSave = {
+                        AnimalID: $("#AnimalID").val(), AnimalName: $("#AnimalName").val(), OwnerID: $("#OwnerID").val(), OwnerName: $("#OwnerName").val(),
+                        Species: $("#Species").val(), Breed: $("#Breed").val(), Sex: $("#Sex").val(), CoatColour: $("#CoatColour").val(), DateOfBirth: $("#DateOfBirth").val(),
+                        Note: $("#Note").val(),
+                        Ch1: $("#Ch1:checked").val(), Tx1: $("#Tx1").val(), Ch2: $("#Ch2:checked").val(), Tx2: $("#Tx2").val(), Ch3: $("#Ch3:checked").val(), Tx3: $("#Tx3").val(),
+                        Ch4: $("#Ch4:checked").val(), Tx4: $("#Tx4").val(), Ch5: $("#Ch5:checked").val(), Tx5: $("#Tx5").val(), Ch6: $("#Ch6:checked").val(), Tx6: $("#Tx6").val(),
+                        Ch7: $("#Ch7:checked").val(), Tx7: $("#Tx7").val(), Ch8: $("#Ch8:checked").val(), Tx8: $("#Tx8").val(), Ch9: $("#Ch9:checked").val(), Tx9: $("#Tx9").val(),
+                        Ch10: $("#Ch10:checked").val(), Tx10: $("#Tx10").val(), Ch11: $("#Ch11:checked").val(), Tx11: $("#Tx11").val(), Ch12: $("#Ch12:checked").val(), Tx12: $("#Tx12").val(),
+                        Ch13: $("#Ch13:checked").val(), Tx13: $("#Tx13").val(), Ch14: $("#Ch14:checked").val(), Tx14: $("#Tx14").val(), Ch15: $("#Ch15:checked").val(), Tx15: $("#Tx15").val(),
+                        Ch16: $("#Ch16:checked").val(), Tx16: $("#Tx16").val(), Ch17: $("#Ch17:checked").val(), Tx17: $("#Tx17").val(), Ch18: $("#Ch18:checked").val(), Tx18: $("#Tx18").val(),
+                        Ch19: $("#Ch19:checked").val(), Tx19: $("#Tx19").val(), Ch20: $("#Ch20:checked").val(), Tx20: $("#Tx20").val(), Ch21: $("#Ch21:checked").val(), Tx21: $("#Tx21").val(),
+                        Ch22: $("#Ch22:checked").val(), Tx22: $("#Tx22").val(), Ch23: $("#Ch23:checked").val(), Tx23: $("#Tx23").val(), Ch24: $("#Ch24:checked").val(), Tx24: $("#Tx24").val(),
+                        Ch25: $("#Ch25:checked").val(), Tx25: $("#Tx25").val(), Ch26: $("#Ch26:checked").val(), Tx26: $("#Tx26").val(), Ch27: $("#Ch27:checked").val(), Tx27: $("#Tx27").val(),
+                        Ch28: $("#Ch28:checked").val(), Tx28: $("#Tx28").val(), Ch29: $("#Ch29:checked").val(), Tx29: $("#Tx29").val(), Ch30: $("#Ch30:checked").val(), Tx30: $("#Tx30").val(),
+                        Ch31: $("#Ch31:checked").val(), Tx31: $("#Tx31").val(), Ch32: $("#Ch32:checked").val(), Tx33: $("#Tx33").val(), Ch34: $("#Ch34:checked").val(), Tx34: $("#Tx34").val(),
+                        Ch35: $("#Ch35:checked").val(), Tx35: $("#Tx35").val(), Ch36: $("#Ch36:checked").val(), Tx37: $("#Tx37").val(), Ch38: $("#Ch38:checked").val(), Tx38: $("#Tx38").val(),
+                        Ch39: $("#Ch39:checked").val(), Tx39: $("#Tx39").val(), Ch40: $("#Ch40:checked").val(), Tx40: $("#Tx40").val(), Ch41: $("#Ch41:checked").val(), Tx41: $("#Tx41").val(),
+                        Ch42: $("#Ch42:checked").val(), Tx42: $("#Tx42").val(), Ch43: $("#Ch43:checked").val(), Tx43: $("#Tx43").val(), Ch44: $("#Ch44:checked").val(), Tx44: $("#Tx44").val(),
+                        Ch45: $("#Ch45:checked").val(), Tx45: $("#Tx45").val(), Ch46: $("#Ch46:checked").val(), Tx46: $("#Tx46").val(), Ch47: $("#Ch47:checked").val(), Tx47: $("#Tx47").val(),
+                        Ch48: $("#Ch48:checked").val(), Tx48: $("#Tx48").val(), Ch49: $("#Ch49:checked").val(), Tx49: $("#Tx49").val(), Ch50: $("#Ch50:checked").val(), Tx50: $("#Tx50").val(),
+                        Ch51: $("#Ch51:checked").val(), Tx51: $("#Tx51").val(), Ch52: $("#Ch52:checked").val(), Tx52: $("#Tx52").val(), Ch53: $("#Ch53:checked").val(), Tx53: $("#Tx53").val(),
+                        Ch54: $("#Ch54:checked").val(), Tx54: $("#Tx54").val(), Ch55: $("#Ch55:checked").val(), Tx55: $("#Tx55").val(), Ch56: $("#Ch56:checked").val(), Tx56: $("#Tx56").val(),
+                        Ch57: $("#Ch57:checked").val(), Tx57: $("#Tx57").val(), Ch58: $("#Ch58:checked").val(), Tx58: $("#Tx58").val(), Ch59: $("#Ch59:checked").val(), Tx59: $("#Tx59").val(),
+                        Ch60: $("#Ch60:checked").val(), Tx60: $("#Tx60").val(), Ch61: $("#Ch61:checked").val(), Tx61: $("#Tx61").val(), Ch62: $("#Ch62:checked").val(), Tx62: $("#Tx62").val(),
+                        Ch63: $("#Ch63:checked").val(), Tx63: $("#Tx63").val(), Ch64: $("#Ch64:checked").val(), Tx64: $("#Tx64").val(), Ch65: $("#Ch65:checked").val(), Tx65: $("#Tx65").val(),
+                        Ch66: $("#Ch66:checked").val(), Tx66: $("#Tx66").val(), Ch67: $("#Ch67:checked").val(), Tx67: $("#Tx67").val(), Ch68: $("#Ch68:checked").val(), Tx68: $("#Tx68").val(),
+                        Ch69: $("#Ch69:checked").val(), Tx69: $("#Tx69").val(), Ch70: $("#Ch70:checked").val(), Tx70: $("#Tx70").val(), Ch71: $("#Ch71:checked").val(), Tx71: $("#Tx71").val(),
+                        Ch72: $("#Ch72:checked").val(), Tx72: $("#Tx72").val(), Ch73: $("#Ch73:checked").val(), Tx73: $("#Tx73").val(), Ch74: $("#Ch74:checked").val(), Tx74: $("#Tx74").val(),
+                        Ch75: $("#Ch75:checked").val(), Tx75: $("#Tx75").val(), Ch76: $("#Ch76:checked").val(), Tx76: $("#Tx76").val(), Ch77: $("#Ch77:checked").val(), Tx77: $("#Tx77").val(),
+                        Ch78: $("#Ch78:checked").val(), Tx78: $("#Tx78").val(), Ch79: $("#Ch79:checked").val(), Tx79: $("#Tx79").val(), Ch80: $("#Ch80:checked").val(), Tx80: $("#Tx80").val(),
+                        Ch81: $("#Ch81:checked").val(), Tx81: $("#Tx81").val(), Ch82: $("#Ch82:checked").val(), Tx82: $("#Tx82").val(), Ch83: $("#Ch83:checked").val(), Tx83: $("#Tx83").val(),
+                        Ch84: $("#Ch84:checked").val(), Tx84: $("#Tx84").val(), Ch85: $("#Ch85:checked").val(), Tx85: $("#Tx85").val(), Ch86: $("#Ch86:checked").val(), Tx86: $("#Tx86").val(),
+                        Ch87: $("#Ch87:checked").val(), Tx87: $("#Tx87").val(), Ch88: $("#Ch88:checked").val(), Tx88: $("#Tx88").val(), Ch89: $("#Ch89:checked").val(), Tx89: $("#Tx89").val(),
+                        Ch90: $("#Ch90:checked").val(), Tx90: $("#Tx90").val(), Ch91: $("#Ch91:checked").val(), Tx91: $("#Tx91").val(), Ch92: $("#Ch92:checked").val(), Tx92: $("#Tx92").val(),
+                        Ch93: $("#Ch93:checked").val(), Tx94: $("#Tx94").val(), Ch95: $("#Ch95:checked").val(), Tx95: $("#Tx95").val(), Ch96: $("#Ch96:checked").val(), Tx96: $("#Tx96").val(),
+                        Ch97: $("#Ch97:checked").val(), Tx97: $("#Tx97").val(), Ch98: $("#Ch98:checked").val(), Tx98: $("#Tx98").val()
+
+
+				};
+				$.ajax({
+					type: "POST",
+					url: "/Department/Save",
+					data: JSON.stringify(dataToSave),
+					contentType: 'application/json',
+					success: function (data) {
+						dialog.modal('hide');
+						if (data.Code == 0) {
+							toastr.error(data.Msg);
+						}
+						else if (data.Code == 1) {
+							$('#modal-container').modal('hide');
+							toastr.success(data.Msg);
+							tabelMemRef.ajax.reload();
+							ClearForm();
+						}
+
+					},
+					error: function (data) {
+						dialog.modal('hide');
+						toastr.error(data);
+					}
+
+
+
+					});
+
+				}
+				$("#DepartmentArName").focus();
+			}
+
+		});
+		function ClearForm() {
+
+
+			$.ajax({
+				method: "GET",
+				url: "/Department/GetDepartmentLastID",
+
+				success: function (data) {
+					$("#DepartmentID").val(data);
+					$("#DepartmentArName").val('');
+					$("#DepartmentEnName").val('');
+					$("#DepartmentArName").focus();
+				  // alert(data);
+				},//success
+				error: function (xhr, AJAXOptions, thrownError) {
+					//  alert('Failed to retrieve .');
+				}//error
+			});
+
+        };
+
+ 
+
+
+
+		$('#tdataTable').on('click', '.js-delete', function (e) {
+			$('#modal-container').removeData('bs.modal');
+
+				e.preventDefault();
+				$(this).attr('data-target', '#modal-container');
+				$(this).attr('data-toggle', 'modal');
+			});
+
+		$('#tdataTable').on('click', '.js-modify', function (e) {
+			$('#modal-container').removeData('bs.modal');
+
+				e.preventDefault();
+				$(this).attr('data-target', '#modal-container');
+				$(this).attr('data-toggle', 'modal');
+			});
+
+		$('#js-addnew').on('click', function (e) {
+			$('#modal-container').removeData('bs.modal');
+				e.preventDefault();
+				$(this).attr('data-target', '#modal-container');
+				$(this).attr('data-toggle', 'modal');
+			});
+
+			// Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+			$('#tdataTable').on('click', '.modal-close-btn', function () {
+				$('#modal-container').modal('hide');
+			});
+
+			//clear modal cache, so that new content can be loaded
+			$('#modal-container').on('hidden.bs.modal', function () {
+				$(this).removeData('bs.modal');
+
+			});
+
+			$('#CancelModal').on('click', function () {
+				return false;
+			});
+
+
+			$(document).on('click', '#save', function () {
+
+				if ($("#DepartmentArName").val() == '') {
+					bootbox.alert({
+						message: '@Resources.Resource.PleasefillalRequiredfields',
+						size: 'small'
+					});
+
+				}
+				else {
+
+
+				var dialog = bootbox.dialog({
+					title: '@Resources.Resource.PleaseWait',
+					message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Saving...</p>',
+					closeButton: false
+				});
+
+
+				var dataToSave = {
+					DepartmentArName: $("#DepartmentArName").val(),
+					DepartmentID: $("#DepartmentID").val(), DepartmentEnName: $("#DepartmentEnName").val()
+				};
+				$.ajax({
+					type: "POST",
+					url: "/Department/Save",
+					data: JSON.stringify(dataToSave),
+					contentType: 'application/json',
+					success: function (data) {
+						dialog.modal('hide');
+						if (data.Code == 0) {
+							toastr.error(data.Msg);
+						}
+						else if (data.Code == 1) {
+							$('#modal-container').modal('hide');
+							toastr.success(data.Msg);
+							tabelMemRef.ajax.reload();
+							ClearForm();
+						}
+
+					},
+					error: function (data) {
+						dialog.modal('hide');
+						toastr.error(data);
+					}
+
+
+
+					});
+
+				}
+
+			});
+
+		  $(document).on('click', '#update', function () {
+
+				if ($("#DepartmentArNameUpd").val() == '') {
+					bootbox.alert({
+						message: '@Resources.Resource.PleasefillalRequiredfields',
+						size: 'small'
+					});
+
+				}
+			else {
+
+
+				var dialog = bootbox.dialog({
+					title: '@Resources.Resource.PleaseWait',
+					message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Saving...</p>',
+					closeButton: false
+				});
+
+
+				var dataToSave = {
+					DepartmentArName: $("#DepartmentArNameUpd").val(),
+					DepartmentID: $("#DepartmentIDUpd").val(), DepartmentEnName: $("#DepartmentEnNameUpd").val()
+				};
+				$.ajax({
+					type: "POST",
+					url: "/Department/Update",
+					data: JSON.stringify(dataToSave),
+					contentType: 'application/json',
+					success: function (data) {
+						dialog.modal('hide');
+						if (data.Code == 0) {
+							toastr.error(data.Msg);
+						}
+						else if (data.Code == 1) {
+							$('#modal-container').modal('hide');
+							toastr.success(data.Msg);
+							tabelMemRef.ajax.reload();
+							ClearForm();
+						}
+
+					},
+					error: function (data) {
+						dialog.modal('hide');
+						toastr.error(data);
+					}
+
+
+					});
+
+				}
+
+			});
+
+
+
+
+
+
+			$(document).on('click', '#delete', function () {
+			   var dialog = bootbox.dialog({
+				  title: '@Resources.Resource.PleaseWait',
+				  message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Deleting...</p>',
+				  closeButton: false
+				});
+
+				var dataToSave = {
+					DepartmentArName: $("#DepartmentArNameDel").val(),
+					DepartmentID: $("#DepartmentIDDel").val(), CompanyModelID: $("#CompanyModelID").val(), AddBYUserID: $("#AddBYUserID").val()
+				};
+				$.ajax({
+					type: "POST",
+					url: "/Department/Remove",
+					data: JSON.stringify(dataToSave),
+					contentType: 'application/json',
+					success: function (data) {
+						dialog.modal('hide');
+						if (data.Code == 0) {
+							toastr.error(data.Msg);
+						}
+						else if (data.Code == 1) {
+							$('#modal-container').modal('hide');
+							toastr.success(data.Msg);
+							tabelMemRef.ajax.reload();
+						}
+
+					},
+					error: function (data) {
+						dialog.modal('hide');
+						toastr.error(data);
+					}
+
+				});
+		});
+
+
+
+
+
+
+
+
+
+	});
+
+
+    </script>
+
+
+}
+
