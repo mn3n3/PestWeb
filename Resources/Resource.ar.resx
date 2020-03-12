@@ -324,6 +324,9 @@
   <data name="Password" xml:space="preserve">
     <value>كلمة المرور</value>
   </data>
+  <data name="PleaseCreateYourCompanyProfileFisrt" xml:space="preserve">
+    <value>يرجي انشاء عيادتك اولا</value>
+  </data>
   <data name="PleasefillalRequiredfields" xml:space="preserve">
     <value>يرجي ادخال جميع الحقول المطلوبة</value>
   </data>

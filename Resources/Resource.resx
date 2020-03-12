@@ -325,6 +325,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PleaseCreateYourCompanyProfileFisrt" xml:space="preserve">
+    <value>Please Create Your Clinic First</value>
+  </data>
   <data name="PleasefillalRequiredfields" xml:space="preserve">
     <value>Please fill all  Required fields</value>
   </data>

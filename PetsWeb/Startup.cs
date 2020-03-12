@@ -35,7 +35,7 @@ namespace PetsWeb
                 //Here we create a Admin super user who will maintain the website                  
 
                 var user = new ApplicationUser();
-                user.UserName = "FalconsSoft";
+                user.UserName = "CatnipSoft";
                 user.Email = "mohammad.alnanaa@gmail.com";
 
                 string userPWD = "Matrix__90$$";
