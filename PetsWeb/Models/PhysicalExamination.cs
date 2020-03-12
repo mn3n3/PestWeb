@@ -24,6 +24,8 @@ namespace PetsWeb.Models
 
         public DateTime DateOfBirth { get; set; }
 
+        public string Note { get; set; }
+
         public bool Ch1 { get; set; }
         public string Tx1 { get; set; }
 

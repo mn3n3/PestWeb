@@ -238,6 +238,10 @@
     <Compile Include="Migrations\202003121251030_skjdhakjdhjkahsdyh555sddf1.Designer.cs">
       <DependentUpon>202003121251030_skjdhakjdhjkahsdyh555sddf1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003121300213_skjdhakjdhjkahsdyh555sddfk.cs" />
+    <Compile Include="Migrations\202003121300213_skjdhakjdhjkahsdyh555sddfk.Designer.cs">
+      <DependentUpon>202003121300213_skjdhakjdhjkahsdyh555sddfk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnimalType.cs" />
@@ -1116,6 +1120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003121251030_skjdhakjdhjkahsdyh555sddf1.resx">
       <DependentUpon>202003121251030_skjdhakjdhjkahsdyh555sddf1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003121300213_skjdhakjdhjkahsdyh555sddfk.resx">
+      <DependentUpon>202003121300213_skjdhakjdhjkahsdyh555sddfk.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

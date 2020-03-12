@@ -13,7 +13,7 @@
         <div class="col-lg-12">
             <div class="col-lg-4">
                 @Html.LabelFor(m => m.AnimalName)
-                @Html.TextBoxFor(m => m.AnimalName, new { @id = "AnimalName", @class = "form-control input-sm", @readonly = "readonly" })
+                @Html.TextBoxFor(m => m.AnimalName, new { @id = "AnimalName", @class = "form-control input-sm" })
                 @Html.LabelFor(m => m.OwnerName)<span style="color:red">*</span>
                 @Html.TextBoxFor(m => m.OwnerName, new { @id = "OwnerName", autofocus = "autofocus", @class = "form-control input-sm" })
                 @Html.LabelFor(m => m.Species)<span style="color:red">*</span>
@@ -37,7 +37,8 @@
             <div class="col-lg-4">
                 @Html.LabelFor(m => m.DateOfBirth)*
                 @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "DateOfBirth", @class = " form-control input-sm", @Value = Model.DateOfBirth.ToString("dd/MM/yyyy") })
-
+                @Html.LabelFor(m => m.Note)
+                @Html.TextAreaFor(m => m.Note, new { @id = "Note", autofocus = "autofocus", @class = "form-control input-sm" })
 
             </div>
 
@@ -629,7 +630,7 @@
                                 <div class="col-md-6">
                                     <div class="panel panel-info">
                                         <div class="panel-heading">
-                                           Abdoman(assess by palpation)/Normal
+                                            Abdoman(assess by palpation)/Normal
                                         </div>
                                         <div class="panel-body">
                                             <div class="form-group">
@@ -881,7 +882,7 @@
 
 
                             </div>
-                            <div class=" col-lg-12" >
+                            <div class=" col-lg-12">
                                 <div class="col-md-4">
                                     <div class="panel panel-info">
                                         <div class="panel-heading">
@@ -904,7 +905,7 @@
                                                 @Html.Label("Normal elasticity ")
                                                 @Html.TextBoxFor(m => m.Tx92, new { @id = "Tx92", autofocus = "autofocus", @class = "form-control input-sm" })
                                             </div>
-                                          
+
 
 
 
@@ -917,7 +918,7 @@
                                 <div class="col-md-4">
                                     <div class="panel panel-danger">
                                         <div class="panel-heading">
-                                           Skin/Abnormal
+                                            Skin/Abnormal
                                         </div>
                                         <div class="panel-body">
 
@@ -956,7 +957,7 @@
                                                 @Html.TextBoxFor(m => m.Tx96, new { @id = "Tx96", autofocus = "autofocus", @class = "form-control input-sm" })
                                             </div>
 
-                                         
+
 
                                         </div>
 
@@ -983,7 +984,7 @@
                                                 @Html.TextBoxFor(m => m.Tx98, new { @id = "Tx98", autofocus = "autofocus", @class = "form-control input-sm" })
                                             </div>
 
-                                           
+
                                         </div>
 
                                     </div>
@@ -999,7 +1000,7 @@
             </div>
         </div>
         <div class="col-lg-12">
-            
+
             <!-- /.panel -->
         </div>
     </div>
@@ -1007,3 +1008,333 @@
         Panel Footer
     </div>
 </div>
+
+<div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-content">
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+    <script>
+	$(document).ready(function () {
+		var LastId = 1;
+        ClearForm();
+
+		$("#DepartmentArName").keyup(function (event) {
+			if (event.keyCode == 13) {
+				if ($("#DepartmentArName").val() == '') {
+					bootbox.alert({
+						message: '@Resources.Resource.PleasefillalRequiredfields',
+						size: 'small'
+					});
+
+				}
+				else {
+
+
+				var dialog = bootbox.dialog({
+					title: '@Resources.Resource.PleaseWait',
+					message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Saving...</p>',
+					closeButton: false
+				});
+
+
+                    var dataToSave = {
+                        AnimalID: $("#AnimalID").val(), AnimalName: $("#AnimalName").val(), OwnerID: $("#OwnerID").val(), OwnerName: $("#OwnerName").val(),
+                        Species: $("#Species").val(), Breed: $("#Breed").val(), Sex: $("#Sex").val(), CoatColour: $("#CoatColour").val(), DateOfBirth: $("#DateOfBirth").val(),
+                        Note: $("#Note").val(),
+                        Ch1: $("#Ch1:checked").val(), Tx1: $("#Tx1").val(), Ch2: $("#Ch2:checked").val(), Tx2: $("#Tx2").val(), Ch3: $("#Ch3:checked").val(), Tx3: $("#Tx3").val(),
+                        Ch4: $("#Ch4:checked").val(), Tx4: $("#Tx4").val(), Ch5: $("#Ch5:checked").val(), Tx5: $("#Tx5").val(), Ch6: $("#Ch6:checked").val(), Tx6: $("#Tx6").val(),
+                        Ch7: $("#Ch7:checked").val(), Tx7: $("#Tx7").val(), Ch8: $("#Ch8:checked").val(), Tx8: $("#Tx8").val(), Ch9: $("#Ch9:checked").val(), Tx9: $("#Tx9").val(),
+                        Ch10: $("#Ch10:checked").val(), Tx10: $("#Tx10").val(), Ch11: $("#Ch11:checked").val(), Tx11: $("#Tx11").val(), Ch12: $("#Ch12:checked").val(), Tx12: $("#Tx12").val(),
+                        Ch13: $("#Ch13:checked").val(), Tx13: $("#Tx13").val(), Ch14: $("#Ch14:checked").val(), Tx14: $("#Tx14").val(), Ch15: $("#Ch15:checked").val(), Tx15: $("#Tx15").val(),
+                        Ch16: $("#Ch16:checked").val(), Tx16: $("#Tx16").val(), Ch17: $("#Ch17:checked").val(), Tx17: $("#Tx17").val(), Ch18: $("#Ch18:checked").val(), Tx18: $("#Tx18").val(),
+                        Ch19: $("#Ch19:checked").val(), Tx19: $("#Tx19").val(), Ch20: $("#Ch20:checked").val(), Tx20: $("#Tx20").val(), Ch21: $("#Ch21:checked").val(), Tx21: $("#Tx21").val(),
+                        Ch22: $("#Ch22:checked").val(), Tx22: $("#Tx22").val(), Ch23: $("#Ch23:checked").val(), Tx23: $("#Tx23").val(), Ch24: $("#Ch24:checked").val(), Tx24: $("#Tx24").val(),
+                        Ch25: $("#Ch25:checked").val(), Tx25: $("#Tx25").val(), Ch26: $("#Ch26:checked").val(), Tx26: $("#Tx26").val(), Ch27: $("#Ch27:checked").val(), Tx27: $("#Tx27").val(),
+                        Ch28: $("#Ch28:checked").val(), Tx28: $("#Tx28").val(), Ch29: $("#Ch29:checked").val(), Tx29: $("#Tx29").val(), Ch30: $("#Ch30:checked").val(), Tx30: $("#Tx30").val(),
+                        Ch31: $("#Ch31:checked").val(), Tx31: $("#Tx31").val(), Ch32: $("#Ch32:checked").val(), Tx33: $("#Tx33").val(), Ch34: $("#Ch34:checked").val(), Tx34: $("#Tx34").val(),
+                        Ch35: $("#Ch35:checked").val(), Tx35: $("#Tx35").val(), Ch36: $("#Ch36:checked").val(), Tx37: $("#Tx37").val(), Ch38: $("#Ch38:checked").val(), Tx38: $("#Tx38").val(),
+                        Ch39: $("#Ch39:checked").val(), Tx39: $("#Tx39").val(), Ch40: $("#Ch40:checked").val(), Tx40: $("#Tx40").val(), Ch41: $("#Ch41:checked").val(), Tx41: $("#Tx41").val(),
+                        Ch42: $("#Ch42:checked").val(), Tx42: $("#Tx42").val(), Ch43: $("#Ch43:checked").val(), Tx43: $("#Tx43").val(), Ch44: $("#Ch44:checked").val(), Tx44: $("#Tx44").val(),
+                        Ch45: $("#Ch45:checked").val(), Tx45: $("#Tx45").val(), Ch46: $("#Ch46:checked").val(), Tx46: $("#Tx46").val(), Ch47: $("#Ch47:checked").val(), Tx47: $("#Tx47").val(),
+                        Ch48: $("#Ch48:checked").val(), Tx48: $("#Tx48").val(), Ch49: $("#Ch49:checked").val(), Tx49: $("#Tx49").val(), Ch50: $("#Ch50:checked").val(), Tx50: $("#Tx50").val(),
+                        Ch51: $("#Ch51:checked").val(), Tx51: $("#Tx51").val(), Ch52: $("#Ch52:checked").val(), Tx52: $("#Tx52").val(), Ch53: $("#Ch53:checked").val(), Tx53: $("#Tx53").val(),
+                        Ch54: $("#Ch54:checked").val(), Tx54: $("#Tx54").val(), Ch55: $("#Ch55:checked").val(), Tx55: $("#Tx55").val(), Ch56: $("#Ch56:checked").val(), Tx56: $("#Tx56").val(),
+                        Ch57: $("#Ch57:checked").val(), Tx57: $("#Tx57").val(), Ch58: $("#Ch58:checked").val(), Tx58: $("#Tx58").val(), Ch59: $("#Ch59:checked").val(), Tx59: $("#Tx59").val(),
+                        Ch60: $("#Ch60:checked").val(), Tx60: $("#Tx60").val(), Ch61: $("#Ch61:checked").val(), Tx61: $("#Tx61").val(), Ch62: $("#Ch62:checked").val(), Tx62: $("#Tx62").val(),
+                        Ch63: $("#Ch63:checked").val(), Tx63: $("#Tx63").val(), Ch64: $("#Ch64:checked").val(), Tx64: $("#Tx64").val(), Ch65: $("#Ch65:checked").val(), Tx65: $("#Tx65").val(),
+                        Ch66: $("#Ch66:checked").val(), Tx66: $("#Tx66").val(), Ch67: $("#Ch67:checked").val(), Tx67: $("#Tx67").val(), Ch68: $("#Ch68:checked").val(), Tx68: $("#Tx68").val(),
+                        Ch69: $("#Ch69:checked").val(), Tx69: $("#Tx69").val(), Ch70: $("#Ch70:checked").val(), Tx70: $("#Tx70").val(), Ch71: $("#Ch71:checked").val(), Tx71: $("#Tx71").val(),
+                        Ch72: $("#Ch72:checked").val(), Tx72: $("#Tx72").val(), Ch73: $("#Ch73:checked").val(), Tx73: $("#Tx73").val(), Ch74: $("#Ch74:checked").val(), Tx74: $("#Tx74").val(),
+                        Ch75: $("#Ch75:checked").val(), Tx75: $("#Tx75").val(), Ch76: $("#Ch76:checked").val(), Tx76: $("#Tx76").val(), Ch77: $("#Ch77:checked").val(), Tx77: $("#Tx77").val(),
+                        Ch78: $("#Ch78:checked").val(), Tx78: $("#Tx78").val(), Ch79: $("#Ch79:checked").val(), Tx79: $("#Tx79").val(), Ch80: $("#Ch80:checked").val(), Tx80: $("#Tx80").val(),
+                        Ch81: $("#Ch81:checked").val(), Tx81: $("#Tx81").val(), Ch82: $("#Ch82:checked").val(), Tx82: $("#Tx82").val(), Ch83: $("#Ch83:checked").val(), Tx83: $("#Tx83").val(),
+                        Ch84: $("#Ch84:checked").val(), Tx84: $("#Tx84").val(), Ch85: $("#Ch85:checked").val(), Tx85: $("#Tx85").val(), Ch86: $("#Ch86:checked").val(), Tx86: $("#Tx86").val(),
+                        Ch87: $("#Ch87:checked").val(), Tx87: $("#Tx87").val(), Ch88: $("#Ch88:checked").val(), Tx88: $("#Tx88").val(), Ch89: $("#Ch89:checked").val(), Tx89: $("#Tx89").val(),
+                        Ch90: $("#Ch90:checked").val(), Tx90: $("#Tx90").val(), Ch91: $("#Ch91:checked").val(), Tx91: $("#Tx91").val(), Ch92: $("#Ch92:checked").val(), Tx92: $("#Tx92").val(),
+                        Ch93: $("#Ch93:checked").val(), Tx94: $("#Tx94").val(), Ch95: $("#Ch95:checked").val(), Tx95: $("#Tx95").val(), Ch96: $("#Ch96:checked").val(), Tx96: $("#Tx96").val(),
+                        Ch97: $("#Ch97:checked").val(), Tx97: $("#Tx97").val(), Ch98: $("#Ch98:checked").val(), Tx98: $("#Tx98").val()
+
+
+				};
+				$.ajax({
+					type: "POST",
+					url: "/Department/Save",
+					data: JSON.stringify(dataToSave),
+					contentType: 'application/json',
+					success: function (data) {
+						dialog.modal('hide');
+						if (data.Code == 0) {
+							toastr.error(data.Msg);
+						}
+						else if (data.Code == 1) {
+							$('#modal-container').modal('hide');
+							toastr.success(data.Msg);
+							tabelMemRef.ajax.reload();
+							ClearForm();
+						}
+
+					},
+					error: function (data) {
+						dialog.modal('hide');
+						toastr.error(data);
+					}
+
+
+
+					});
+
+				}
+				$("#DepartmentArName").focus();
+			}
+
+		});
+		function ClearForm() {
+
+
+			$.ajax({
+				method: "GET",
+				url: "/Department/GetDepartmentLastID",
+
+				success: function (data) {
+					$("#DepartmentID").val(data);
+					$("#DepartmentArName").val('');
+					$("#DepartmentEnName").val('');
+					$("#DepartmentArName").focus();
+				  // alert(data);
+				},//success
+				error: function (xhr, AJAXOptions, thrownError) {
+					//  alert('Failed to retrieve .');
+				}//error
+			});
+
+        };
+
+ 
+
+
+
+		$('#tdataTable').on('click', '.js-delete', function (e) {
+			$('#modal-container').removeData('bs.modal');
+
+				e.preventDefault();
+				$(this).attr('data-target', '#modal-container');
+				$(this).attr('data-toggle', 'modal');
+			});
+
+		$('#tdataTable').on('click', '.js-modify', function (e) {
+			$('#modal-container').removeData('bs.modal');
+
+				e.preventDefault();
+				$(this).attr('data-target', '#modal-container');
+				$(this).attr('data-toggle', 'modal');
+			});
+
+		$('#js-addnew').on('click', function (e) {
+			$('#modal-container').removeData('bs.modal');
+				e.preventDefault();
+				$(this).attr('data-target', '#modal-container');
+				$(this).attr('data-toggle', 'modal');
+			});
+
+			// Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+			$('#tdataTable').on('click', '.modal-close-btn', function () {
+				$('#modal-container').modal('hide');
+			});
+
+			//clear modal cache, so that new content can be loaded
+			$('#modal-container').on('hidden.bs.modal', function () {
+				$(this).removeData('bs.modal');
+
+			});
+
+			$('#CancelModal').on('click', function () {
+				return false;
+			});
+
+
+			$(document).on('click', '#save', function () {
+
+				if ($("#DepartmentArName").val() == '') {
+					bootbox.alert({
+						message: '@Resources.Resource.PleasefillalRequiredfields',
+						size: 'small'
+					});
+
+				}
+				else {
+
+
+				var dialog = bootbox.dialog({
+					title: '@Resources.Resource.PleaseWait',
+					message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Saving...</p>',
+					closeButton: false
+				});
+
+
+				var dataToSave = {
+					DepartmentArName: $("#DepartmentArName").val(),
+					DepartmentID: $("#DepartmentID").val(), DepartmentEnName: $("#DepartmentEnName").val()
+				};
+				$.ajax({
+					type: "POST",
+					url: "/Department/Save",
+					data: JSON.stringify(dataToSave),
+					contentType: 'application/json',
+					success: function (data) {
+						dialog.modal('hide');
+						if (data.Code == 0) {
+							toastr.error(data.Msg);
+						}
+						else if (data.Code == 1) {
+							$('#modal-container').modal('hide');
+							toastr.success(data.Msg);
+							tabelMemRef.ajax.reload();
+							ClearForm();
+						}
+
+					},
+					error: function (data) {
+						dialog.modal('hide');
+						toastr.error(data);
+					}
+
+
+
+					});
+
+				}
+
+			});
+
+		  $(document).on('click', '#update', function () {
+
+				if ($("#DepartmentArNameUpd").val() == '') {
+					bootbox.alert({
+						message: '@Resources.Resource.PleasefillalRequiredfields',
+						size: 'small'
+					});
+
+				}
+			else {
+
+
+				var dialog = bootbox.dialog({
+					title: '@Resources.Resource.PleaseWait',
+					message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Saving...</p>',
+					closeButton: false
+				});
+
+
+				var dataToSave = {
+					DepartmentArName: $("#DepartmentArNameUpd").val(),
+					DepartmentID: $("#DepartmentIDUpd").val(), DepartmentEnName: $("#DepartmentEnNameUpd").val()
+				};
+				$.ajax({
+					type: "POST",
+					url: "/Department/Update",
+					data: JSON.stringify(dataToSave),
+					contentType: 'application/json',
+					success: function (data) {
+						dialog.modal('hide');
+						if (data.Code == 0) {
+							toastr.error(data.Msg);
+						}
+						else if (data.Code == 1) {
+							$('#modal-container').modal('hide');
+							toastr.success(data.Msg);
+							tabelMemRef.ajax.reload();
+							ClearForm();
+						}
+
+					},
+					error: function (data) {
+						dialog.modal('hide');
+						toastr.error(data);
+					}
+
+
+					});
+
+				}
+
+			});
+
+
+
+
+
+
+			$(document).on('click', '#delete', function () {
+			   var dialog = bootbox.dialog({
+				  title: '@Resources.Resource.PleaseWait',
+				  message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Deleting...</p>',
+				  closeButton: false
+				});
+
+				var dataToSave = {
+					DepartmentArName: $("#DepartmentArNameDel").val(),
+					DepartmentID: $("#DepartmentIDDel").val(), CompanyModelID: $("#CompanyModelID").val(), AddBYUserID: $("#AddBYUserID").val()
+				};
+				$.ajax({
+					type: "POST",
+					url: "/Department/Remove",
+					data: JSON.stringify(dataToSave),
+					contentType: 'application/json',
+					success: function (data) {
+						dialog.modal('hide');
+						if (data.Code == 0) {
+							toastr.error(data.Msg);
+						}
+						else if (data.Code == 1) {
+							$('#modal-container').modal('hide');
+							toastr.success(data.Msg);
+							tabelMemRef.ajax.reload();
+						}
+
+					},
+					error: function (data) {
+						dialog.modal('hide');
+						toastr.error(data);
+					}
+
+				});
+		});
+
+
+
+
+
+
+
+
+
+	});
+
+
+    </script>
+
+
+}
+
