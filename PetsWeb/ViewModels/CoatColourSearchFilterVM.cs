@@ -14,5 +14,6 @@ namespace PetsWeb.ViewModels
         public string UserName { get; set; }
         public int CoatColourID { get; set; }
         public IEnumerable<CoatColourSearchFilterVM> CoatColour { get; set; }
+        public int Used { get; set; }
     }
 }

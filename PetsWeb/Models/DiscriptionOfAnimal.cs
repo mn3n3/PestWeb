@@ -22,7 +22,7 @@ namespace PetsWeb.Models
         public string AnimalName { get; set; }
         [Required]
         [Display(Name = "OwnerName", ResourceType = typeof(Resources.Resource))]
-        public string OwnerID { get; set; }
+        public int OwnerID { get; set; }
         [Display(Name = "Species", ResourceType = typeof(Resources.Resource))]
         public int AnimalTypeID { get; set; }
         [Display(Name = "Breed", ResourceType = typeof(Resources.Resource))]
@@ -33,6 +33,12 @@ namespace PetsWeb.Models
         public int GenderID { get; set; }
         [Display(Name = "DateOfBirth", ResourceType = typeof(Resources.Resource))]
         public DateTime DateOfBirth { get; set; }
+        [Display(Name = "MicrochipNumber", ResourceType = typeof(Resources.Resource))]
+        public string MicrochipNumber { get; set; }
+        [Display(Name = "DateOfMicrochipping", ResourceType = typeof(Resources.Resource))]
+        public DateTime DateOfMicrochipping { get; set; }
+        [Display(Name = "LocationOfMicrochip", ResourceType = typeof(Resources.Resource))]
+        public int LocationOfMicrochipID { get; set; }
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
         public string InsUserID { get; set; }
         [Display(Name = "InsDateTime", ResourceType = typeof(Resources.Resource))]

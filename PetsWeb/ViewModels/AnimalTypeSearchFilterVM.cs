@@ -13,5 +13,6 @@ namespace PetsWeb.ViewModels
         public string UserName { get; set; }
         public int AnimalTypeID { get; set; }
         public IEnumerable<AnimalTypeSearchFilterVM> AnimalType { get; set; }
+        public int Used { get; set; }
     }
 }

@@ -20,5 +20,6 @@ namespace PetsWeb.Repositories
         CitySearchFilterVM GetCountryName(int CompanyID, int CityID);
         CitySearchFilterVM GetCountryID(int CompanyID, int CityID);
         int GetFirstCityID(int CompanyID);
+        DetailsOfOwnershipSearchFilterVM GetOwnerName(int CompanyID, int OwnerID);
     }
 }

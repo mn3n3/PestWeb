@@ -14,5 +14,6 @@ namespace PetsWeb.ViewModels
         public string UserName { get; set; }
         public int LocationOfMicrochipID { get; set; }
         public IEnumerable<LocationOfMicrochipSearchFilterVM> LocationOfMicrochip { get; set; }
+        public int Used { get; set; }
     }
 }

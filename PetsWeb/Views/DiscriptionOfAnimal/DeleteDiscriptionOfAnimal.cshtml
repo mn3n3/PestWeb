@@ -1,0 +1,238 @@
+﻿@model PetsWeb.ViewModels.DiscriptionOfAnimalSearchFilterVM
+@{
+    ViewBag.Title = "Delete Description Of Animal";
+}
+
+<div style="padding-top:20px;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @Resources.Resource.DeleteDescriptionOfAnimal
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AnimalID)
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.AnimalID, new { @id = "AnimalID", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AnimalName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.AnimalName, new { @id = "AnimalName", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.OwnerName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.OwnerName, new { @id = "OwnerName", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DateOfBirth)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "DateOfBirth", @class = "form-control", @Value = Model.DateOfBirth.ToString("dd/MM/yyyy"), @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.GenderName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.GenderName, new { @id = "GenderName", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AnimalTypeName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.AnimalTypeName, new { @id = "AnimalTypeName", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.BreedName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.BreedName, new { @id = "BreedName", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CoatColourName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.CoatColourName, new { @id = "CoatColourName", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.LocationOfMicrochipName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.LocationOfMicrochipName, new { @id = "LocationOfMicrochipName", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MicrochipNumber)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.MicrochipNumber, new { @id = "MicrochipNumber", @class = "form-control", @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DateOfMicrochipping)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.DateOfMicrochipping, new { @id = "DateOfMicrochipping", @class = "form-control", @Value = Model.DateOfMicrochipping.ToString("dd/MM/yyyy"), @style = "max-width:480px", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-danger  fa fa-trash-o" id="DeleteDiscriptionOfAnimal">@Resources.Resource.Delete</button>
+            <button type="button" class="btn btn-danger  fa fa-times" id="Close">@Resources.Resource.Close</button>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '#Close', function () {
+                window.location = "/DiscriptionOfAnimal/Index";
+            });
+            $.fn.datepicker.defaults.format = "dd/mm/yyyy";
+            $('#DateOfBirth').datepicker({
+                autoclose: true
+            });
+            $('#DateOfMicrochipping').datepicker({
+                autoclose: true
+            });
+             $(document).on('click', '#DeleteDiscriptionOfAnimal', function () {
+                bootbox.confirm({
+                    message: "@Resources.Resource.AreYouSure",
+                    buttons: {
+                        confirm: {
+                            label: '@Resources.Resource.Yes',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: '@Resources.Resource.No',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            if ($("#AnimalName").val() == '') {
+                                bootbox.alert({
+                                    message: '@Resources.Resource.PleasefillalRequiredfields',
+                                    size: 'small',
+                                    buttons: {
+                                        ok: {
+                                            label: '@Resources.Resource.Ok',
+                                            className: 'btn-info'
+                                        }
+                                    }
+                                });
+                            }
+                            else if ($("#OwnerName").val() == '') {
+                                bootbox.alert({
+                                    message: '@Resources.Resource.PleasefillalRequiredfields',
+                                    size: 'small',
+                                    buttons: {
+                                        ok: {
+                                            label: '@Resources.Resource.Ok',
+                                            className: 'btn-info'
+                                        }
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                var dialog = bootbox.dialog({
+                                    title: '@Resources.Resource.PleaseWait',
+                                    message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Deleting...</p>',
+                                    closeButton: false
+                                });
+                                var dataToDelete = {
+                                    AnimalID: $("#AnimalID").val(),
+                                    AnimalName: $("#AnimalName").val(),
+                                    OwnerName: $("#OwnerName").val()
+                                };
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/DiscriptionOfAnimal/DeleteDiscriptionOfAnimal",
+                                    data: JSON.stringify(dataToDelete),
+                                    contentType: 'application/json',
+                                    success: function (data) {
+                                        dialog.modal('hide');
+                                        if (data.Code == 0) {
+                                            toastr.error(data.Msg);
+                                            bootbox.alert(data.Msg);
+                                        }
+                                        else if (data.Code == 1) {
+                                            toastr.success(data.Msg);
+                                            bootbox.alert(data.Msg);
+                                            window.location = "/DiscriptionOfAnimal/Index";
+                                        }
+                                    },
+                                    error: function (data) {
+                                        dialog.modal('hide');
+                                        toastr.error(data);
+                                        bootbox.alert(data.Msg);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            });
+       });
+    </script>
+}
+

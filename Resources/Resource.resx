@@ -144,11 +144,26 @@
   <data name="BreedName" xml:space="preserve">
     <value>Breed Name</value>
   </data>
+  <data name="CantDeleteAnimalType" xml:space="preserve">
+    <value>The animal type cannot be deleted because it is associated with a animal</value>
+  </data>
+  <data name="CantDeleteBreed" xml:space="preserve">
+    <value>The breed cannot be deleted because it is associated with a Animal</value>
+  </data>
   <data name="CantDeleteCity" xml:space="preserve">
     <value>The city cannot be deleted because it is associated with owner information</value>
   </data>
+  <data name="CantDeleteCoatColour" xml:space="preserve">
+    <value>The coat colour cannot be deleted because it is associated with a animal</value>
+  </data>
   <data name="CantDeleteCountry" xml:space="preserve">
     <value>The country cannot be deleted because it is associated with a city</value>
+  </data>
+  <data name="CantDeleteLocationOfMicrochip" xml:space="preserve">
+    <value>The location of microchip cannot be deleted because it is associated with a animal</value>
+  </data>
+  <data name="CantDeleteOwner" xml:space="preserve">
+    <value>The owner cannot be deleted because it is associated with a animal</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Change Password</value>
@@ -196,6 +211,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="DateOfMicrochipping" xml:space="preserve">
     <value>Date Of Microchipping</value>
   </data>
+  <data name="Definitions" xml:space="preserve">
+    <value>Definitions</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value> Delete </value>
   </data>
@@ -213,6 +231,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   </data>
   <data name="DeleteCountry" xml:space="preserve">
     <value>Delete Country</value>
+  </data>
+  <data name="DeleteDescriptionOfAnimal" xml:space="preserve">
+    <value>Delete Description Of Animal</value>
   </data>
   <data name="DeleteDetailsOfOwnership" xml:space="preserve">
     <value>Delete Details Of Ownership</value>
@@ -325,6 +346,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PhysicalExamination" xml:space="preserve">
+    <value>Physical Examination</value>
+  </data>
   <data name="PleasefillalRequiredfields" xml:space="preserve">
     <value>Please fill all  Required fields</value>
   </data>
@@ -339,6 +363,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   </data>
   <data name="PrintExcel" xml:space="preserve">
     <value> Print Excel </value>
+  </data>
+  <data name="Procedures" xml:space="preserve">
+    <value>Procedures</value>
   </data>
   <data name="Processing" xml:space="preserve">
     <value>Processing...</value>
@@ -385,6 +412,12 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   <data name="Search" xml:space="preserve">
     <value> Search </value>
   </data>
+  <data name="SearchAnimals" xml:space="preserve">
+    <value>Search For The Animal</value>
+  </data>
+  <data name="SearchOwners" xml:space="preserve">
+    <value>Search For The Owner</value>
+  </data>
   <data name="Serial" xml:space="preserve">
     <value>Serial</value>
   </data>
@@ -426,6 +459,9 @@ The installation process may take 1 to 2 minutes, please do not close the screen
   </data>
   <data name="UpdateCountry" xml:space="preserve">
     <value>Update Country</value>
+  </data>
+  <data name="UpdateDescriptionOfAnimal" xml:space="preserve">
+    <value>Update Description Of Animal</value>
   </data>
   <data name="UpdateDetailsOfOwnership" xml:space="preserve">
     <value>Update Details Of Ownership</value>

@@ -41,5 +41,6 @@ namespace PetsWeb.ViewModels
         public DateTime InsDateTime { get; set; }
         [Display(Name = "OwnerName", ResourceType = typeof(Resources.Resource))]
         public string OwnerName { get; set; }
+        public int Used { get; set; }
     }
 }

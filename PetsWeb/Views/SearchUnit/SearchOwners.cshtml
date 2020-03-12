@@ -1,0 +1,98 @@
+﻿@model PetsWeb.ViewModels.SearchUnitVM
+@{
+    ViewBag.Title = "Search Owner";
+}
+
+<div class="row" id="MemberShipType">
+    <div class="col-md-4 col-md-offset-4">
+        <div style="padding-top:20px;">
+            <div class="panel panel-success">
+                <div class="panel-heading ">
+                    @Resources.Resource.SearchOwners
+                </div>
+                <div class="panel-body">
+                    <table id="tdataTableDetail" class="mdl-data-table" style="width:100%;cursor:pointer">
+                        <thead>
+                            <tr>
+                                <th>@Resources.Resource.Serial</th>
+                                <th>@Resources.Resource.OwnerName</th>
+                                <th>@Resources.Resource.Telephone</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-danger  fa fa-times" data-dismiss="modal" id="btnClose">@Resources.Resource.Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function ()
+    {
+        var tabelMemRefDetail = $("#tdataTableDetail").DataTable({
+            "language": {
+                "emptyTable": '@Resources.Resource.EmptyTable',
+                "search": '@Resources.Resource.Search',
+                "loadingRecords": '@Resources.Resource.LoadingRecords',
+                "processing": '@Resources.Resource.Processing',
+                "zeroRecords": '@Resources.Resource.ZeroRecords',
+                "info": '@Resources.Resource.Info',
+                "infoEmpty": '@Resources.Resource.InfoEmpty',
+                "lengthMenu": '@Resources.Resource.LengthMenu',
+                "infoFiltered": '@Resources.Resource.InfoFiltered',
+                "paginate": {
+                    "previous": '@Resources.Resource.Previous',
+                    "next": '@Resources.Resource.Next',
+                    "first": '@Resources.Resource.First',
+                    "last": '@Resources.Resource.Last',
+                },
+                "aria": {
+                    "sortAscending": '@Resources.Resource.SortAscending',
+                    "sortDescending": '@Resources.Resource.SortDescending'
+                }
+            },
+            "scrollY": "400px",
+            "scrollX":      true,
+            "scrollCollapse": true,
+            "paging": false,
+            "ordering": false,
+            "info": false,
+            dom: 'Bfrtip',
+            buttons: [],
+            ajax: {
+                url: "/SearchUnit/GetOwners/",
+                "type": "POST",
+                "data": function (d) {
+                    d.id = 0;
+                },
+                dataSrc: ""
+            },
+            columns: [
+                {
+                    data: "OwnerID"
+                },
+                {
+                    data: "OwnerName"
+                },
+                {
+                    data : "Telephone"
+                }
+            ]
+        });
+        $('#tdataTableDetail tbody').on('click', 'tr', function () {
+            if ('@(ViewBag.ID)' == "OwnerInfo") {
+                GetOwnerInfo(tabelMemRefDetail.row(this).data());
+                $('#btnClose').trigger('click');
+            }
+        });
+	});
+
+
+</script>
+
+
+

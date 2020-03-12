@@ -15,5 +15,6 @@ namespace PetsWeb.ViewModels
         public string UserName { get; set; }
         public int BreedID { get; set; }
         public IEnumerable<BreedSearchFilterVM> Breed { get; set; }
+        public int Used { get; set; }
     }
 }

@@ -144,11 +144,26 @@
   <data name="BreedName" xml:space="preserve">
     <value>اسم السلالة</value>
   </data>
+  <data name="CantDeleteAnimalType" xml:space="preserve">
+    <value>لا يمكن حذف النوع , مرتبط مع وصف حيوان</value>
+  </data>
+  <data name="CantDeleteBreed" xml:space="preserve">
+    <value>لا يمكن حذف السلالة , مرتبطة مع وصف حيوان</value>
+  </data>
   <data name="CantDeleteCity" xml:space="preserve">
     <value>لا يمكن حذف المدينة , مرتبطة مع معلومات المالك</value>
   </data>
+  <data name="CantDeleteCoatColour" xml:space="preserve">
+    <value>لا يمكن حذف لون الخارجي , مرتبط مع وصف حيوان</value>
+  </data>
   <data name="CantDeleteCountry" xml:space="preserve">
     <value>لا يمكن حذف الدولة , مرتبطة مع مدينة</value>
+  </data>
+  <data name="CantDeleteLocationOfMicrochip" xml:space="preserve">
+    <value>لا يمكن حذف موقع الرقاقة , مرتبطة مع وصف حيوان</value>
+  </data>
+  <data name="CantDeleteOwner" xml:space="preserve">
+    <value>لا يمكن حذف المالك , مرتبط مع حيوان</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>تغير كلمة المرور</value>
@@ -195,6 +210,9 @@
   <data name="DateOfMicrochipping" xml:space="preserve">
     <value>تاريخ الرقاقة</value>
   </data>
+  <data name="Definitions" xml:space="preserve">
+    <value>التعريفات</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value> حذف </value>
   </data>
@@ -212,6 +230,9 @@
   </data>
   <data name="DeleteCountry" xml:space="preserve">
     <value>حذف دولة</value>
+  </data>
+  <data name="DeleteDescriptionOfAnimal" xml:space="preserve">
+    <value>حذف وصف حيوان</value>
   </data>
   <data name="DeleteDetailsOfOwnership" xml:space="preserve">
     <value>حذف تفاصيل الملكية</value>
@@ -324,6 +345,9 @@
   <data name="Password" xml:space="preserve">
     <value>كلمة المرور</value>
   </data>
+  <data name="PhysicalExamination" xml:space="preserve">
+    <value>الفحص البدني</value>
+  </data>
   <data name="PleasefillalRequiredfields" xml:space="preserve">
     <value>يرجي ادخال جميع الحقول المطلوبة</value>
   </data>
@@ -338,6 +362,9 @@
   </data>
   <data name="PrintExcel" xml:space="preserve">
     <value> طباعة اكسل </value>
+  </data>
+  <data name="Procedures" xml:space="preserve">
+    <value>الإجراءات</value>
   </data>
   <data name="Processing" xml:space="preserve">
     <value>جارٍ التحميل</value>
@@ -384,6 +411,12 @@
   <data name="Search" xml:space="preserve">
     <value> بحث </value>
   </data>
+  <data name="SearchAnimals" xml:space="preserve">
+    <value>البحث عن حيوان</value>
+  </data>
+  <data name="SearchOwners" xml:space="preserve">
+    <value>البحث عن مالك</value>
+  </data>
   <data name="Serial" xml:space="preserve">
     <value>الرمز</value>
   </data>
@@ -425,6 +458,9 @@
   </data>
   <data name="UpdateCountry" xml:space="preserve">
     <value>تعديل دولة</value>
+  </data>
+  <data name="UpdateDescriptionOfAnimal" xml:space="preserve">
+    <value>تعديل وصف حيوان</value>
   </data>
   <data name="UpdateDetailsOfOwnership" xml:space="preserve">
     <value>تعديل تفاصيل الملكية</value>

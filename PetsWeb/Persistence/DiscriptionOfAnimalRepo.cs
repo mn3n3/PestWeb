@@ -65,6 +65,9 @@ namespace PetsWeb.Persistence
                 ObjToUpdate.CoatColourID = ObjUpdate.CoatColourID;
                 ObjToUpdate.DateOfBirth = ObjUpdate.DateOfBirth;
                 ObjToUpdate.GenderID = ObjUpdate.GenderID;
+                ObjToUpdate.LocationOfMicrochipID = ObjUpdate.LocationOfMicrochipID;
+                ObjToUpdate.MicrochipNumber = ObjUpdate.MicrochipNumber;
+                ObjToUpdate.DateOfMicrochipping = ObjUpdate.DateOfMicrochipping;
             }
         }
     }

@@ -79,7 +79,7 @@
         $(document).ready(function () {
             $("#CityArabichName").focus();
             $(document).on('click', '#Close', function () {
-                window.location = "/DetailsOfOwnership/SaveDetailsOfOwnership";
+                window.history.back();
             });
             $(document).on('click', '#SaveCity', function () {
                 bootbox.confirm({
@@ -249,10 +249,6 @@
 					                            method: "GET",
 					                            url: "/Country/RefillAllCountry",
 					                            success: function (data) {
-                                                      CountryID.append($('<option/>', {
-                                                            value: 0,
-                                                            text: '@Resources.Resource.Country'
-							                            }));
                                                     $.each(data, function (id, region) {
                                                         CountryID.append($('<option/>', {
                                                             value: region.CountryID,

@@ -142,6 +142,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The animal type cannot be deleted because it is associated with a animal.
+        /// </summary>
+        public static string CantDeleteAnimalType {
+            get {
+                return ResourceManager.GetString("CantDeleteAnimalType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The breed cannot be deleted because it is associated with a Animal.
+        /// </summary>
+        public static string CantDeleteBreed {
+            get {
+                return ResourceManager.GetString("CantDeleteBreed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The city cannot be deleted because it is associated with owner information.
         /// </summary>
         public static string CantDeleteCity {
@@ -151,11 +169,38 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The coat colour cannot be deleted because it is associated with a animal.
+        /// </summary>
+        public static string CantDeleteCoatColour {
+            get {
+                return ResourceManager.GetString("CantDeleteCoatColour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The country cannot be deleted because it is associated with a city.
         /// </summary>
         public static string CantDeleteCountry {
             get {
                 return ResourceManager.GetString("CantDeleteCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The location of microchip cannot be deleted because it is associated with a animal.
+        /// </summary>
+        public static string CantDeleteLocationOfMicrochip {
+            get {
+                return ResourceManager.GetString("CantDeleteLocationOfMicrochip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The owner cannot be deleted because it is associated with a animal.
+        /// </summary>
+        public static string CantDeleteOwner {
+            get {
+                return ResourceManager.GetString("CantDeleteOwner", resourceCulture);
             }
         }
         
@@ -296,6 +341,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Definitions.
+        /// </summary>
+        public static string Definitions {
+            get {
+                return ResourceManager.GetString("Definitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to  Delete .
         /// </summary>
         public static string Delete {
@@ -346,6 +400,15 @@ namespace Resources {
         public static string DeleteCountry {
             get {
                 return ResourceManager.GetString("DeleteCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Description Of Animal.
+        /// </summary>
+        public static string DeleteDescriptionOfAnimal {
+            get {
+                return ResourceManager.GetString("DeleteDescriptionOfAnimal", resourceCulture);
             }
         }
         
@@ -683,6 +746,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Physical Examination.
+        /// </summary>
+        public static string PhysicalExamination {
+            get {
+                return ResourceManager.GetString("PhysicalExamination", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please fill all  Required fields.
         /// </summary>
         public static string PleasefillalRequiredfields {
@@ -724,6 +796,15 @@ namespace Resources {
         public static string PrintExcel {
             get {
                 return ResourceManager.GetString("PrintExcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Procedures.
+        /// </summary>
+        public static string Procedures {
+            get {
+                return ResourceManager.GetString("Procedures", resourceCulture);
             }
         }
         
@@ -863,6 +944,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search For The Animal.
+        /// </summary>
+        public static string SearchAnimals {
+            get {
+                return ResourceManager.GetString("SearchAnimals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search For The Owner.
+        /// </summary>
+        public static string SearchOwners {
+            get {
+                return ResourceManager.GetString("SearchOwners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Serial.
         /// </summary>
         public static string Serial {
@@ -985,6 +1084,15 @@ namespace Resources {
         public static string UpdateCountry {
             get {
                 return ResourceManager.GetString("UpdateCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Description Of Animal.
+        /// </summary>
+        public static string UpdateDescriptionOfAnimal {
+            get {
+                return ResourceManager.GetString("UpdateDescriptionOfAnimal", resourceCulture);
             }
         }
         

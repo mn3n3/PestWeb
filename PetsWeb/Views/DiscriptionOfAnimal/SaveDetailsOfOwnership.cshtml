@@ -1,0 +1,308 @@
+﻿@model PetsWeb.ViewModels.DetailsOfOwnershipSearchFilterVM
+@{
+    ViewBag.Title = "Add New Details Of Ownership";
+}
+
+<div style="padding-top:20px;">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            @Resources.Resource.SaveDetailsOfOwnership
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.OwnerID)
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.OwnerID, new { @id = "OwnerID", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Surname)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.Surname, new { @id = "Surname", @class = "form-control", @style = "max-width:480px" })
+                        @Html.ValidationMessageFor(m => m.Surname)
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.FirstName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.TextBoxFor(m => m.FirstName, new { @id = "FirstName", @class = "form-control", @style = "max-width:480px" })
+                        @Html.ValidationMessageFor(m => m.FirstName)
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Telephone)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.TextBoxFor(m => m.Telephone, new { @id = "Telephone", @class = "form-control", @style = "max-width:480px" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.PosCode)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.TextBoxFor(m => m.PosCode, new { @id = "PosCode", @class = "form-control", @style = "max-width:480px" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Address)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.TextBoxFor(m => m.Address, new { @id = "Address", @class = "form-control", @style = "max-width:480px" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CountryName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        @Html.TextBoxFor(m => m.CountryName, new { @id = "CountryName", @class = "form-control", @readonly = "readonly" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="col-lg-2">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.CityName)
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group  input-group">
+                        @Html.DropDownListFor(m => m.CityID, new SelectList(Model.City, "CityID", "CityName"), new { @id = "CityNo", @class = "form-control", @style = "max-width:480px" })
+                        <span class="input-group-btn">
+                            <a a class=" btn btn-primary btn-circle fa fa-plus" id="SaveCity" href="/DetailsOfOwnership/SaveCity"></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary fa fa-plus" id="SaveDetailsOfOwnership">@Resources.Resource.Save</button>
+            <button type="button" class="btn btn-danger  fa fa-times" id="Close">@Resources.Resource.Close</button>
+        </div>
+    </div>
+</div>
+@Html.TextBoxFor(m => m.CountryID, new { @id = "CountryID", @style = "visibility : hidden;" })
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            $("#Surname").focus();
+            $(document).on('click', '#Close', function () {
+                window.history.back();
+            });
+            $(document).on('click', '#SaveDetailsOfOwnership', function () {
+                bootbox.confirm({
+                    message: "@Resources.Resource.AreYouSure",
+                    buttons: {
+                        confirm: {
+                            label: '@Resources.Resource.Yes',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: '@Resources.Resource.No',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        if (result) {
+                            if ($("#Surname").val() == '') {
+                                bootbox.alert({
+                                    message: '@Resources.Resource.PleasefillalRequiredfields',
+                                    size: 'small',
+                                    buttons: {
+                                        ok: {
+                                            label: '@Resources.Resource.Ok',
+                                            className: 'btn-info'
+                                        }
+                                    }
+                                });
+                            }
+                            else if ($("#FirstName").val() == '') {
+                                bootbox.alert({
+                                    message: '@Resources.Resource.PleasefillalRequiredfields',
+                                    size: 'small',
+                                    buttons: {
+                                        ok: {
+                                            label: '@Resources.Resource.Ok',
+                                            className: 'btn-info'
+                                        }
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                var dialog = bootbox.dialog({
+                                    title: '@Resources.Resource.PleaseWait',
+                                    message: '<p><i class="fa fa-spin fa-spinner"></i> @Resources.Resource.Saving...</p>',
+                                    closeButton: false
+                                });
+                                var CityID = "";
+                                if ($("#CityNo").val() == "") {
+                                    CityID = 0;
+                                }
+                                else {
+                                    CityID = $("#CityNo").val();
+                                }
+                                var dataToSave = {
+                                    OwnerID: $("#OwnerID").val(),
+                                    Surname: $("#Surname").val(),
+                                    FirstName: $("#FirstName").val(),
+                                    Telephone : $("#Telephone").val(),
+                                    PosCode: $("#PosCode").val(),
+                                    Address : $("#Address").val(),
+                                    CityID: CityID,
+                                    CountryID: $("#CountryID").val()
+                                };
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/DetailsOfOwnership/SaveDetailsOfOwnership",
+                                    data: JSON.stringify(dataToSave),
+                                    contentType: 'application/json',
+                                    success: function (data) {
+                                        dialog.modal('hide');
+                                        if (data.Code == 0) {
+                                            toastr.error(data.Msg);
+                                            bootbox.alert(data.Msg);
+                                        }
+                                        else if (data.Code == 1) {
+                                            toastr.success(data.Msg);
+                                            bootbox.alert(data.Msg);
+                                            document.getElementById("OwnerID").value = data.LastID;
+                                            document.getElementById("Surname").value = "";
+                                            document.getElementById("FirstName").value = "";
+                                            document.getElementById("Telephone").value = "";
+                                            document.getElementById("PosCode").value = "";
+                                            document.getElementById("Address").value = "";
+                                            document.getElementById("CountryName").value = "";
+                                            document.getElementById("CountryID").value = "";
+                                            document.getElementById("CityNo").value = 1;
+                                            $("#Surname").focus();
+                                            var SelectedCity = $("#CityNo").val();
+                                            if (SelectedCity != null && SelectedCity != '') {
+                                                $.getJSON('@Url.Action("GetCountryName", "City")', { CityID: SelectedCity }, function (Data) {
+                                                    if (Data != null)
+                                                    {
+                                                        document.getElementById("CountryName").value = (Data);
+                                                    }
+                                                    else
+                                                    {
+                                                        document.getElementById("CountryName").value = '';
+                                                    };
+                                                });
+                                                $.getJSON('@Url.Action("GetCountryID", "City")', { CityID: SelectedCity }, function (Data) {
+                                                    if (Data != null)
+                                                    {
+                                                        document.getElementById("CountryID").value = (Data);
+                                                    }
+                                                    else
+                                                    {
+                                                        document.getElementById("CountryID").value = '';
+                                                    };
+                                                });
+                                            }
+                                            else
+                                            {
+                                            }
+                                        }
+                                    },
+                                    error: function (data) {
+                                        dialog.modal('hide');
+                                        toastr.error(data);
+                                        bootbox.alert(data.Msg);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            });
+            $("#Surname").keyup(function (event) {
+                if (event.keyCode == 13)
+                    $("#FirstName").focus();
+            });
+            $("#FirstName").keyup(function (event) {
+                if (event.keyCode == 13)
+                    $("#Telephone").focus();
+            });
+            $("#Telephone").keyup(function (event) {
+                if (event.keyCode == 13)
+                    $("#PosCode").focus();
+            });
+            $("#PosCode").keyup(function (event) {
+                if (event.keyCode == 13)
+                    $("#Address").focus();
+            });
+            $("#Address").keyup(function (event) {
+                if (event.keyCode == 13)
+                    $("#Surname").focus();
+            });
+            $('#CityNo').change(function () {
+                var SelectedCity = $("#CityNo").val();
+                if (SelectedCity != null && SelectedCity != '') {
+                    $.getJSON('@Url.Action("GetCountryID", "City")', { CityID: SelectedCity }, function (Data) {
+                        if (Data != null)
+                        {
+                            document.getElementById("CountryID").value = (Data);
+                        }
+                        else
+                        {
+                            document.getElementById("CountryID").value = '';
+                        };
+                    });
+                    $.getJSON('@Url.Action("GetCountryName", "City")', { CityID: SelectedCity }, function (Data) {
+                        if (Data != null)
+                        {
+                            document.getElementById("CountryName").value = (Data);
+                        }
+                        else
+                        {
+                            document.getElementById("CountryName").value = '';
+                        };
+                    });
+                }
+                else
+                {
+                }
+            });
+       });
+    </script>
+}
+
+

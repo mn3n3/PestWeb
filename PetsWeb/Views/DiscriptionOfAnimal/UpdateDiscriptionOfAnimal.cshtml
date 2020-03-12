@@ -1,6 +1,6 @@
 ﻿@model PetsWeb.ViewModels.DiscriptionOfAnimalSearchFilterVM
 @{
-    ViewBag.Title = "Add New Description Of Animal";
+    ViewBag.Title = "Update Description Of Animal";
 }
 
 <script>
@@ -22,7 +22,7 @@
 <div style="padding-top:20px;">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            @Resources.Resource.SaveDescriptionOfAnimal
+            @Resources.Resource.UpdateDescriptionOfAnimal
         </div>
         <div class="panel-body">
             <div class="col-lg-12">
@@ -161,7 +161,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        @Html.TextBoxFor(m => m.MicrochipNumber, new { @id = "MicrochipNumber", @class = "form-control", @style = "max-width:480px"})
+                        @Html.TextBoxFor(m => m.MicrochipNumber, new { @id = "MicrochipNumber", @class = "form-control", @style = "max-width:480px" })
                     </div>
                 </div>
                 <div class="col-lg-2">
@@ -178,7 +178,7 @@
             </div>
         </div>
         <div class="panel-footer">
-            <button type="submit" class="btn btn-primary fa fa-plus" id="SaveDescriptionOfAnimal">@Resources.Resource.Save</button>
+            <button type="submit" class="btn btn-success fa fa-edit" id="UpdateDescriptionOfAnimal">@Resources.Resource.Update</button>
             <button type="button" class="btn btn-danger  fa fa-times" id="Close">@Resources.Resource.Close</button>
         </div>
     </div>
@@ -187,7 +187,7 @@
     <div class="modal-content">
     </div>
 </div>
-@Html.TextBoxFor(m => m.OwnerID, new { @id = "OwnerID", @class = "form-control", @style = "visibility : hidden;"})
+@Html.TextBoxFor(m => m.OwnerID, new { @id = "OwnerID", @class = "form-control", @style = "visibility : hidden;" })
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
@@ -615,7 +615,7 @@
                     }
                 });
             });
-            $(document).on('click', '#SaveDescriptionOfAnimal', function () {
+             $(document).on('click', '#UpdateDescriptionOfAnimal', function () {
                 bootbox.confirm({
                     message: "@Resources.Resource.AreYouSure",
                     buttons: {
@@ -696,7 +696,7 @@
                                 else {
                                     LocationOfMicrochipID = $("#LocationOfMicrochipNo").val();
                                 }
-                                var dataToSave = {
+                                var dataToUpdate = {
                                     AnimalID: $("#AnimalID").val(),
                                     AnimalName: $("#AnimalName").val(),
                                     OwnerID: $("#OwnerID").val(),
@@ -711,8 +711,8 @@
                                 };
                                 $.ajax({
                                     type: "POST",
-                                    url: "/DiscriptionOfAnimal/SaveDiscriptionOfAnimal",
-                                    data: JSON.stringify(dataToSave),
+                                    url: "/DiscriptionOfAnimal/UpdateDiscriptionOfAnimal",
+                                    data: JSON.stringify(dataToUpdate),
                                     contentType: 'application/json',
                                     success: function (data) {
                                         dialog.modal('hide');
@@ -723,30 +723,8 @@
                                         else if (data.Code == 1) {
                                             toastr.success(data.Msg);
                                             bootbox.alert(data.Msg);
-                                            var today = new Date();
-                                            var dd = today.getDate();
-                                            var mm = today.getMonth() + 1;
-                                            var yyyy = today.getFullYear();
-                                            if (dd < 10) {
-                                                dd = '0' + dd;
-                                            }
-                                            if (mm < 10) {
-                                                mm = '0' + mm;
-                                            }
-                                            var today = dd + '/' + mm + '/' + yyyy;
-                                            document.getElementById("AnimalID").value = data.LastID;
-                                            document.getElementById("AnimalName").value = "";
-                                            document.getElementById("OwnerName").value = "";
-                                            document.getElementById("OwnerID").value = "";
-                                            document.getElementById("MicrochipNumber").value = "";
-                                            document.getElementById("BreedNo").value = 1;
-                                            document.getElementById("CoatColourNo").value = 1;
-                                            document.getElementById("AnimalTypeNo").value = 1;
-                                            document.getElementById("GenderNo").value = 1;
-                                            document.getElementById("LocationOfMicrochipNo").value = 1;
-                                            document.getElementById("DateOfBirth").value = today;
-                                            document.getElementById("DateOfMicrochipping").value = today;
-                                            $("#AnimalName").focus();
+                                            dialog.modal('hide');
+                                            window.location = "/DiscriptionOfAnimal/Index";
                                         }
                                     },
                                     error: function (data) {

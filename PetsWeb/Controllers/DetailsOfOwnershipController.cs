@@ -56,7 +56,7 @@ namespace PetsWeb.Controllers
                 }
                 if (!String.IsNullOrEmpty(Obj.OwnerName))
                 {
-                    AllDetailsOfOwnership = AllDetailsOfOwnership.Where(m => m.OwnerName.Contains(Obj.OwnerName)).ToList();
+                    AllDetailsOfOwnership = AllDetailsOfOwnership.Where(m => m.OwnerName.ToLower().Contains(Obj.OwnerName.ToLower())).ToList();
                 }
                 if (!String.IsNullOrEmpty(Obj.Telephone))
                 {

@@ -15,7 +15,6 @@ namespace PetsWeb.Persistence
         public DbSet<AnimalType> AnimalTypes { get; set; }
         public DbSet<Breed> Breeds { get; set; }
         public DbSet<CoatColour> CoatColours { get; set; }
-        public DbSet<IdentificationOfAnimal> IdentificationOfAnimals { get; set; }
         public DbSet<LocationOfMicrochip> LocationOfMicrochips { get; set; }
         public DbSet<Company> Companies { get; set; }
 

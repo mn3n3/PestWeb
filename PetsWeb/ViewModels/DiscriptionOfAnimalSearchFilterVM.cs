@@ -17,7 +17,7 @@ namespace PetsWeb.ViewModels
         public string AnimalName { get; set; }
         [Required]
         [Display(Name = "OwnerName", ResourceType = typeof(Resources.Resource))]
-        public string OwnerID { get; set; }
+        public int OwnerID { get; set; }
         [Display(Name = "Species", ResourceType = typeof(Resources.Resource))]
         public int AnimalTypeID { get; set; }
         [Display(Name = "Breed", ResourceType = typeof(Resources.Resource))]
@@ -38,19 +38,30 @@ namespace PetsWeb.ViewModels
         [Display(Name = "InsUserName", ResourceType = typeof(Resources.Resource))]
         public string UserName { get; set; }
         
-        [Display(Name = "AnimalTypeName", ResourceType = typeof(Resources.Resource))]
-        public int AnimalTypeName { get; set; }
+        [Display(Name = "Species", ResourceType = typeof(Resources.Resource))]
+        public string AnimalTypeName { get; set; }
         [Display(Name = "BreedName", ResourceType = typeof(Resources.Resource))]
-        public int BreedName { get; set; }
+        public string BreedName { get; set; }
         [Display(Name = "CoatColourName", ResourceType = typeof(Resources.Resource))]
-        public int CoatColourName { get; set; }
+        public string CoatColourName { get; set; }
+        [Display(Name = "LocationOfMicrochip", ResourceType = typeof(Resources.Resource))]
+        public string LocationOfMicrochipName { get; set; }
         [Display(Name = "Telephone", ResourceType = typeof(Resources.Resource))]
         public string Telephone { get; set; }
 
         [Display(Name = "Gender", ResourceType = typeof(Resources.Resource))]
         public string GenderName { get; set; }
+
+        [Display(Name = "MicrochipNumber", ResourceType = typeof(Resources.Resource))]
+        public string MicrochipNumber { get; set; }
+        [Display(Name = "DateOfMicrochipping", ResourceType = typeof(Resources.Resource))]
+        public DateTime DateOfMicrochipping { get; set; }
+        [Display(Name = "LocationOfMicrochip", ResourceType = typeof(Resources.Resource))]
+        public int LocationOfMicrochipID { get; set; }
         public IEnumerable<BreedSearchFilterVM> Breed { get; set; }
         public IEnumerable<AnimalTypeSearchFilterVM> AnimalType { get; set; }
         public IEnumerable<CoatColourSearchFilterVM> CoatColour { get; set; }
+        public IEnumerable<LocationOfMicrochipSearchFilterVM> LocationOfMicrochip { get; set; }
+        public int Used { get; set; }
     }
 }

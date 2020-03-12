@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -48,6 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -185,6 +186,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationOfMicrochipController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SearchUnitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +207,26 @@
     <Compile Include="Migrations\202003081306135_MohammedAwad080320201.Designer.cs">
       <DependentUpon>202003081306135_MohammedAwad080320201.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003092128230_MohammedAwad9320201.cs" />
+    <Compile Include="Migrations\202003092128230_MohammedAwad9320201.Designer.cs">
+      <DependentUpon>202003092128230_MohammedAwad9320201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003102009043_MohammedAwad100320201.cs" />
+    <Compile Include="Migrations\202003102009043_MohammedAwad100320201.Designer.cs">
+      <DependentUpon>202003102009043_MohammedAwad100320201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003112039137_MohammedAwad100320202.cs" />
+    <Compile Include="Migrations\202003112039137_MohammedAwad100320202.Designer.cs">
+      <DependentUpon>202003112039137_MohammedAwad100320202.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003121752569_MohammedAwad120320201.cs" />
+    <Compile Include="Migrations\202003121752569_MohammedAwad120320201.Designer.cs">
+      <DependentUpon>202003121752569_MohammedAwad120320201.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003121823169_MohammedAwad120320202.cs" />
+    <Compile Include="Migrations\202003121823169_MohammedAwad120320202.Designer.cs">
+      <DependentUpon>202003121823169_MohammedAwad120320202.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnimalType.cs" />
@@ -216,7 +238,6 @@
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\DetailsOfOwnership.cs" />
     <Compile Include="Models\DiscriptionOfAnimal.cs" />
-    <Compile Include="Models\IdentificationOfAnimal.cs" />
     <Compile Include="Models\LocationOfMicrochip.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Persistence\AnimalTypeRepo.cs" />
@@ -260,6 +281,7 @@
     <Compile Include="ViewModels\PAY_METHODViewModel.cs" />
     <Compile Include="ViewModels\PosViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\SearchUnitVM.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
@@ -1011,6 +1033,11 @@
     <Content Include="Views\DetailsOfOwnership\DeleteDetailsOfOwnership.cshtml" />
     <Content Include="Views\DiscriptionOfAnimal\Index.cshtml" />
     <Content Include="Views\DiscriptionOfAnimal\SaveDiscriptionOfAnimal.cshtml" />
+    <Content Include="Views\SearchUnit\SearchOwners.cshtml" />
+    <Content Include="Views\DiscriptionOfAnimal\SaveDetailsOfOwnership.cshtml" />
+    <Content Include="Views\DiscriptionOfAnimal\UpdateDiscriptionOfAnimal.cshtml" />
+    <Content Include="Views\DiscriptionOfAnimal\DeleteDiscriptionOfAnimal.cshtml" />
+    <Content Include="Views\SearchUnit\SearchAnimals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1056,6 +1083,21 @@
     <EmbeddedResource Include="Migrations\202003081306135_MohammedAwad080320201.resx">
       <DependentUpon>202003081306135_MohammedAwad080320201.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003092128230_MohammedAwad9320201.resx">
+      <DependentUpon>202003092128230_MohammedAwad9320201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003102009043_MohammedAwad100320201.resx">
+      <DependentUpon>202003102009043_MohammedAwad100320201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003112039137_MohammedAwad100320202.resx">
+      <DependentUpon>202003112039137_MohammedAwad100320202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003121752569_MohammedAwad120320201.resx">
+      <DependentUpon>202003121752569_MohammedAwad120320201.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003121823169_MohammedAwad120320202.resx">
+      <DependentUpon>202003121823169_MohammedAwad120320202.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1076,7 +1118,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49860</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49860/</IISUrl>
+          <IISUrl>http://localhost:8888/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

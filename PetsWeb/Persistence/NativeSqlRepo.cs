@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Windows;
 
 namespace PetsWeb.Persistence
 {
@@ -87,8 +88,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<BreedSearchFilterVM>(
-                    " Select B.ArabicName As BreedName, B.BreedID, A.UserName " +
-                    " From Breeds B, AspNetUsers A " +
+                    " Select B.ArabicName As BreedName, B.BreedID, A.UserName, " +
+                    " Case WHEN B.BreedID = DA.BreedID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,Breeds B " +
+                    " Left join DiscriptionOfAnimals DA On " +
+                    " B.BreedID = DA.BreedID " +
+                    " And " +
+                    " B.CompanyID = DA.CompanyID " +
                     " Where " +
                     " B.CompanyID = A.fCompanyId " +
                     " And " +
@@ -110,8 +119,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<BreedSearchFilterVM>(
-                    " Select B.EnglishName As BreedName, B.BreedID, A.UserName " +
-                    " From Breeds B, AspNetUsers A " +
+                    " Select B.EnglishName As BreedName, B.BreedID, A.UserName, " +
+                    " Case WHEN B.BreedID = DA.BreedID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,Breeds B " +
+                    " Left join DiscriptionOfAnimals DA On " +
+                    " B.BreedID = DA.BreedID " +
+                    " And " +
+                    " B.CompanyID = DA.CompanyID " +
                     " Where " +
                     " B.CompanyID = A.fCompanyId " +
                     " And " +
@@ -136,8 +153,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<CoatColourSearchFilterVM>(
-                    " Select CC.ArabicName As CoatColourName, CC.CoatColourID, A.UserName " +
-                    " From CoatColours CC, AspNetUsers A " +
+                    " Select CC.ArabicName As CoatColourName,CC.CoatColourID, A.UserName, " +
+                    " Case WHEN CC.CoatColourID = DA.CoatColourID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,CoatColours CC " +
+                    " Left join DiscriptionOfAnimals DA On " +
+                    " CC.CoatColourID = DA.CoatColourID " +
+                    " And " +
+                    " CC.CompanyID = DA.CompanyID " +
                     " Where " +
                     " CC.CompanyID = A.fCompanyId " +
                     " And " +
@@ -159,8 +184,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<CoatColourSearchFilterVM>(
-                    " Select CC.EnglishName As CoatColourName, CC.CoatColourID, A.UserName " +
-                    " From CoatColours CC, AspNetUsers A " +
+                    " Select CC.EnglishName As CoatColourName,CC.CoatColourID, A.UserName, " +
+                    " Case WHEN CC.CoatColourID = DA.CoatColourID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,CoatColours CC " +
+                    " Left join DiscriptionOfAnimals DA On " +
+                    " CC.CoatColourID = DA.CoatColourID " +
+                    " And " +
+                    " CC.CompanyID = DA.CompanyID " +
                     " Where " +
                     " CC.CompanyID = A.fCompanyId " +
                     " And " +
@@ -185,8 +218,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<AnimalTypeSearchFilterVM>(
-                    " Select AT.ArabicName As AnimalTypeName, AT.AnimalTypeID, A.UserName " +
-                    " From AnimalTypes AT, AspNetUsers A " +
+                    " Select AT.ArabicName As AnimalTypeName,AT.AnimalTypeID, A.UserName, " +
+                    " Case WHEN AT.AnimalTypeID = DA.AnimalTypeID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,AnimalTypes AT " +
+                    " Left join DiscriptionOfAnimals DA On " +
+                    " AT.AnimalTypeID = DA.AnimalTypeID " +
+                    " And " +
+                    " AT.CompanyID = DA.CompanyID " +
                     " Where " +
                     " AT.CompanyID = A.fCompanyId " +
                     " And " +
@@ -208,8 +249,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<AnimalTypeSearchFilterVM>(
-                    " Select AT.English As AnimalTypeName, AT.AnimalTypeID, A.UserName " +
-                    " From AnimalTypes AT, AspNetUsers A " +
+                    " Select AT.EnglishName As AnimalTypeName,AT.AnimalTypeID, A.UserName, " +
+                    " Case WHEN AT.AnimalTypeID = DA.AnimalTypeID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,AnimalTypes AT " +
+                    " Left join DiscriptionOfAnimals DA On " +
+                    " AT.AnimalTypeID = DA.AnimalTypeID " +
+                    " And " +
+                    " AT.CompanyID = DA.CompanyID " +
                     " Where " +
                     " AT.CompanyID = A.fCompanyId " +
                     " And " +
@@ -234,8 +283,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<LocationOfMicrochipSearchFilterVM>(
-                    " Select LOM.ArabicName As LocationOfMicrochipName, LOM.LocationOfMicrochipID, A.UserName " +
-                    " From LocationOfMicrochips LOM, AspNetUsers A " +
+                    " Select LOM.ArabicName As LocationOfMicrochipName,LOM.LocationOfMicrochipID, A.UserName, " +
+                    " Case WHEN LOM.LocationOfMicrochipID = DA.LocationOfMicrochipID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,LocationOfMicrochips LOM " +
+                    " Left join DiscriptionOfAnimals DA On " +
+                    " LOM.LocationOfMicrochipID = DA.LocationOfMicrochipID " +
+                    " And " +
+                    " LOM.CompanyID = DA.CompanyID " +
                     " Where " +
                     " LOM.CompanyID = A.fCompanyId " +
                     " And " +
@@ -257,8 +314,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<LocationOfMicrochipSearchFilterVM>(
-                    " Select LOM.EnglishName As LocationOfMicrochipName, LOM.LocationOfMicrochipID, A.UserName " +
-                    " From LocationOfMicrochips LOM, AspNetUsers A " +
+                    " Select LOM.ArabicName As LocationOfMicrochipName,LOM.LocationOfMicrochipID, A.UserName, " +
+                    " Case WHEN LOM.LocationOfMicrochipID = DA.LocationOfMicrochipID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
+                    " From AspNetUsers A,LocationOfMicrochips LOM " +
+                    " Left join DiscriptionOfAnimals DA On " +
+                    " LOM.LocationOfMicrochipID = DA.LocationOfMicrochipID " +
+                    " And " +
+                    " LOM.CompanyID = DA.CompanyID " +
                     " Where " +
                     " LOM.CompanyID = A.fCompanyId " +
                     " And " +
@@ -357,7 +422,11 @@ namespace PetsWeb.Persistence
                 {
                     return _context.Database.SqlQuery<DetailsOfOwnershipSearchFilterVM>(
                     " Select C.ArabicName As CityName, CO.ArabicName As CountryName, CO.CountryID, C.CityID, A.UserName, " +
-                    " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, D.PosCode, D.Address " +
+                    " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, D.PosCode, D.Address, " +
+                    " Case WHEN D.OwnerID = DA.OwnerID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
                     " From  AspNetUsers A, DetailsOfOwnerships D " +
                     " left Join Cities C On " +
                     " D.CompanyID = C.CompanyID " +
@@ -367,6 +436,10 @@ namespace PetsWeb.Persistence
                     " D.CompanyID = CO.CompanyID " +
                     " And " +
                     " D.CountryID = CO.CountryID " +
+                    " left Join DiscriptionOfAnimals DA On " +
+                    " D.CompanyID = DA.CompanyID " +
+                    " And " +
+                    " D.OwnerID = DA.OwnerID " +
                     " Where " +
                     " D.CompanyID = A.fCompanyId " +
                     " And " +
@@ -389,7 +462,11 @@ namespace PetsWeb.Persistence
                 {
                     return _context.Database.SqlQuery<DetailsOfOwnershipSearchFilterVM>(
                     " Select C.EnglishName As CityName, CO.EnglishName As CountryName, CO.CountryID, C.CityID, A.UserName, " +
-                    " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, D.PosCode, D.Address " +
+                    " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, D.PosCode, D.Address, " +
+                    " Case WHEN D.OwnerID = DA.OwnerID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
                     " From  AspNetUsers A, DetailsOfOwnerships D " +
                     " left Join Cities C On " +
                     " D.CompanyID = C.CompanyID " +
@@ -399,6 +476,10 @@ namespace PetsWeb.Persistence
                     " D.CompanyID = CO.CompanyID " +
                     " And " +
                     " D.CountryID = CO.CountryID " +
+                    " left Join DiscriptionOfAnimals DA On " +
+                    " D.CompanyID = DA.CompanyID " +
+                    " And " +
+                    " D.OwnerID = DA.OwnerID " +
                     " Where " +
                     " D.CompanyID = A.fCompanyId " +
                     " And " +
@@ -534,15 +615,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<DiscriptionOfAnimalSearchFilterVM>(
-                    " Select DA.AnimalID, DA.AnimalName, DA.DateOfBirth, DA.GenderID, " +
+                    " Select DA.AnimalID, DA.AnimalName, DA.DateOfBirth, DA.GenderID,A.UserName,DA.MicrochipNumber,DA.DateOfMicrochipping, " +
                     " Case When DA.GenderID = 1 " +
                     " Then N'ذكر' " +
                     " Else N'انثى' " +
                     " End As GenderName, " +
                     " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, " +
                     " B.ArabicName As BreedName, B.BreedID, " +
-                    " CC.ArabicName As BreedName, CC.CoatColourID, " +
-                    " ATY.ArabicName As AnimalTypeName, ATY.AnimalTypeID " +
+                    " CC.ArabicName As CoatColourName, CC.CoatColourID, " +
+                    " ATY.ArabicName As AnimalTypeName, ATY.AnimalTypeID, " +
+                    " LOM.ArabicName As LocationOfMicrochipName, LOM.LocationOfMicrochipID " +
                     " From AspNetUsers A, DiscriptionOfAnimals DA " +
                     " Left Join DetailsOfOwnerships D On " +
                     " DA.CompanyID = D.CompanyID " +
@@ -560,6 +642,10 @@ namespace PetsWeb.Persistence
                     " DA.CompanyID = ATY.CompanyID " +
                     " And " +
                     " DA.AnimalTypeID = ATY.AnimalTypeID " +
+                    " Left Join LocationOfMicrochips LOM On " +
+                    " DA.CompanyID = LOM.CompanyID " +
+                    " And " +
+                    " DA.LocationOfMicrochipID = LOM.LocationOfMicrochipID " +
                     " Where " +
                     " DA.CompanyID = A.fCompanyId " +
                     " And " +
@@ -571,8 +657,9 @@ namespace PetsWeb.Persistence
 
                 ).ToList();
                 }
-                catch
+                catch (Exception ex)
                 {
+                    MessageBox.Show(ex.Message.ToString());
                     return new List<DiscriptionOfAnimalSearchFilterVM>();
                 }
             }
@@ -581,15 +668,16 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<DiscriptionOfAnimalSearchFilterVM>(
-                    " Select DA.AnimalID, DA.AnimalName, DA.DateOfBirth, DA.GenderID, " +
+                    " Select DA.AnimalID, DA.AnimalName, DA.DateOfBirth, DA.GenderID,A.UserName,DA.MicrochipNumber,DA.DateOfMicrochipping, " +
                     " Case When DA.GenderID = 1 " +
                     " Then 'Male' " +
                     " Else 'Female' " +
                     " End As GenderName, " +
                     " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, " +
                     " B.EnglishName As BreedName, B.BreedID, " +
-                    " CC.EnglishName As BreedName, CC.CoatColourID, " +
-                    " ATY.EnglishName As AnimalTypeName, ATY.AnimalTypeID " +
+                    " CC.EnglishName As CoatColourName, CC.CoatColourID, " +
+                    " ATY.EnglishName As AnimalTypeName, ATY.AnimalTypeID, " +
+                    " LOM.EnglishName As LocationOfMicrochipName, LOM.LocationOfMicrochipID " +
                     " From AspNetUsers A, DiscriptionOfAnimals DA " +
                     " Left Join DetailsOfOwnerships D On " +
                     " DA.CompanyID = D.CompanyID " +
@@ -607,6 +695,10 @@ namespace PetsWeb.Persistence
                     " DA.CompanyID = ATY.CompanyID " +
                     " And " +
                     " DA.AnimalTypeID = ATY.AnimalTypeID " +
+                    " Left Join LocationOfMicrochips LOM On " +
+                    " DA.CompanyID = LOM.CompanyID " +
+                    " And " +
+                    " DA.LocationOfMicrochipID = LOM.LocationOfMicrochipID " +
                     " Where " +
                     " DA.CompanyID = A.fCompanyId " +
                     " And " +
@@ -618,10 +710,36 @@ namespace PetsWeb.Persistence
 
                 ).ToList();
                 }
-                catch
+                catch (Exception ex)
                 {
+                    MessageBox.Show(ex.Message.ToString());
                     return new List<DiscriptionOfAnimalSearchFilterVM>();
                 }
+            }
+        }
+        public DetailsOfOwnershipSearchFilterVM GetOwnerName(int CompanyID, int OwnerID)
+        {
+            try
+            {
+                return _context.Database.SqlQuery<DetailsOfOwnershipSearchFilterVM>(
+                " Select Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName " +
+                " From AspNetUsers A,DetailsOfOwnerships D " +
+                " Where " +
+                " D.CompanyID = A.fCompanyId " +
+                " And " +
+                " D.InsUserID = A.Id " +
+                " And " +
+                " D.CompanyID = @CompanyID " +
+                " And " +
+                " D.OwnerID = @OwnerID "
+                , new SqlParameter("@CompanyID", CompanyID)
+                , new SqlParameter("@OwnerID", OwnerID)
+
+            ).FirstOrDefault();
+            }
+            catch
+            {
+                return new DetailsOfOwnershipSearchFilterVM();
             }
         }
     }
