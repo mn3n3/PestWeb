@@ -227,6 +227,10 @@
     <Compile Include="Migrations\202003121823169_MohammedAwad120320202.Designer.cs">
       <DependentUpon>202003121823169_MohammedAwad120320202.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003121759342_skjdhakjdhjkahsdyh555sddfkd.cs" />
+    <Compile Include="Migrations\202003121759342_skjdhakjdhjkahsdyh555sddfkd.Designer.cs">
+      <DependentUpon>202003121759342_skjdhakjdhjkahsdyh555sddfkd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AnimalType.cs" />
@@ -279,6 +283,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ORDER_HEADERViewModel.cs" />
     <Compile Include="ViewModels\PAY_METHODViewModel.cs" />
+    <Compile Include="ViewModels\PhysicalExaminationVM.cs" />
     <Compile Include="ViewModels\PosViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="ViewModels\SearchUnitVM.cs" />
@@ -1097,6 +1102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003121823169_MohammedAwad120320202.resx">
       <DependentUpon>202003121823169_MohammedAwad120320202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003121759342_skjdhakjdhjkahsdyh555sddfkd.resx">
+      <DependentUpon>202003121759342_skjdhakjdhjkahsdyh555sddfkd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
