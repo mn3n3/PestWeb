@@ -18,8 +18,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>
-    </Use64BitIISExpress>
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -1016,7 +1015,6 @@
     <Content Include="Views\Shared\LeftMenu.cshtml" />
     <Content Include="Views\Shared\Layout_Login.cshtml" />
     <Content Include="Views\Shared\Layout_Register.cshtml" />
-    <Content Include="Views\Home\SalesTotal.cshtml" />
     <Content Include="Views\Company\CreateNew.cshtml" />
     <Content Include="Views\Company\Update.cshtml" />
     <Content Include="Views\Country\Index.cshtml" />

@@ -732,7 +732,7 @@
 </script>
 
 
-<div class="panel panel-info" style="margin-top:10px;">
+<div class="panel panel-primary" style="margin-top:10px;">
     <div class="panel-heading">
      <i class="fa fa-list-alt"></i>   Physical Examination
     </div>
@@ -752,9 +752,7 @@
                 @Html.LabelFor(m => m.Telephone)
                 @Html.TextBoxFor(m => m.Telephone, new { @id = "Telephone", @class = "form-control input-sm", @readonly = "readonly" })
                 <br />
-                <button type="submit" class="btn btn-primary btn-outline fa fa-save" id="Save">   @Resources.Resource.Save</button>
-
-
+                <button type="submit" class="btn btn-primary fa fa-plus" id="Save">@Resources.Resource.Save</button>
             </div>
             <div class="col-lg-4">
                 @Html.LabelFor(m => m.AnimalTypeName)
