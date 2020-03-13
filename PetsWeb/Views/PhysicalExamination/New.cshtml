@@ -1,10 +1,53 @@
-﻿@model PetsWeb.Models.PhysicalExamination
+﻿@model PetsWeb.ViewModels.PhysicalExaminationVM
 @{
     ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+    <script>
+        function GetAnimalInfo(data) {
+            if (data.AnimalName != null && data.AnimalName != '') {
+                document.getElementById("AnimalID").value = data.AnimalID;
+                document.getElementById("AnimalName").value = data.AnimalName;
+                document.getElementById("OwnerName").value = data.OwnerName;
+                document.getElementById("AnimalTypeName").value = data.AnimalTypeName;
+                document.getElementById("BreedName").value = data.BreedName;
+                document.getElementById("GenderName").value = data.GenderName;
+                document.getElementById("CoatColourName").value = data.CoatColourName;
+                document.getElementById("DateOfBirth").value = moment(data.DateOfBirth).format('DD/MM/YYYY');
+                document.getElementById("MicrochipNumber").value = data.MicrochipNumber;
+                document.getElementById("LocationOfMicrochipName").value = data.LocationOfMicrochipName;
+                document.getElementById("DateOfMicrochipping").value = moment(data.DateOfMicrochipping).format('DD/MM/YYYY');
+                document.getElementById("Telephone").value = data.Telephone;
+            }
+            else {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1;
+                var yyyy = today.getFullYear();
+                if (dd < 10) {
+                    dd = '0' + dd;
+                }
+                if (mm < 10) {
+                    mm = '0' + mm;
+                }
+                var today = dd + '/' + mm + '/' + yyyy; 
+                document.getElementById("AnimalID").value = '';
+                document.getElementById("AnimalName").value = '';
+                document.getElementById("OwnerName").value = '';
+                document.getElementById("AnimalTypeName").value = '';
+                document.getElementById("BreedName").value = '';
+                document.getElementById("GenderName").value = '';
+                document.getElementById("CoatColourName").value = '';
+                document.getElementById("DateOfBirth").value = today;
+                document.getElementById("MicrochipNumber").value = '';
+                document.getElementById("LocationOfMicrochipName").value = '';
+                document.getElementById("DateOfMicrochipping").value = today;
+                document.getElementById("Telephone").value = '';
+            }
+        }
+    </script>
 <br />
+@Html.TextBoxFor(m => m.AnimalID, new { @id = "AnimalID", @class = "form-control", @style = "visibility : hidden;" })
 <div class="panel panel-default">
     <div class="panel-heading">
         Physical Examination
@@ -13,35 +56,38 @@
         <div class="col-lg-12">
             <div class="col-lg-4">
                 @Html.LabelFor(m => m.AnimalName)
-                @Html.TextBoxFor(m => m.AnimalName, new { @id = "AnimalName", @class = "form-control input-sm" })
-                @Html.LabelFor(m => m.OwnerName)<span style="color:red">*</span>
-                @Html.TextBoxFor(m => m.OwnerName, new { @id = "OwnerName", autofocus = "autofocus", @class = "form-control input-sm" })
-                @Html.LabelFor(m => m.Species)<span style="color:red">*</span>
-                @Html.TextBoxFor(m => m.Species, new { @id = "Species", autofocus = "autofocus", @class = "form-control input-sm" })
-
+                <div class="form-group  input-group">
+                    @Html.TextBoxFor(m => m.AnimalName, new { @id = "AnimalName", @class = "form-control input-sm", @readonly = "readonly" })
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-circle fa fa-search" type="button" id="BtnSearchAnimal">
+                        </button>
+                    </span>
+                </div>
+                @Html.LabelFor(m => m.OwnerName)
+                @Html.TextBoxFor(m => m.OwnerName, new { @id = "OwnerName", @class = "form-control input-sm", @readonly = "readonly" })
+                @Html.LabelFor(m => m.Telephone)
+                @Html.TextBoxFor(m => m.Telephone, new { @id = "Telephone", @class = "form-control input-sm", @readonly = "readonly" })
             </div>
-
-
             <div class="col-lg-4">
-                @Html.LabelFor(m => m.Breed)<span style="color:red">*</span>
-                @Html.TextBoxFor(m => m.Breed, new { @id = "Breed", autofocus = "autofocus", @class = "form-control input-sm" })
-                @Html.LabelFor(m => m.Sex)<span style="color:red">*</span>
-                @Html.TextBoxFor(m => m.Sex, new { @id = "Sex", autofocus = "autofocus", @class = "form-control input-sm" })
-
-                @Html.LabelFor(m => m.CoatColour)<span style="color:red">*</span>
-                @Html.TextBoxFor(m => m.CoatColour, new { @id = "CoatColour", autofocus = "autofocus", @class = "form-control input-sm" })
-
+                @Html.LabelFor(m => m.AnimalTypeName)
+                @Html.TextBoxFor(m => m.AnimalTypeName, new { @id = "AnimalTypeName", @class = "form-control input-sm", @readonly = "readonly" })
+                @Html.LabelFor(m => m.BreedName)
+                @Html.TextBoxFor(m => m.BreedName, new { @id = "BreedName", @class = "form-control input-sm", @readonly = "readonly" })
+                @Html.LabelFor(m => m.GenderName)
+                @Html.TextBoxFor(m => m.GenderName, new { @id = "GenderName", @class = "form-control input-sm", @readonly = "readonly" })
+                @Html.LabelFor(m => m.CoatColourName)
+                @Html.TextBoxFor(m => m.CoatColourName, new { @id = "CoatColourName", @class = "form-control input-sm", @readonly = "readonly" })
             </div>
-
-
             <div class="col-lg-4">
-                @Html.LabelFor(m => m.DateOfBirth)*
-                @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "DateOfBirth", @class = " form-control input-sm", @Value = Model.DateOfBirth.ToString("dd/MM/yyyy") })
-                @Html.LabelFor(m => m.Note)
-                @Html.TextAreaFor(m => m.Note, new { @id = "Note", autofocus = "autofocus", @class = "form-control input-sm" })
-
+                @Html.LabelFor(m => m.DateOfBirth)
+                @Html.TextBoxFor(m => m.DateOfBirth, new { @id = "DateOfBirth", @class = " form-control input-sm", @readonly = "readonly", @Value = Model.DateOfBirth.ToString("dd/MM/yyyy") })
+                @Html.LabelFor(m => m.MicrochipNumber)
+                @Html.TextBoxFor(m => m.MicrochipNumber, new { @id = "MicrochipNumber", @class = "form-control input-sm", @readonly = "readonly" })
+                @Html.LabelFor(m => m.LocationOfMicrochipName)
+                @Html.TextBoxFor(m => m.LocationOfMicrochipName, new { @id = "LocationOfMicrochipName", @class = "form-control input-sm", @readonly = "readonly" })
+                @Html.LabelFor(m => m.DateOfMicrochipping)
+                @Html.TextBoxFor(m => m.DateOfMicrochipping, new { @id = "DateOfMicrochipping", @class = " form-control input-sm", @readonly = "readonly", @Value = Model.DateOfMicrochipping.ToString("dd/MM/yyyy") })
             </div>
-
             <div class="col-lg-12">
 
                 <!-- /.panel-heading -->
@@ -1019,7 +1065,14 @@
 	$(document).ready(function () {
 		var LastId = 1;
         ClearForm();
-
+        $('#BtnSearchAnimal').on('click', function () {
+                var url = '/SearchUnit/SearchAnimals/AnimalInfo';
+                $.get(url, function (data) {
+                    $('#modal-container').html(data);
+                    $('#modal-container').modal('show');
+                });
+        });
+         $.fn.datepicker.defaults.format = "dd/mm/yyyy";
 		$("#DepartmentArName").keyup(function (event) {
 			if (event.keyCode == 13) {
 				if ($("#DepartmentArName").val() == '') {
@@ -1040,9 +1093,7 @@
 
 
                     var dataToSave = {
-                        AnimalID: $("#AnimalID").val(), AnimalName: $("#AnimalName").val(), OwnerID: $("#OwnerID").val(), OwnerName: $("#OwnerName").val(),
-                        Species: $("#Species").val(), Breed: $("#Breed").val(), Sex: $("#Sex").val(), CoatColour: $("#CoatColour").val(), DateOfBirth: $("#DateOfBirth").val(),
-                        Note: $("#Note").val(),
+                        AnimalID: $("#AnimalID").val(),
                         Ch1: $("#Ch1:checked").val(), Tx1: $("#Tx1").val(), Ch2: $("#Ch2:checked").val(), Tx2: $("#Tx2").val(), Ch3: $("#Ch3:checked").val(), Tx3: $("#Tx3").val(),
                         Ch4: $("#Ch4:checked").val(), Tx4: $("#Tx4").val(), Ch5: $("#Ch5:checked").val(), Tx5: $("#Tx5").val(), Ch6: $("#Ch6:checked").val(), Tx6: $("#Tx6").val(),
                         Ch7: $("#Ch7:checked").val(), Tx7: $("#Tx7").val(), Ch8: $("#Ch8:checked").val(), Tx8: $("#Tx8").val(), Ch9: $("#Ch9:checked").val(), Tx9: $("#Tx9").val(),
@@ -1131,7 +1182,7 @@
 
         };
 
- 
+
 
 
 

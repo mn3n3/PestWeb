@@ -755,7 +755,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please Create Your Clinic Fisrt.
+        ///   Looks up a localized string similar to Please Create Your Company Profile First.
         /// </summary>
         public static string PleaseCreateYourCompanyProfileFisrt {
             get {

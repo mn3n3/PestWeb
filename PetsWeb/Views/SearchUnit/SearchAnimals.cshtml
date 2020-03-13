@@ -18,6 +18,14 @@
                                 <th>@Resources.Resource.AnimalName</th>
                                 <th>@Resources.Resource.OwnerName</th>
                                 <th>@Resources.Resource.Telephone</th>
+                                <th>@Resources.Resource.BreedName</th>
+                                <th>@Resources.Resource.CoatColourName</th>
+                                <th>@Resources.Resource.AnimalTypeName</th>
+                                <th>@Resources.Resource.Gender</th>
+                                <th>@Resources.Resource.DateOfBirth</th>
+                                <th>@Resources.Resource.LocationOfMicrochipName</th>
+                                <th>@Resources.Resource.MicrochipNumber</th>
+                                <th>@Resources.Resource.DateOfMicrochipping</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -62,6 +70,47 @@
             "paging": false,
             "ordering": false,
             "info": false,
+            "columnDefs": [
+                    {
+                "targets": [ 4 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 5 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 6 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 7 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 8 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 9 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 10 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 11 ],
+                "visible": false,
+                "searchable": false
+            }],
             dom: 'Bfrtip',
             buttons: [],
             ajax: {
@@ -84,6 +133,36 @@
                 },
                 {
                     data : "Telephone"
+                },
+                {
+                    data : "BreedName"
+                },
+                {
+                    data : "CoatColourName"
+                },
+                {
+                    data : "AnimalTypeName"
+                },
+                {
+                    data : "GenderName"
+                },
+                {
+                    data: "DateOfBirth",
+                    render: function (data, type, r) {
+							return moment(data).format('DD/MM/YYYY')
+						}
+                },
+                {
+                    data : "LocationOfMicrochipName"
+                },
+                {
+                    data : "MicrochipNumber"
+                },
+                {
+                    data: "DateOfMicrochipping",
+                    render: function (data, type, r) {
+							return moment(data).format('DD/MM/YYYY')
+						}
                 }
             ]
         });

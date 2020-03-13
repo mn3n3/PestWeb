@@ -25,9 +25,10 @@ namespace PetsWeb.Controllers
         {
             var userId = User.Identity.GetUserId();
             var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
-            PhysicalExamination Obj = new PhysicalExamination
+            PhysicalExaminationVM Obj = new PhysicalExaminationVM
             {
-                DateOfBirth=DateTime.Now
+                DateOfBirth=DateTime.Now,
+                DateOfMicrochipping = DateTime.Now
             };
 
             return View(Obj);

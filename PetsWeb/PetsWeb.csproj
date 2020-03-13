@@ -18,8 +18,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>
-    </Use64BitIISExpress>
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -233,9 +232,13 @@
     <Compile Include="Migrations\202003121759342_skjdhakjdhjkahsdyh555sddfkd.Designer.cs">
       <DependentUpon>202003121759342_skjdhakjdhjkahsdyh555sddfkd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003122037237_skjdhakjdhjkahsdyh555sddfkd4.cs" />
-    <Compile Include="Migrations\202003122037237_skjdhakjdhjkahsdyh555sddfkd4.Designer.cs">
-      <DependentUpon>202003122037237_skjdhakjdhjkahsdyh555sddfkd4.cs</DependentUpon>
+    <Compile Include="Migrations\202003122123130_MohammedAwad120320203.cs" />
+    <Compile Include="Migrations\202003122123130_MohammedAwad120320203.Designer.cs">
+      <DependentUpon>202003122123130_MohammedAwad120320203.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003122157030_MohammedAwad120320204.cs" />
+    <Compile Include="Migrations\202003122157030_MohammedAwad120320204.Designer.cs">
+      <DependentUpon>202003122157030_MohammedAwad120320204.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1116,8 +1119,11 @@
     <EmbeddedResource Include="Migrations\202003121759342_skjdhakjdhjkahsdyh555sddfkd.resx">
       <DependentUpon>202003121759342_skjdhakjdhjkahsdyh555sddfkd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003122037237_skjdhakjdhjkahsdyh555sddfkd4.resx">
-      <DependentUpon>202003122037237_skjdhakjdhjkahsdyh555sddfkd4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003122123130_MohammedAwad120320203.resx">
+      <DependentUpon>202003122123130_MohammedAwad120320203.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003122157030_MohammedAwad120320204.resx">
+      <DependentUpon>202003122157030_MohammedAwad120320204.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

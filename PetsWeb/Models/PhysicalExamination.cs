@@ -12,19 +12,6 @@ namespace PetsWeb.Models
 
         public int CompanyID { get; set; }
         public int AnimalID { get; set; }
-        public string AnimalName { get; set; }
-
-        public int OwnerID { get; set; }
-        public string OwnerName { get; set; }
-
-        public string Species { get; set; }
-        public string Breed { get; set; }
-        public string Sex { get; set; }
-        public string CoatColour { get; set; }
-
-        public DateTime DateOfBirth { get; set; }
-
-        public string Note { get; set; }
 
         public bool Ch1 { get; set; }
         public string Tx1 { get; set; }

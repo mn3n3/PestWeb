@@ -14,30 +14,33 @@ namespace PetsWeb.ViewModels
 
         public int CompanyID { get; set; }
         public int AnimalID { get; set; }
+        [Display(Name = "AnimalName", ResourceType = typeof(Resources.Resource))]
         public string AnimalName { get; set; }
 
-
         [Display(Name = "Breed", ResourceType = typeof(Resources.Resource))]
-        public int BreedID { get; set; }
-        public IEnumerable<Breed> Breed { get; set; }
-
-        public string OwnerID { get; set; }
-
+        public string BreedName { get; set; }
+        [Display(Name = "OwnerName", ResourceType = typeof(Resources.Resource))]
+        public string OwnerName { get; set; }
 
         [Display(Name = "Species", ResourceType = typeof(Resources.Resource))]
-        public int AnimalTypeID { get; set; }
-         public  IEnumerable<AnimalType> AnimalType { get; set; }
+        public string AnimalTypeName { get; set; }
+        [Display(Name = "Gender", ResourceType = typeof(Resources.Resource))]
+        public string GenderName { get; set; }
 
+        [Display(Name = "CoatColourName", ResourceType = typeof(Resources.Resource))]
+        public string CoatColourName { get; set; }
 
-        public int Sex { get; set; }
-
-        [Display(Name = "CoatColour", ResourceType = typeof(Resources.Resource))]
-        public IEnumerable<CoatColour> CoatColour { get; set; }
-        public int CoatColourID { get; set; }
-
+        [Display(Name = "DateOfBirth", ResourceType = typeof(Resources.Resource))]
         public DateTime DateOfBirth { get; set; }
 
-        public string Note { get; set; }
+        [Display(Name = "MicrochipNumber", ResourceType = typeof(Resources.Resource))]
+        public string MicrochipNumber { get; set; }
+        [Display(Name = "DateOfMicrochipping", ResourceType = typeof(Resources.Resource))]
+        public DateTime DateOfMicrochipping { get; set; }
+        [Display(Name = "LocationOfMicrochip", ResourceType = typeof(Resources.Resource))]
+        public string LocationOfMicrochipName { get; set; }
+        [Display(Name = "Telephone", ResourceType = typeof(Resources.Resource))]
+        public string Telephone { get; set; }
 
         public bool Ch1 { get; set; }
         public string Tx1 { get; set; }

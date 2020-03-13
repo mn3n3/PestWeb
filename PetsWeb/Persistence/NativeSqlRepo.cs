@@ -54,7 +54,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<CountrySearchFilterVM>(
-                    " Select Distinct C.English As CountryName, C.CountryID, A.UserName, " +
+                    " Select Distinct C.EnglishName As CountryName, C.CountryID, A.UserName, " +
                     " Case WHEN C.CountryID = CC.CountryID " +
                     " Then 1 " +
                     " ELSE 0 " +
@@ -88,7 +88,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<BreedSearchFilterVM>(
-                    " Select B.ArabicName As BreedName, B.BreedID, A.UserName, " +
+                    " Select Distinct B.ArabicName As BreedName, B.BreedID, A.UserName, " +
                     " Case WHEN B.BreedID = DA.BreedID " +
                     " Then 1 " +
                     " ELSE 0 " +
@@ -119,7 +119,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<BreedSearchFilterVM>(
-                    " Select B.EnglishName As BreedName, B.BreedID, A.UserName, " +
+                    " Select Distinct B.EnglishName As BreedName, B.BreedID, A.UserName, " +
                     " Case WHEN B.BreedID = DA.BreedID " +
                     " Then 1 " +
                     " ELSE 0 " +
@@ -153,7 +153,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<CoatColourSearchFilterVM>(
-                    " Select CC.ArabicName As CoatColourName,CC.CoatColourID, A.UserName, " +
+                    " Select Distinct CC.ArabicName As CoatColourName,CC.CoatColourID, A.UserName, " +
                     " Case WHEN CC.CoatColourID = DA.CoatColourID " +
                     " Then 1 " +
                     " ELSE 0 " +
@@ -184,7 +184,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<CoatColourSearchFilterVM>(
-                    " Select CC.EnglishName As CoatColourName,CC.CoatColourID, A.UserName, " +
+                    " Select Distinct CC.EnglishName As CoatColourName,CC.CoatColourID, A.UserName, " +
                     " Case WHEN CC.CoatColourID = DA.CoatColourID " +
                     " Then 1 " +
                     " ELSE 0 " +
@@ -218,7 +218,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<AnimalTypeSearchFilterVM>(
-                    " Select AT.ArabicName As AnimalTypeName,AT.AnimalTypeID, A.UserName, " +
+                    " Select Distinct AT.ArabicName As AnimalTypeName,AT.AnimalTypeID, A.UserName, " +
                     " Case WHEN AT.AnimalTypeID = DA.AnimalTypeID " +
                     " Then 1 " +
                     " ELSE 0 " +
@@ -249,7 +249,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<AnimalTypeSearchFilterVM>(
-                    " Select AT.EnglishName As AnimalTypeName,AT.AnimalTypeID, A.UserName, " +
+                    " Select Distinct AT.EnglishName As AnimalTypeName,AT.AnimalTypeID, A.UserName, " +
                     " Case WHEN AT.AnimalTypeID = DA.AnimalTypeID " +
                     " Then 1 " +
                     " ELSE 0 " +
@@ -283,7 +283,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<LocationOfMicrochipSearchFilterVM>(
-                    " Select LOM.ArabicName As LocationOfMicrochipName,LOM.LocationOfMicrochipID, A.UserName, " +
+                    " Select Distinct LOM.ArabicName As LocationOfMicrochipName,LOM.LocationOfMicrochipID, A.UserName, " +
                     " Case WHEN LOM.LocationOfMicrochipID = DA.LocationOfMicrochipID " +
                     " Then 1 " +
                     " ELSE 0 " +
@@ -314,7 +314,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<LocationOfMicrochipSearchFilterVM>(
-                    " Select LOM.ArabicName As LocationOfMicrochipName,LOM.LocationOfMicrochipID, A.UserName, " +
+                    " Select Distinct LOM.EnglishName As LocationOfMicrochipName,LOM.LocationOfMicrochipID, A.UserName, " +
                     " Case WHEN LOM.LocationOfMicrochipID = DA.LocationOfMicrochipID " +
                     " Then 1 " +
                     " ELSE 0 " +
@@ -421,7 +421,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<DetailsOfOwnershipSearchFilterVM>(
-                    " Select C.ArabicName As CityName, CO.ArabicName As CountryName, CO.CountryID, C.CityID, A.UserName, " +
+                    " Select Distinct C.ArabicName As CityName, CO.ArabicName As CountryName, CO.CountryID, C.CityID, A.UserName, " +
                     " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, D.PosCode, D.Address, " +
                     " Case WHEN D.OwnerID = DA.OwnerID " +
                     " Then 1 " +
@@ -461,7 +461,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<DetailsOfOwnershipSearchFilterVM>(
-                    " Select C.EnglishName As CityName, CO.EnglishName As CountryName, CO.CountryID, C.CityID, A.UserName, " +
+                    " Select Distinct C.EnglishName As CityName, CO.EnglishName As CountryName, CO.CountryID, C.CityID, A.UserName, " +
                     " Concat(Concat(D.Surname, ' '), D.FirstName) As OwnerName, D.OwnerID, D.Telephone, D.PosCode, D.Address, " +
                     " Case WHEN D.OwnerID = DA.OwnerID " +
                     " Then 1 " +
@@ -615,7 +615,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<DiscriptionOfAnimalSearchFilterVM>(
-                    " Select DA.AnimalID, DA.AnimalName, DA.DateOfBirth, DA.GenderID,A.UserName,DA.MicrochipNumber,DA.DateOfMicrochipping, " +
+                    " Select Distinct DA.AnimalID, DA.AnimalName, DA.DateOfBirth, DA.GenderID,A.UserName,DA.MicrochipNumber,DA.DateOfMicrochipping, " +
                     " Case When DA.GenderID = 1 " +
                     " Then N'ذكر' " +
                     " Else N'انثى' " +
@@ -668,7 +668,7 @@ namespace PetsWeb.Persistence
                 try
                 {
                     return _context.Database.SqlQuery<DiscriptionOfAnimalSearchFilterVM>(
-                    " Select DA.AnimalID, DA.AnimalName, DA.DateOfBirth, DA.GenderID,A.UserName,DA.MicrochipNumber,DA.DateOfMicrochipping, " +
+                    " Select Distinct DA.AnimalID, DA.AnimalName, DA.DateOfBirth, DA.GenderID,A.UserName,DA.MicrochipNumber,DA.DateOfMicrochipping, " +
                     " Case When DA.GenderID = 1 " +
                     " Then 'Male' " +
                     " Else 'Female' " +
