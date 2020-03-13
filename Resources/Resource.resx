@@ -144,6 +144,9 @@
   <data name="BreedName" xml:space="preserve">
     <value>Breed Name</value>
   </data>
+  <data name="CantDeleteAnimal" xml:space="preserve">
+    <value>The animal cannot be deleted because it is associated with a physical examination</value>
+  </data>
   <data name="CantDeleteAnimalType" xml:space="preserve">
     <value>The animal type cannot be deleted because it is associated with a animal</value>
   </data>
