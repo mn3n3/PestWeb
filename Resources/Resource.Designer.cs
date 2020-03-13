@@ -142,6 +142,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The animal cannot be deleted because it is associated with a physical examination.
+        /// </summary>
+        public static string CantDeleteAnimal {
+            get {
+                return ResourceManager.GetString("CantDeleteAnimal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The animal type cannot be deleted because it is associated with a animal.
         /// </summary>
         public static string CantDeleteAnimalType {

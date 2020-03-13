@@ -624,7 +624,11 @@ namespace PetsWeb.Persistence
                     " B.ArabicName As BreedName, B.BreedID, " +
                     " CC.ArabicName As CoatColourName, CC.CoatColourID, " +
                     " ATY.ArabicName As AnimalTypeName, ATY.AnimalTypeID, " +
-                    " LOM.ArabicName As LocationOfMicrochipName, LOM.LocationOfMicrochipID " +
+                    " LOM.ArabicName As LocationOfMicrochipName, LOM.LocationOfMicrochipID, " +
+                    " Case WHEN DA.AnimalID = PE.AnimalID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
                     " From AspNetUsers A, DiscriptionOfAnimals DA " +
                     " Left Join DetailsOfOwnerships D On " +
                     " DA.CompanyID = D.CompanyID " +
@@ -646,6 +650,10 @@ namespace PetsWeb.Persistence
                     " DA.CompanyID = LOM.CompanyID " +
                     " And " +
                     " DA.LocationOfMicrochipID = LOM.LocationOfMicrochipID " +
+                    " left Join PhysicalExaminations PE On " +
+                    " DA.CompanyID = PE.CompanyID " +
+                    " And " +
+                    " DA.AnimalID = PE.AnimalID " +
                     " Where " +
                     " DA.CompanyID = A.fCompanyId " +
                     " And " +
@@ -677,7 +685,11 @@ namespace PetsWeb.Persistence
                     " B.EnglishName As BreedName, B.BreedID, " +
                     " CC.EnglishName As CoatColourName, CC.CoatColourID, " +
                     " ATY.EnglishName As AnimalTypeName, ATY.AnimalTypeID, " +
-                    " LOM.EnglishName As LocationOfMicrochipName, LOM.LocationOfMicrochipID " +
+                    " LOM.EnglishName As LocationOfMicrochipName, LOM.LocationOfMicrochipID, " +
+                    " Case WHEN DA.AnimalID = PE.AnimalID " +
+                    " Then 1 " +
+                    " ELSE 0 " +
+                    " END as Used " +
                     " From AspNetUsers A, DiscriptionOfAnimals DA " +
                     " Left Join DetailsOfOwnerships D On " +
                     " DA.CompanyID = D.CompanyID " +
@@ -699,6 +711,10 @@ namespace PetsWeb.Persistence
                     " DA.CompanyID = LOM.CompanyID " +
                     " And " +
                     " DA.LocationOfMicrochipID = LOM.LocationOfMicrochipID " +
+                    " left Join PhysicalExaminations PE On " +
+                    " DA.CompanyID = PE.CompanyID " +
+                    " And " +
+                    " DA.AnimalID = PE.AnimalID " +
                     " Where " +
                     " DA.CompanyID = A.fCompanyId " +
                     " And " +

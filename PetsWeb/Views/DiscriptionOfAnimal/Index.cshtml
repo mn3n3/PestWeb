@@ -279,7 +279,12 @@
                     {
                         data: "AnimalID",
                         render: function (data, type, r) {
-                             return "<a  class='btn btn-danger btn-circle fa fa-trash-o' href='/DiscriptionOfAnimal/DeleteDiscriptionOfAnimal/" + data + " '></a>";
+                            if (r.Used == 1) {
+                                 return "<a  class='btn btn-danger btn-circle fa fa-trash-o' href='#' id='Used'></a>";
+                             }
+                             else {
+                                return "<a  class='btn btn-danger btn-circle fa fa-trash-o' href='/DiscriptionOfAnimal/DeleteDiscriptionOfAnimal/" + data + " '></a>";
+                             } 
                         }
                     }
                 ]
@@ -304,6 +309,18 @@
                 $('#tdataTable').DataTable().clear().draw();
                 $('#tdataTable').DataTable().ajax.reload();
             });
+            $(document).on("click","#Used",function(){
+                 bootbox.alert({
+                     message: '@Resources.Resource.CantDeleteAnimal',
+                     buttons: {
+                         ok: {
+                             label: '@Resources.Resource.Ok',
+                                    className: 'btn-info'
+                         }
+                     },
+                  size: 'small'
+                 });
+                });
         });
     </script>
 }

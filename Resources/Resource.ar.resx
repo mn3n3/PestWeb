@@ -144,6 +144,9 @@
   <data name="BreedName" xml:space="preserve">
     <value>اسم السلالة</value>
   </data>
+  <data name="CantDeleteAnimal" xml:space="preserve">
+    <value>لا يمكن حذف الحيوان , مرتبط مع فحص بدني</value>
+  </data>
   <data name="CantDeleteAnimalType" xml:space="preserve">
     <value>لا يمكن حذف النوع , مرتبط مع وصف حيوان</value>
   </data>
