@@ -95,5 +95,34 @@ namespace PetsWeb.Controllers
 
 
         }
+
+        [HttpGet]
+        public JsonResult GetPhysicalExamination(int id,string id2)
+        {
+            try
+            {
+                var userId = User.Identity.GetUserId();
+                var UserInfo = _unitOfWork.UserAccount.GetUserByID(userId);
+                if (UserInfo == null)
+                {
+
+                    return Json(new List<PhysicalExamination>(), JsonRequestBehavior.AllowGet);
+                }
+
+
+                var R = _unitOfWork.PhysicalExamination.GetPhysicalExamination(UserInfo.fCompanyId, id2, id);
+                if (R == null)
+                {
+                    R = new PhysicalExamination();
+                }
+                return Json(R, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                return Json(new List<PhysicalExamination>(), JsonRequestBehavior.AllowGet);
+            }
+
+
+        }
     }
 }

@@ -18,6 +18,11 @@ namespace PetsWeb
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+          name: "two",
+          url: "{controller}/{action}/{id}/{id2}",
+          defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional , id2 = UrlParameter.Optional }
+      );
         }
     }
 }

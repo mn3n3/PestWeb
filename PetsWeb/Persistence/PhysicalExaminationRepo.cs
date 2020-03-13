@@ -17,12 +17,16 @@ namespace PetsWeb.Persistence
         }
         public void Add(PhysicalExamination ObjToSave)
         {
-            throw new NotImplementedException();
+            var Data=_context.PhysicalExaminations.FirstOrDefault(m => m.CompanyID == ObjToSave.CompanyID && m.OwnerID == ObjToSave.OwnerID &&  m.AnimalID== ObjToSave.AnimalID);
+            if(Data!=null)
+             _context.PhysicalExaminations.Remove(Data);
+            
+            _context.PhysicalExaminations.Add(ObjToSave);
         }
 
-        public PhysicalExamination GetPhysicalExamination(int COID, int OwnerID, int AnimalID)
+        public PhysicalExamination GetPhysicalExamination(int COID, string OwnerID, int AnimalID)
         {
-            throw new NotImplementedException();
+            return _context.PhysicalExaminations.FirstOrDefault(m => m.CompanyID == COID && m.OwnerID== OwnerID && m.AnimalID == AnimalID);
         }
 
         public IEnumerable<PhysicalExamination> GetPhysicalExaminations(int COID)
