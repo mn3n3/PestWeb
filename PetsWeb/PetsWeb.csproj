@@ -18,7 +18,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress>false</Use64BitIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -239,6 +240,10 @@
     <Compile Include="Migrations\202003122157030_MohammedAwad120320204.cs" />
     <Compile Include="Migrations\202003122157030_MohammedAwad120320204.Designer.cs">
       <DependentUpon>202003122157030_MohammedAwad120320204.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003131211267_skjdhakjdhjkahsdyh555sddfkd45.cs" />
+    <Compile Include="Migrations\202003131211267_skjdhakjdhjkahsdyh555sddfkd45.Designer.cs">
+      <DependentUpon>202003131211267_skjdhakjdhjkahsdyh555sddfkd45.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -1119,6 +1124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003122157030_MohammedAwad120320204.resx">
       <DependentUpon>202003122157030_MohammedAwad120320204.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003131211267_skjdhakjdhjkahsdyh555sddfkd45.resx">
+      <DependentUpon>202003131211267_skjdhakjdhjkahsdyh555sddfkd45.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

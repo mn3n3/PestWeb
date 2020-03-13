@@ -22,6 +22,8 @@ namespace PetsWeb.ViewModels
         [Display(Name = "OwnerName", ResourceType = typeof(Resources.Resource))]
         public string OwnerName { get; set; }
 
+        public string OwnerID { get; set; }
+
         [Display(Name = "Species", ResourceType = typeof(Resources.Resource))]
         public string AnimalTypeName { get; set; }
         [Display(Name = "Gender", ResourceType = typeof(Resources.Resource))]

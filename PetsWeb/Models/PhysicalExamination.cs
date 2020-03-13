@@ -12,6 +12,8 @@ namespace PetsWeb.Models
 
         public int CompanyID { get; set; }
         public int AnimalID { get; set; }
+        public string OwnerID { get; set; }
+
 
         public bool Ch1 { get; set; }
         public string Tx1 { get; set; }

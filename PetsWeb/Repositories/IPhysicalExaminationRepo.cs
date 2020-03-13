@@ -12,7 +12,7 @@ namespace PetsWeb.Repositories
 
         void Update(PhysicalExamination ObjToSave);
 
-        PhysicalExamination GetPhysicalExamination(int COID, int OwnerID, int AnimalID);
+        PhysicalExamination GetPhysicalExamination(int COID, string OwnerID, int AnimalID);
 
         IEnumerable<PhysicalExamination> GetPhysicalExaminations(int COID);
     }
